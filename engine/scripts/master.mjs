@@ -1,18 +1,17 @@
 import { EventBus } from "./event-bus/index.mjs"
 import { Scenario } from "./scenario.mjs"
 
-EventBus.ID = "master"
+export class Master {
+  #scenario = undefined
 
-let scenario = undefined
+  #newScenario = ({ detail: { id = "main", step = 0 } = {} }) => {
+    this.#scenario && this.#scenario.destruct()
+    this.#scenario = await new Scenario(id)
+    this.#scenario.step(step)
+  }
 
-async function newScenario({ detail: { id = "main", step = 0 } = {} }) {
-  scenario && scenario.destruct()
-  globalThis.document.body.innerHTML = ""
-  scenario = await new Scenario(id)
-  scenario.step(step)
-}
-
-void async function main() {
-  const eventBus = new EventBus()
-  eventBus.addEventListener(SCENARIO_START, newScenario)
+  constructor() {
+    const eventBus = new EventBus()
+    eventBus.addEventListener(SCENARIO_START, this.#newScenario)
+  }
 }
