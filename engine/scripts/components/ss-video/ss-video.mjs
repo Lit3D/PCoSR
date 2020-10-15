@@ -1,6 +1,6 @@
 
-class CustomVideoComponent extends HTMLElement  {
-  static TAG_NAME = "custom-video"
+class SSVideoComponent extends HTMLElement  {
+  static TAG_NAME = "ss-video"
   constructor() {
 
   }

@@ -61,7 +61,7 @@ function gpu() {
   windows.forEach(w => w.loadURL("chrome://gpu/"))
 }
 
-function initViewPorts(viewPorts) {
+function initViewPorts({viewPorts, mac, IPv4, IPv6, hostname}) {
   for (const {id, x, y, width, height, fullscreen} of viewPorts) {
 
     const position =  fullscreen ? {
@@ -87,7 +87,7 @@ function initViewPorts(viewPorts) {
     win.removeMenu()
     !fullscreen && win.setSize(width, height)
 
-    win.loadURL(DISPLAY({x, y, width, height, id: id , mac, IPv4, IPv6 }))
+    win.loadURL(DISPLAY({x, y, width, height, id: id, mac, IPv4, IPv6, hostname }))
     const url = `https://ENGINE_HOST/${id}.html`
     setTimeout(() => allowClient && win && win.loadURL(url), CHESS_BOARD_TIMEOUT)
     
@@ -104,7 +104,7 @@ function initGlobalShortcut() {
 }
 
 function main() {
-  const { viewPorts } = Config.GetConfig()
-  initViewPorts(viewPorts)
+  const config = Config.GetConfig()
+  initViewPorts(config)
   initGlobalShortcut()
 }
