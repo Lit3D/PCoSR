@@ -1,0 +1,11 @@
+{
+  "id": "ss-led",
+  "viewPorts": [{
+    "id": "led",
+    "x": 0,
+    "y": 0,
+    "width": 2016,
+    "height": 840,
+    "fullscreen": true
+  }]
+}
