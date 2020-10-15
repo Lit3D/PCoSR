@@ -62,7 +62,7 @@ export class Scenario {
     return this.step(this.#currentStep + 1)
   }
 
-  roleEnded = async ({detail: { scenario, step } = {}}) => {
+  #roleEnded = async ({detail: { scenario, step } = {}}) => {
     if (scenario !== this.scenario || step !== this.#currentStep) return
     return this.nextStep
   }
