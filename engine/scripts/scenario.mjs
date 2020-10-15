@@ -28,7 +28,7 @@ export class Scenario {
       this.#steps = await response.json()
     } catch (err) {
       console.error(err)
-      this.#root.innerHTML = String(err)
+      return
     }
     this.#eventBus.addEventListener(ROLE_ENDED, this.#roleEnded)
     return this
