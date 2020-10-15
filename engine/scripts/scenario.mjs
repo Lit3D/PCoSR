@@ -1,6 +1,6 @@
 
-import { UUIDv4 } from "../uuid.mjs"
-import { EventBus, ROLE_START } from "../event-bus/index.mjs"
+import { UUIDv4 } from "./uuid.mjs"
+import { EventBus, ROLE_START } from "./event-bus/index.mjs"
 
 const SCENARIOS_URL = "/scenarios"
 
