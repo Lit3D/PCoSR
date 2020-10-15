@@ -1,4 +1,5 @@
 
+import { UUIDv4 } from "../uuid.mjs"
 import { Message } from "./message.mjs"
 import { ERROR, REGISTRATION } from "./types.mjs"
 
