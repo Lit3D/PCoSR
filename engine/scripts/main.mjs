@@ -15,5 +15,5 @@ void async function main() {
   eventBus.addEventListener(ROLE_START, newRole)
   eventBus.addEventListener(RELOAD, location.reload())
 
-  if (eventBus.ID === "master") new Master()
+  if (eventBus.ID === "master") new Master(true)
 }

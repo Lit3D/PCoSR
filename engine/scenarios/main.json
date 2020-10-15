@@ -1,40 +1,64 @@
 [{
   "master": {
-    "videos": ["intro-main.mp4"],
-    "sounds": [],
+    "content": [
+      { "tag": "video", "src": "/content/PACK1/intro-wave.mp4", "loop": false, "muted": false }
+    ],
+    "sendEnded": false,
   },
-
-  "slave": {
-    "videos": ["intro-wave.mp4"],
-    "sounds": [],
-    "actions": false
+  "led": {
+    "content": [
+      { "tag": "video", "src": "/content/PACK1/intro-main.mp4", "loop": false, "muted": false }
+    ],
+    "sendEnded": true,
   },
-
-  "timeout": null
 },{
   "master": {
-    "videos": ["intro2-main.mp4"],
-    "sounds": [],
+    "content": [
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+      { "tag": "img", "src": "/content/splash-static.png" },
+    ],
+    "sendEnded": false,
   },
-
-  "slave": {
-    "videos": ["intro2-wave.mp4"],
-    "sounds": ["tu-tu.mp3"],
-    "actions": false
+  "led": {
+    "content": [
+      { "tag": "video", "src": "/content/led-main.mp4", "loop": false, "muted": false }
+    ],
+    "sendEnded": true,
   },
-
-  "timeout": null
 },{
   "master": {
-    "videos": ["intro2-main.mp4"],
-    "sounds": [],
+    "content": [
+      { "tag": "video", "src": "/content/PACK4/demo-wave.mp4", "loop": false, "muted": false }
+    ],
+    "sendEnded": false,
   },
-
-  "slave": {
-    "videos": ["intro2-wave.mp4"],
-    "sounds": ["tu-tu.mp3"],
-    "actions": false
+  "led": {
+    "content": [
+      { "tag": "video", "src": "/content/PACK4/demo-circle.mp4", "loop": false, "muted": false }
+    ],
+    "sendEnded": true,
   },
-
-  "timeout": null
+},{
+  "master": {
+    "content": [
+      { "tag": "img", "src": "/content/splash-static.png" },
+    ],
+    "sendEnded": false,
+  },
+  "led": {
+    "content": [
+      { "tag": "img", "src": "/content/splash-static.png" },
+    ],
+    "sendEnded": false,
+  },
 }]

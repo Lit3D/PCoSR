@@ -25,11 +25,12 @@ export class Role {
   }
 
   #initContent(content) {
-    for (const {tag, src, loop, muted } of content) {
+    for (const {tag, src, loop, muted, classes = [] } of content) {
       const contentNode = document.createElement(tag)
       contentNode.src = src
       contentNode.loop = loop
       contentNode.muted = muted
+      contentNode.classList.add(...classes)
       this.addEventListener("ended", this.#onEnded)
       this.#root.appendChild(contentNode)
       this.#nodes.push(contentNode)

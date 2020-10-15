@@ -10,8 +10,9 @@ export class Master {
     this.#scenario.step(step)
   }
 
-  constructor() {
+  constructor(initialScenario) {
     const eventBus = new EventBus()
     eventBus.addEventListener(SCENARIO_START, this.#newScenario)
+    if (initialScenario) this.#newScenario()
   }
 }

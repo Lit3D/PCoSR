@@ -62,7 +62,7 @@ function gpu() {
 }
 
 function initViewPorts({viewPorts, mac, IPv4, IPv6, hostname}) {
-  for (const {id, x, y, width, height, fullscreen} of viewPorts) {
+  for (const {id, x, y, width, height, fullscreen, content} of viewPorts) {
 
     const position =  fullscreen ? {
                         x: x + width / 4,
@@ -88,7 +88,7 @@ function initViewPorts({viewPorts, mac, IPv4, IPv6, hostname}) {
     !fullscreen && win.setSize(width, height)
 
     win.loadURL(DISPLAY({x, y, width, height, id: id, mac, IPv4, IPv6, hostname }))
-    const url = `https://ENGINE_HOST/${id}.html`
+    const url = content || `https://ENGINE_HOST/${id}.html`
     setTimeout(() => allowClient && win && win.loadURL(url), CHESS_BOARD_TIMEOUT)
     
     win.show()
