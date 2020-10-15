@@ -28,6 +28,14 @@ node_modules
 **/build/*
 !**/build/.gitkeep
 
+### SSL Certificates ###
+ssl/*
+!ssl/.gitkeep
+
+### Content ###
+content/*
+!content/.gitkeep
+
 ### Runtime environment ###
 *.env
 *.lock
