@@ -1,0 +1,30 @@
+{
+  "name": "PCoSR-shell",
+  "description": "PCoSR Chromium based shell",
+  "version": "1.0.0",
+  "main": "app/main.js",
+  "scripts": {
+    "clean": "rimraf ./build/*",
+    "pack": "electron-packager ./ lit3d-shell --platform=win32 --arch=x64 --overwrite --out=./build",
+    "release": "set NODE_ENV=production&& npm run clean && npm run pack",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/lit3d/PCoSR",
+  "homepage": "https://github.com/lit3d/PCoSR",
+  "bugs": "https://github.com/lit3d/PCoSR/issues",
+  "author": "Lit3D <info@lit3d.io> (https://github.com/lit3d)",
+  "contributors": [
+    "Wisdman <wisdman@wisdman.io> (https://github.com/wisdman)",
+    "Yulia Fedyakina <iulia.fedyakina@gmail.com> (https://github.com/saigach)"
+  ],
+  "license": "unlicense",
+  "private": true,
+  "dependencies": {
+    "electron": "^10.1.3"
+  },
+  "devDependencies": {
+    "electron-packager": "^15.0.0",
+    "rimraf": "^3.0.2"
+  }
+}

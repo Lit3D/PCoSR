@@ -1,0 +1,40 @@
+[{
+  "master": {
+    "videos": ["intro-main.mp4"],
+    "sounds": [],
+  },
+
+  "slave": {
+    "videos": ["intro-wave.mp4"],
+    "sounds": [],
+    "actions": false
+  },
+
+  "timeout": null
+},{
+  "master": {
+    "videos": ["intro2-main.mp4"],
+    "sounds": [],
+  },
+
+  "slave": {
+    "videos": ["intro2-wave.mp4"],
+    "sounds": ["tu-tu.mp3"],
+    "actions": false
+  },
+
+  "timeout": null
+},{
+  "master": {
+    "videos": ["intro2-main.mp4"],
+    "sounds": [],
+  },
+
+  "slave": {
+    "videos": ["intro2-wave.mp4"],
+    "sounds": ["tu-tu.mp3"],
+    "actions": false
+  },
+
+  "timeout": null
+}]
