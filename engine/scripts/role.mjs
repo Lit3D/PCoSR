@@ -1,5 +1,5 @@
 
-import { EventBus, ROLE_ENDED } from "../event-bus/index.mjs"
+import { EventBus, ROLE_ENDED } from "./event-bus/index.mjs"
 
 export class Role {
   #eventBus = new EventBus()
