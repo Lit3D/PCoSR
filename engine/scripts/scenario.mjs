@@ -1,11 +1,11 @@
 
 import { UUIDv4 } from "./uuid.mjs"
-import { EventBus, ROLE_START } from "./event-bus/index.mjs"
+//import { EventBus, ROLE_START } from "./event-bus/index.mjs"
 
 const SCENARIOS_URL = "/scenarios"
 
 export class Scenario {
-  #eventBus = new EventBus()
+  //#eventBus = new EventBus()
 
   #id = UUIDv4()
   #name = "main"
@@ -30,7 +30,7 @@ export class Scenario {
       console.error(err)
       return
     }
-    this.#eventBus.addEventListener(ROLE_ENDED, this.#roleEnded)
+    //this.#eventBus.addEventListener(ROLE_ENDED, this.#roleEnded)
     return this
   }
 
@@ -38,7 +38,7 @@ export class Scenario {
 
   destruct() {
     this.#timeout && clearTimeout(this.#timeout)
-    this.#eventBus.removeEventListener(ROLE_ENDED, this.#roleEnded)
+    //this.#eventBus.removeEventListener(ROLE_ENDED, this.#roleEnded)
   }
 
   step = async (i = 0) => {
@@ -50,7 +50,7 @@ export class Scenario {
 
     const { timeout, ...roles } = this.#steps[this.#currentStep]
     for (const [role, data] of Object.entries(roles)) {
-      this.#eventBus.send({ type: ROLE_START, to: role, detail: { scenario, step: this.#currentStep, ...data} })
+      //this.#eventBus.send({ type: ROLE_START, to: role, detail: { scenario, step: this.#currentStep, ...data} })
     }
 
     if (Number.isFinite(timeout) && timeout > 0) {

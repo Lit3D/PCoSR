@@ -38,7 +38,7 @@ export class SSVideoComponent extends HTMLElement  {
     section_en,
     subtitles,
     ...options
-  } = {}) {
+  } = {}, { muted = true } = {}) {
     super()
 
     const screenWidth = window.screen.width
@@ -54,7 +54,7 @@ export class SSVideoComponent extends HTMLElement  {
 
     // Configure main vieo
     this.#mainVideo = this.#root.getElementById("mainVideo")
-    this.#mainVideo.muted = true
+    this.#mainVideo.muted = muted
     this.#mainVideo.loop = false
     this.#mainVideo.src = video
 

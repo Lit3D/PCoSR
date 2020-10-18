@@ -1,4 +1,3 @@
-import { EventBus } from "./event-bus/index.mjs"
 import { Scenario } from "./scenario.mjs"
 
 export class Master {
@@ -11,8 +10,8 @@ export class Master {
   }
 
   constructor(initialScenario) {
-    const eventBus = new EventBus()
-    eventBus.addEventListener(SCENARIO_START, this.#newScenario)
+    // const eventBus = new EventBus()
+    // eventBus.addEventListener(SCENARIO_START, this.#newScenario)
     if (initialScenario) this.#newScenario()
   }
 }

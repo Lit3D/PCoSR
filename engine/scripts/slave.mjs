@@ -30,7 +30,7 @@ export class Slave {
     return this
   }
 
-  #ssPlay = id => {
+  #ssPlay = ({id, ...options}) => {
     const ssData = this.#ssData[id]
 
     if (!ssData) {
@@ -38,7 +38,7 @@ export class Slave {
       return
     }
 
-    const ssVideo = new SSVideoComponent(ssData)
+    const ssVideo = new SSVideoComponent(ssData, options)
     ssVideo.addEventListener("ended", this.#ssEnded)
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
@@ -49,10 +49,17 @@ export class Slave {
 
   #ssEnded = () => this.#qClient.publish(`${this.#qPath}/ss-ended`, "1")
 
-  #videoPlay = url => {
+  #videoPlay = ({ src, muted = true }) => {
     const videoNode = document.createElement("video")
-    videoNode.muted = true
+    videoNode.muted = muted
     videoNode.loop = false
+    videoNode.src = src
+
+    requestAnimationFrame(() => {
+      this.#root.innerHTML = ""
+      this.#root.appendChild(videoNode)
+      videoNode.play()
+    })
   }
 
   #videoEnded = () => this.#qClient.publish(`${this.#qPath}/video-ended`, "1")

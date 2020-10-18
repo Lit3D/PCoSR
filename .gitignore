@@ -39,6 +39,7 @@ content/*
 ### Nginx exclude configs ###
 nginx/*
 !nginx/conf
+!nginx/nginxservice.xml
 
 ### Runtime environment ###
 *.env

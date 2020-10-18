@@ -1,0 +1,15 @@
+<service>
+  <id>Nginx</id>
+  <name>Nginx web server service</name>
+  <description>Nginx web server service powered by WinSW</description>
+  <logpath>%BASE%\logs</logpath>
+  <logmode>roll</logmode>
+  <depend></depend>
+  <executable>%BASE%\nginx.exe</executable>
+  <startargument>-p</startargument>
+  <startargument>%BASE%</startargument>
+  <stopargument>-p</stopargument>
+  <stopargument>%BASE%</stopargument>
+  <stopargument>-s</stopargument>
+  <stopargument>stop</stopargument>
+</service>
