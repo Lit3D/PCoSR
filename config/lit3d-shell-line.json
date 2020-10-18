@@ -1,12 +1,100 @@
 {
   "id": "ss-line",
   "viewPorts": [{
-    "id": "line",
+    "id": "1",
     "x": 0,
     "y": 0,
-    "width": 7680,
-    "height": 3240,
-    "fullscreen": false,
-    "content": "https://srv-ss.pcosr.local/demo/selectors.html"
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=1"
+  },{
+    "id": "2",
+    "x": 1920,
+    "y": 0,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=2"
+  },{
+    "id": "3",
+    "x": 3840,
+    "y": 0,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=3"
+  },{
+    "id": "4",
+    "x": 5760,
+    "y": 0,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=4"
+  },{
+    "id": "5",
+    "x": 0,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=5"
+  },{
+    "id": "6",
+    "x": 1920,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=6"
+  },{
+    "id": "7",
+    "x": 3840,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=7"
+  },{
+    "id": "8",
+    "x": 5760,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=8"
+  },{
+    "id": "9",
+    "x": 0,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=9"
+  },{
+    "id": "10",
+    "x": 1920,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=10"
+  },{
+    "id": "11",
+    "x": 3840,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=11"
+  },{
+    "id": "12",
+    "x": 5760,
+    "y": 1080,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": true,
+    "content": "https://srv-ss.pcosr.local/engine/?id=12"
   }]
 }
