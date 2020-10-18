@@ -36,6 +36,10 @@ ssl/*
 content/*
 !content/.gitkeep
 
+### Nginx exclude configs ###
+nginx/*
+!nginx/conf
+
 ### Runtime environment ###
 *.env
 *.lock
