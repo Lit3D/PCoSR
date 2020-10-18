@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Heading Pro Wide';
+    src: url('/assets/fonts/HeadingProWide-ExtraBoldItalic.woff2') format('woff2');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide';
+    src: url('/assets/fonts/HeadingProUltraWide-HeavyItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide';
+    src: url('/assets/fonts/HeadingProUltraWide-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide ExLight';
+    src: url('/assets/fonts/HeadingProUltraWide-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide';
+    src: url('/assets/fonts/HeadingProUltraWide-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide ExBold';
+    src: url('/assets/fonts/HeadingProUltraWide-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Wide';
+    src: url('/assets/fonts/HeadingProWide-Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide';
+    src: url('/assets/fonts/HeadingProUltraWide-Heavy.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Wide';
+    src: url('/assets/fonts/HeadingProWide-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide';
+    src: url('/assets/fonts/HeadingProUltraWide-Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Wide';
+    src: url('/assets/fonts/HeadingProWide-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
