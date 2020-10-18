@@ -61,6 +61,10 @@ function gpu() {
   windows.forEach(w => w.loadURL("chrome://gpu/"))
 }
 
+function devTools() {
+  windows.forEach(w => w.webContents.openDevTools())
+}
+
 function initViewPorts({viewPorts, mac, IPv4, IPv6, hostname}) {
   for (const {id, x, y, width, height, fullscreen, content} of viewPorts) {
 
@@ -100,6 +104,7 @@ function initGlobalShortcut() {
   globalShortcut.register("CommandOrControl+G", gpu)
   globalShortcut.register("CommandOrControl+Q", exit)
   globalShortcut.register("CommandOrControl+U", urls)
+  globalShortcut.register("CommandOrControl+D", devTools)
   globalShortcut.register("F5", reload)
 }
 
