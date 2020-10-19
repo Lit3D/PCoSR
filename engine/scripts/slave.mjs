@@ -1,7 +1,7 @@
 import { UUIDv4 } from "./uuid.mjs"
 import { QClient } from "./q-client.mjs"
 import { SSVideoComponent } from "./components/ss-video/index.mjs"
-import { SSSelectors } from "./components/ss-selector/index.mjs"
+import { SSSelectors } from "./components/ss-selectors/index.mjs"
 
 const SS_DATA_URL = "/assets/ss-data.json"
 
@@ -31,7 +31,6 @@ export class Slave {
 
     const id = Number.parseInt(this.#id)
     this.#ssPlay({id})
-
 
     return this
   }

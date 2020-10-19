@@ -1,1 +1,1 @@
-export * from "./ss-selector.mjs"
+export * from "./ss-selectors.mjs"
