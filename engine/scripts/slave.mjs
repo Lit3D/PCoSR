@@ -1,6 +1,7 @@
 import { UUIDv4 } from "./uuid.mjs"
 import { QClient } from "./q-client.mjs"
 import { SSVideoComponent } from "./components/ss-video/index.mjs"
+import { SSSelectors } from "./components/ss-selector/index.mjs"
 
 const SS_DATA_URL = "/assets/ss-data.json"
 
@@ -26,11 +27,11 @@ export class Slave {
     this.#qClient = await new QClient()
     await this.#qClient.subscribe(`${this.#qPath}/ss-play`, this.#ssPlay)
     await this.#qClient.subscribe(`${this.#qPath}/video-play`, this.#videoPlay)
-    await this.#qClient.subscribe(`${this.#qPath}/selectors`, this.#selectorsPlay)
+    await this.#qClient.subscribe(`${this.#qPath}/selectors`, this.#selectors)
     return this
   }
 
-  #ssPlay = ({id, ...options}) => {
+  #ssPlay = ({id, muted = true}) => {
     const ssData = this.#ssData[id]
 
     if (!ssData) {
@@ -38,7 +39,7 @@ export class Slave {
       return
     }
 
-    const ssVideo = new SSVideoComponent(ssData, options)
+    const ssVideo = new SSVideoComponent(ssData, { muted })
     ssVideo.addEventListener("ended", this.#ssEnded)
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
@@ -55,6 +56,8 @@ export class Slave {
     videoNode.loop = false
     videoNode.src = src
 
+    videoNode.addEventListener("ended", this.#videoEnded)
+
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(videoNode)
@@ -64,7 +67,11 @@ export class Slave {
 
   #videoEnded = () => this.#qClient.publish(`${this.#qPath}/video-ended`, "1")
 
-  #selectorsPlay = ids => {
-    console.log(ids)
+  #selectors = ({ top, bottom }) => {
+    const ssSelectors = new SSSelectors({ top, bottom })
+    requestAnimationFrame(() => {
+      this.#root.innerHTML = ""
+      this.#root.appendChild(ssSelectors)
+    })
   }
 }
