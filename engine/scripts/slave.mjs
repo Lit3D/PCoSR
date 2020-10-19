@@ -28,6 +28,11 @@ export class Slave {
     await this.#qClient.subscribe(`${this.#qPath}/ss-play`, this.#ssPlay)
     await this.#qClient.subscribe(`${this.#qPath}/video-play`, this.#videoPlay)
     await this.#qClient.subscribe(`${this.#qPath}/selectors`, this.#selectors)
+
+    const id = Number.parseInt(this.#id)
+    this.#ssPlay({id})
+
+
     return this
   }
 
