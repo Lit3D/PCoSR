@@ -1,6 +1,5 @@
 {
   "id": "ss-line",
-  "engine": "https://srv-led.pcosr.local/engine/index.html",
   "viewPorts": [{
     "id": "1",
     "x": 0,
