@@ -22,6 +22,9 @@ export class Slave {
   }
 
   #init = async () => {
+    // Add body class
+    this.#root.classList.add(`sw--${window.screen.width}`)
+
     // Get SS Video Data
     const response = await fetch(SS_DATA_URL)
     this.#ssData = await response.json()
@@ -40,6 +43,8 @@ export class Slave {
     await this.#qClient.publish(`${this.#qPath}/selectors`, {})
     await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
     await this.#qClient.publish(`${this.#qPath}/webcam`, {})
+    await this.#qClient.subscribe(`${this.#qPath}/splash`, this.#splashCmd)
+    await this.#qClient.publish(`${this.#qPath}/splash`, {})
 
     return this
   }
@@ -131,5 +136,11 @@ export class Slave {
 
   #webcamCmd = ({ hdmi = 1 }) => {
 
+  }
+
+  #splashCmd = () => {
+    requestAnimationFrame(() => {
+      this.#root.innerHTML = ""
+    })
   }
 }

@@ -20,6 +20,12 @@ html, body {
 body {
   margin: 0;
   background-color: #000;
+  background-image: url(/assets/images/splash.jpg)
+  color: rgb(255 255 255 / 0);
+}
+
+.sw--2016 {
+  background-image: url(/assets/images/splash2016.jpg)
 }
 
 /*.line-slave {
