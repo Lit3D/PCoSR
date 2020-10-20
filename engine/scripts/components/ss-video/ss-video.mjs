@@ -129,7 +129,7 @@ export class SSVideoComponent extends HTMLElement  {
 
   connectedCallback() {
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#ssShow)
-    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#logosShow, { once: true })
+    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#logosShow)
     this.#mainVideo && this.#mainVideo.addEventListener("ended", this.#mainEnded, { once: true })
     this.#splashVideo && this.#splashVideo.addEventListener("ended", this.#splashEnded, { once: true })
   }
