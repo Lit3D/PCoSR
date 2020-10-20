@@ -1,6 +1,6 @@
 
-const HOST = `${window.location.origin.replace(/^http/,"ws")}/mqtt`
-// const HOST = `ws://wb.pcosr.local:18883/mqtt`
+// const HOST = `${window.location.origin.replace(/^http/,"ws")}/mqtt`
+const HOST = `ws://wb.pcosr.local:18883/mqtt`
 const OPTIONS = {
   keepalive: 30,
   clientId: "QClient-" + Math.random().toString(16).substr(2, 8),
@@ -29,6 +29,7 @@ export class QClient {
       console.error(err)
       this.#client.end(this.#connect)
     })
+    this.#client.on("connect", () => console.log("Connected"))
     this.#client.on("message", this.#onMessage)
     resolve && resolve(this)
   }
