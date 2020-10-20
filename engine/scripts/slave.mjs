@@ -16,12 +16,12 @@ export class Slave {
 
   #volume = 90
   get volume() {
-    return this.#volume / 100
+    return this.#volume
   }
 
   set volume(volume) {
     this.#volume = volume
-    this.#root.querySelectorAll("*").forEach(node => node.volume = this.#volume)
+    this.#root.querySelectorAll("*").forEach(node => node.volume = this.#volume / 100)
   }
 
   constructor(id, root = document.body) {
@@ -75,7 +75,7 @@ export class Slave {
     }
 
     const ssVideo = new SSVideoComponent(ssData, { muted })
-    ssVideo.volume = this.volume
+    ssVideo.volume = this.volume / 100
     
     ssVideo.addEventListener("ended", () => {
       this.#qClient.publish(`${this.#qPath}/ss/ended`, "1")
@@ -106,7 +106,7 @@ export class Slave {
     videoNode.muted = muted
     videoNode.loop = loop
     videoNode.src = src
-    videoNode.volume = this.volume
+    videoNode.volume = this.volume / 100
 
     videoNode.addEventListener("ended", () =>{
       this.#qClient.publish(`${this.#qPath}/video/ended`, "1")
