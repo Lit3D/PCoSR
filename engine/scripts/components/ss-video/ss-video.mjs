@@ -6,7 +6,7 @@ const TEMPLATE = `
   <img id="logotypesImg" class="logotypes">
   <div id="ssLine" class="ss-line">
     <img src="/assets/images/logo.svg" class="ss-line__logo">
-    <div class="ss-line__subtitle"></div>
+    <div id="ssSubtitle" class="ss-line__subtitle"></div>
     <div class="ss-line__curve-container">
       <img src="/assets/images/curve.svg" class="ss-line__curve">
     </div>
@@ -27,6 +27,7 @@ export class SSVideoComponent extends HTMLElement  {
   #logotypesImg = undefined
   #ssWrapperNode = undefined
   #ssLine = undefined
+  #ssSubtitle = undefined
 
   #ssNodeList = []
 
@@ -64,6 +65,9 @@ export class SSVideoComponent extends HTMLElement  {
 
     this.#ssWrapperNode = this.#root.getElementById("ssWrapperNode")
     this.#ssLine = this.#root.getElementById("ssLine")
+
+    this.#ssSubtitle = this.#root.getElementById("ssSubtitle")
+    this.#ssSubtitle.innerHTML = section_ru
 
     this.#initSubtitles(subtitles)
   }

@@ -44,7 +44,7 @@ export class Slave {
     return this
   }
 
-  #ssCmd = ({id, muted = true}) => {
+  #ssCmd = ({id, muted = true }) => {
     console.log("ssCmd", {id, muted})
     if (id === undefined) return
 
