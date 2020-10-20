@@ -85,8 +85,8 @@ function initViewPorts({ engine, viewPorts, mac, IPv4, IPv6, hostname }) {
     win.removeMenu()
     !fullscreen && win.setSize(width, height)
 
-    win.loadURL(DISPLAY({x, y, width, height, id: id, mac, IPv4, IPv6, hostname }))
     const url = content || `${engine}?id=${id}`
+    win.loadURL(DISPLAY({x, y, width, height, id: id, mac, IPv4, IPv6, hostname, url }))
     setTimeout(() => allowClient && win && win.loadURL(url), CHESS_BOARD_TIMEOUT)
     
     win.show()
