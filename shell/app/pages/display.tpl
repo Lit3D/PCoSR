@@ -64,7 +64,7 @@
     <span>Host: ${$.hostname}</span>
     <span>IPv4: ${$.IPv4}</span> 
     <span>MAC: ${$.mac}</span>
-    <span class="info__url">Url: ${url}</span>
+    <span class="info__url">Url: ${$.url}</span>
   </div>
 </body>
 </html>
