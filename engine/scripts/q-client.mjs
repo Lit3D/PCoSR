@@ -48,7 +48,7 @@ export class QClient {
 
   publish(topic, message) {
     return new Promise((resolve, reject) =>
-      this.#client.publish(topic, message, { qos: 0, retain: false}, err =>
+      this.#client.publish(topic, JSON.stringify(message), { qos: 0, retain: false}, err =>
         err ? reject(err) : resolve()
       )
     )

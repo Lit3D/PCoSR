@@ -10,12 +10,13 @@ export class Slave {
   #root = undefined
 
   #qClient = undefined
-  #qPath = `/lit3d/slave/${this.#id}`
+  #qPath = undefined
 
   #ssData = []
 
   constructor(id, root = document.body) {
     this.#id = id ?? UUIDv4()
+    this.#qPath = `/lit3d/slave/${this.#id}`
     this.#root = root
     return this.#init()
   }
@@ -28,16 +29,26 @@ export class Slave {
     // Init MQTT
     this.#qClient = await new QClient()
     await this.#qClient.subscribe(`${this.#qPath}/ss`, this.#ssCmd)
+    await this.#qClient.publish(`${this.#qPath}/ss`, {})
     await this.#qClient.subscribe(`${this.#qPath}/video`, this.#videoCmd)
+    await this.#qClient.publish(`${this.#qPath}/video`, {})
     await this.#qClient.subscribe(`${this.#qPath}/audio`, this.#audioCmd)
+    await this.#qClient.publish(`${this.#qPath}/audio`, {})
     await this.#qClient.subscribe(`${this.#qPath}/image`, this.#imageCmd)
+    await this.#qClient.publish(`${this.#qPath}/image`, {})
     await this.#qClient.subscribe(`${this.#qPath}/selectors`, this.#selectorsCmd)
+    await this.#qClient.publish(`${this.#qPath}/selectors`, {})
     await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
+    await this.#qClient.publish(`${this.#qPath}/webcam`, {})
 
     return this
   }
 
-  #ssCmd = ({id, muted = true}) => {
+  #ssCmd = ({id, muted = true }) => {
+    console.log("ssCmd", {id, muted})
+    if (id === undefined) return
+
+
     const ssData = this.#ssData[id]
 
     if (!ssData) {
@@ -64,7 +75,11 @@ export class Slave {
   }
 
   #videoCmd = ({ src, muted = true, loop = false }) => {
+    console.log("videoCmd", {src, muted, loop})
+    if (src === undefined) return
+
     const videoNode = document.createElement("video")
+    videoNode.classList.add("video")
     videoNode.muted = muted
     videoNode.loop = loop
     videoNode.src = src
@@ -81,15 +96,20 @@ export class Slave {
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(videoNode)
-      setTimeout(() => videoNode.play(),0)
+      videoNode.play()
+      console.log("PLAY")
     })
   }
 
   #audioCmd = ({src, loop}) => {
-
+    console.log("videoCmd", {src, loop})
+    if (src === undefined) return
   }
 
   #imageCmd = ({src}) => {
+    console.log("imageCmd", {src})
+    if (src === undefined) return
+
     const imgNode = new Image()
     imgNode.src = src
     requestAnimationFrame(() => {
@@ -99,6 +119,9 @@ export class Slave {
   }
 
   #selectorsCmd = ({ top, bottom }) => {
+    console.log("selectorsCmd", {top, bottom})
+    if (top === undefined || bottom === undefined) return
+
     const ssSelectors = new SSSelectors({ top, bottom })
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
