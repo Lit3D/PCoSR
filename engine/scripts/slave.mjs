@@ -54,7 +54,7 @@ export class Slave {
     if (id === undefined) return
 
 
-    const ssData = this.#ssData[id]
+    const ssData = this.#ssData.find(item => item.id === id )
 
     if (!ssData) {
       this.#root.innerHTML = `[SS ERROR] Incorrect ID: ${id}`
