@@ -15,11 +15,19 @@ html, body {
 
   overflow: hidden;
   user-select: none;
+
+  cursor: none;
 }
 
 body {
   margin: 0;
   background-color: #000;
+  background-image: url(/assets/images/splash.png);
+  color: rgb(255 255 255 / 0);
+}
+
+.sw--2016 {
+  background-image: url(/assets/images/splash2016.png)
 }
 
 /*.line-slave {

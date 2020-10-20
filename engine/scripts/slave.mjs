@@ -14,6 +14,16 @@ export class Slave {
 
   #ssData = []
 
+  #volume = 90
+  get volume() {
+    return this.#volume
+  }
+
+  set volume(volume) {
+    this.#volume = volume
+    this.#root.querySelectorAll("*").forEach(node => node.volume = this.#volume / 100)
+  }
+
   constructor(id, root = document.body) {
     this.#id = id ?? UUIDv4()
     this.#qPath = `/lit3d/slave/${this.#id}`
@@ -22,6 +32,9 @@ export class Slave {
   }
 
   #init = async () => {
+    // Add body class
+    this.#root.classList.add(`sw--${window.screen.width}`)
+
     // Get SS Video Data
     const response = await fetch(SS_DATA_URL)
     this.#ssData = await response.json()
@@ -40,6 +53,11 @@ export class Slave {
     await this.#qClient.publish(`${this.#qPath}/selectors`, {})
     await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
     await this.#qClient.publish(`${this.#qPath}/webcam`, {})
+    await this.#qClient.subscribe(`${this.#qPath}/splash`, this.#splashCmd)
+    await this.#qClient.publish(`${this.#qPath}/splash`, {})
+
+    await this.#qClient.subscribe(`${this.#qPath}/volume/set`, this.#setVolume)
+    await this.#qClient.publish(`${this.#qPath}/volume/set`, null)
 
     return this
   }
@@ -49,7 +67,7 @@ export class Slave {
     if (id === undefined) return
 
 
-    const ssData = this.#ssData[id]
+    const ssData = this.#ssData.find(item => item.id === id )
 
     if (!ssData) {
       this.#root.innerHTML = `[SS ERROR] Incorrect ID: ${id}`
@@ -57,15 +75,20 @@ export class Slave {
     }
 
     const ssVideo = new SSVideoComponent(ssData, { muted })
+    ssVideo.volume = this.volume / 100
     
-    ssVideo.addEventListener("ended", () => this.#qClient.publish(`${this.#qPath}/ss/ended`, "1"), { once: true })
+    ssVideo.addEventListener("ended", () => {
+      this.#qClient.publish(`${this.#qPath}/ss/ended`, "1")
+      this.#splashCmd()
+    }, { once: true, passive: true })
+
     ssVideo.addEventListener("timeupdate", () => this.#qClient.publish(`${this.#qPath}/ss/status`, JSON.stringify({
       src: ssVideo.src,
       muted: ssVideo.muted,
       loop: false,
       duration: ssVideo.duration,
       currentTime: ssVideo.currentTime,
-    })))
+    })), { passive: true })
 
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
@@ -83,21 +106,25 @@ export class Slave {
     videoNode.muted = muted
     videoNode.loop = loop
     videoNode.src = src
+    videoNode.volume = this.volume / 100
 
-    videoNode.addEventListener("ended", () => this.#qClient.publish(`${this.#qPath}/video/ended`, "1"), { once: true })
+    videoNode.addEventListener("ended", () =>{
+      this.#qClient.publish(`${this.#qPath}/video/ended`, "1")
+      this.#splashCmd()
+    }, { once: true, passive: true })
+
     videoNode.addEventListener("timeupdate", () => this.#qClient.publish(`${this.#qPath}/video/status`, JSON.stringify({
       src: videoNode.src,
       muted: videoNode.muted,
       loop: videoNode.loop,
       duration: videoNode.duration,
       currentTime: videoNode.currentTime,
-    })))
+    })), { passive: true })
 
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(videoNode)
       videoNode.play()
-      console.log("PLAY")
     })
   }
 
@@ -130,6 +157,19 @@ export class Slave {
   }
 
   #webcamCmd = ({ hdmi = 1 }) => {
+    console.log("webcamCmd", {hdmi})
+  }
 
+  #splashCmd = () => {
+    console.log("splashCmd", {})
+    requestAnimationFrame(() => {
+      this.#root.innerHTML = ""
+    })
+  }
+
+  #setVolume = (volume) => {
+    console.log("setVolume", {volume})
+    if (!Number.isFinite(volume) || volume < 0 || volume > 100) return
+    this.volume = volume
   }
 }

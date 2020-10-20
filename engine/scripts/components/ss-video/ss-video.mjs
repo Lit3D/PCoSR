@@ -72,6 +72,34 @@ export class SSVideoComponent extends HTMLElement  {
     this.#initSubtitles(subtitles)
   }
 
+  get src() {
+     return this.#mainVideo.src
+  }
+
+  get muted() {
+    return this.#mainVideo.muted
+  }
+
+  get loop() {
+    return this.#mainVideo.loop
+  }
+
+  get duration() {
+    return this.#mainVideo.duration
+  }
+
+  get currentTime() {
+    return this.#mainVideo.currentTime
+  }
+
+  set volume(volume) {
+    if (this.#mainVideo) this.#mainVideo.volume = volume
+  }
+
+  get volume() {
+    return this.#mainVideo && this.#mainVideo.volume || null
+  }
+
   #initSubtitles = subtitles => {
     this.#ssNodeList = subtitles.map(ss => {
       const node = document.createElement("div")
@@ -110,9 +138,8 @@ export class SSVideoComponent extends HTMLElement  {
     })
   }
 
-  #mainEnded = () => {
-    console.log("ENDED")
-  }
+  #dispatchTimeupdate = () => this.dispatchEvent(new Event("timeupdate"))
+  #dispatchEnded = () => this.dispatchEvent(new Event("build"))
 
   play() {
     requestAnimationFrame(() => {
@@ -128,17 +155,19 @@ export class SSVideoComponent extends HTMLElement  {
   }
 
   connectedCallback() {
-    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#ssShow)
-    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#logosShow)
-    this.#mainVideo && this.#mainVideo.addEventListener("ended", this.#mainEnded, { once: true })
-    this.#splashVideo && this.#splashVideo.addEventListener("ended", this.#splashEnded, { once: true })
+    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#ssShow, { passive: true })
+    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#logosShow, { passive: true })
+    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#dispatchTimeupdate, { passive: true })
+    this.#mainVideo && this.#mainVideo.addEventListener("ended", this.#dispatchEnded, { once: true, passive: true })
+    this.#splashVideo && this.#splashVideo.addEventListener("ended", this.#splashEnded, { once: true, passive: true })
   }
 
   disconnectedCallback() {
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#ssShow)
-    this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#logosShow, { once: true })
-    this.#mainVideo && this.#mainVideo.removeEventListener("ended", this.#mainEnded, { once: true })
-    this.#splashVideo && this.#splashVideo.removeEventListener("ended", this.#splashEnded, { once: true })
+    this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#logosShow)
+    this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#dispatchTimeupdate)
+    this.#mainVideo && this.#mainVideo.removeEventListener("ended", this.#dispatchEnded)
+    this.#splashVideo && this.#splashVideo.removeEventListener("ended", this.#splashEnded)
   }
 }
 

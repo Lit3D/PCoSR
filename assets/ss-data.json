@@ -22,7 +22,7 @@
         "hide": 15
       },
       {
-        "ru": "Кольцово  входит в Холдинг «Аэропорты Регионов»\n\n(ГК «Ренова»)",
+        "ru": "Кольцово  входит в Холдинг «Аэропорты Регионов»\n\n(ГК «Ренова»)",
         "en": "a part of the Airports of Regions Holding \n(Renova Group) ",
         "show": 16,
         "hide": 19
@@ -82,8 +82,8 @@
         "hide": 60
       },
       {
-        "ru": "лучший аэропорт мира по версии премии World Airport Awards* (с пассажиропотоком от 5 до 10 млн. пассажиров в год",
-        "en": "the best airport in the world according to the World Airport Awards* (with a passenger traffic from 5 till 10 million people per year)",
+        "ru": "Лучший аэропорт мира\n(5-10 млн. пассажиров)\nWorld Airport Awards 2018",
+        "en": "the best airport in the world according to the World Airport Awards 2018\n(with a passenger traffic from 5 till 10 million people per year)",
         "show": 61,
         "hide": 9007199254740991
       }
@@ -107,7 +107,7 @@
       },
       {
         "ru": "Екатеринбург — важнейший транспортно-логистический узел России ",
-        "en": "Yekaterinburg is the most important transport and logistics hub in Russia",
+        "en": "Ekaterinburg is the most important transport and logistics hub in Russia",
         "show": 16,
         "hide": 23
       },
@@ -167,12 +167,12 @@
     "subtitles": [
       {
         "ru": "Екатеринбург - один из крупнейших образовательных центров России",
-        "en": "Yekaterinburg is one of the largest educational centers in Russia",
+        "en": "Ekaterinburg is one of the largest educational centers in Russia",
         "show": 8,
         "hide": 12
       },
       {
-        "ru": "в 29 ВУЗах региона обучаются 67 000 студентов",
+        "ru": "в 29 ВУЗах региона обучаются 67 000 студентов",
         "en": "67,000 students study at 29 universities in the region",
         "show": 13,
         "hide": 16
@@ -199,30 +199,30 @@
         "ru": "в  УрФУ обучается 35 000 студентов по более 100 программам бакалавриата",
         "en": "35,000 students study at UrFU in more than 100 bachelor degree programmes",
         "show": 34,
-        "hide": 38
+        "hide": 42
       },
       {
         "ru": "универститет занимает 4 место в рейтинге лучших вузов России по версии «Форбс» ",
         "en": "the University ranks 4th of the best universities in Russia according to Forbes",
-        "show": 39,
-        "hide": 43
-      },
-      {
-        "ru": "УрГАХУ – самый крупный в России вуз по подготовке архитекторов",
-        "en": "USAAA is the largest Russian university for training architects",
-        "show": 44,
-        "hide": 58
+        "show": 43,
+        "hide": 50
       },
       {
         "ru": "старейший вуз региона – Горный университет, открывшийся в 1914 году",
         "en": "the oldest university in the region is the Ural State Mining University, was opened in 1914",
-        "show": 59,
-        "hide": 64
+        "show": 51,
+        "hide": 56
+      },
+      {
+        "ru": "УрГАХУ – самый крупный в России вуз по подготовке архитекторов",
+        "en": "USAAA is the largest Russian university for training architects",
+        "show": 57,
+        "hide": 62
       },
       {
         "ru": "проект «Уральская инженерная школа» – комплексная региональная программа по подготовке инженерных и рабочих кадров",
         "en": "the Ural School of Engineering project is a comprehensive regional programme for the training of engineers and workers",
-        "show": 65,
+        "show": 63,
         "hide": 70
       },
       {
@@ -232,27 +232,27 @@
         "hide": 75
       },
       {
-        "ru": "традиционно Екатеринбург принимает WorldSkills Hi-Tech – соревнования среди специалистов рабочих высокотехнологичных отраслей ",
-        "en": "traditionally, Yekaterinburg hosts WorldSkills Hi-Tech - competitions among specialists in high-tech industries",
+        "ru": "Сеть детских технопарков «Кванториум» инженерной направленности",
+        "en": "the region has a network of children's technology parks Quantorium for teenagers interested in engineering",
         "show": 76,
-        "hide": 79
+        "hide": 82
+      },
+      {
+        "ru": "традиционно Екатеринбург принимает WorldSkills Hi-Tech – соревнования среди специалистов рабочих высокотехнологичных отраслей ",
+        "en": "traditionally, Ekaterinburg hosts WorldSkills Hi-Tech - competitions among specialists in high-tech industries",
+        "show": 83,
+        "hide": 88
       },
       {
         "ru": "в рамках чемпионата более 300 профессионалов  из России и других стран соревнуются по 23 компетенциям",
         "en": "more than 300 professionals from Russia and other countries compete in 23 competencies as part of the championship",
-        "show": 80,
-        "hide": 84
+        "show": 89,
+        "hide": 96
       },
       {
         "ru": "Свердловская область входит в ТОП-5 «Кубка регионов России» WorldSkills Russia ",
         "en": "the Sverdlovsk Region is in the TOP 5 of the Cup of Russian Regions of WorldSkills Russia",
-        "show": 85,
-        "hide": 90
-      },
-      {
-        "ru": "в регионе работает сеть детских технопарков «Кванториум» для подростков, интересующихся инженерными направлениями",
-        "en": "the region has a network of children's technology parks Quantorium for teenagers interested in engineering",
-        "show": 91,
+        "show": 97,
         "hide": 9007199254740991
       }
     ]
@@ -307,12 +307,6 @@
         "ru": "30 млрд. рублей ежегодно - сумма инвестиций в научно-технические исследования  ",
         "en": "the annual amount of investments in scientific and technical research is 30 billion rubles ",
         "show": 43,
-        "hide": 48
-      },
-      {
-        "ru": "около 1000 заявок  ежегодно подают в Роспатент ученые и изобретатели Свердловской области ",
-        "en": "scientists and inventors of the Sverdlovsk Region submit about 1000 applications to Rospatent annually",
-        "show": 49,
         "hide": 54
       },
       {
@@ -322,43 +316,43 @@
         "hide": 57
       },
       {
-        "ru": "1000 передовых производственных технологий внедрено в регионе за последние 5 лет",
+        "ru": "1000 передовых производственных технологий внедрено за последние 5 лет",
         "en": "1000 advanced manufacturing technologies are implemented in the region over the past 5 years",
         "show": 58,
-        "hide": 63
+        "hide": 61
       },
       {
-        "ru": "разработка «Екатеринбургского центра МНТК \"Микрохирургия глаза\"» вошла в топ-100 лучших изобретений России 2020",
-        "en": "development of the Yekaterinburg Center MNTK Eye Microsurgery entered the top 100 best inventions of Russia 2020",
-        "show": 64,
-        "hide": 66
+        "ru": "разработка «МНТК \"Микрохирургия глаза» в топ-100 изобретений России 2020",
+        "en": "development of the Ekaterinburg Center MNTK Eye Microsurgery entered the top 100 best inventions of Russia 2020",
+        "show": 62,
+        "hide": 67
       },
       {
-        "ru": "передовые разработки: технология изготовления на 3D-принтере из титанового порошка методом селективного лазерного сплавления ",
+        "ru": "передовые разработки области: печать на 3D-принтере из титанового порошка методом  лазерного сплавления ",
         "en": "advanced developments: titanium powder 3D printing technology by selective laser fusion",
-        "show": 67,
+        "show": 68,
         "hide": 70
       },
       {
-        "ru": "передовые разработки: уникальный способ обработки загрязнений от нефти или нефтепродуктов посредством микрогелей и полисахаридов",
+        "ru": "передовые разработки области: обработка нефтяных загрязнений микрогелями и полисахаридами",
         "en": "advanced developments: a unique way to treat oil or oil product contaminants using microgels and polysaccharides",
         "show": 71,
         "hide": 75
       },
       {
-        "ru": "передовые разработки: титановый имплант с измененным составом химического сплава ",
+        "ru": "титановый имплант с измененным составом химического сплава ",
         "en": "advanced developments: titanium implant with a modified chemical alloy composition",
         "show": 76,
         "hide": 81
       },
       {
-        "ru": "разработки уральских ученых внедрены на десятках предприятий по всей стране и за рубежом",
+        "ru": "разработки  внедрены на десятках предприятий по всей стране и за рубежом",
         "en": "the Ural scientists’ developments have been implemented at dozens of enterprises throughout the country and abroad",
         "show": 82,
         "hide": 85
       },
       {
-        "ru": "300 исследователей являются лауреатами Премии Губернатора Свердловской области для молодых ученых ",
+        "ru": "300 лауреатов Премии Губернатора Свердловской области для молодых ученых ",
         "en": "300 researchers are laureates of the Sverdlovsk Region Governor's Award for young scientists",
         "show": 86,
         "hide": 9007199254740991
@@ -372,109 +366,115 @@
     "video": "/content/video/6.mp4",
     "logo": "/content/logos/1920_1080/бриф 6.jpg",
     "logo2016": "/content/logos/БРИФ 6 2016 на 840.jpg",
-    "section_ru": "Международное сотрудничество ",
-    "section_en": "International cooperation",
+    "section_ru": "Международное сотрудничество  и MICE",
+    "section_en": "International cooperation and MICE",
     "subtitles": [
       {
         "ru": "Свердловская область  современный центр международных бизнес-коммуникаций",
         "en": "The Sverdlovsk region is a modern center of international business communications",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 8,
+        "hide": 12
       },
       {
         "ru": "внешнеторговый оборот Свердловской области составляет 13 млрд.\nдолларов США",
         "en": "foreign trade turnover of the Sverdlovsk region is 13 billion US dollars",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 13,
+        "hide": 17
       },
       {
         "ru": "8,5 млрд. долларов США - объем экспорта",
         "en": "export volume is 8.5 billion US dollars ",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 18,
+        "hide": 22
       },
       {
         "ru": "область поддерживает торговые отношения с 159 странами-партнерами",
         "en": "the region maintains trade relations with 159 partner countries",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 23,
+        "hide": 28
       },
       {
         "ru": "ТОП-5 торговых партнеров области: Китай, США, Казахстан, Германия и Франция",
         "en": "the TOP 5 partners of the region: China, USA, Kazakhstan, Germany and France",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 29,
+        "hide": 32
       },
       {
         "ru": "товарная структура экспорта — металлы и изделия из них, машиностроительная и химическая продукция, минеральные продукты",
         "en": "export commodity structure includes metals and metal products, machinery engineering and chemical products, mineral products",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 33,
+        "hide": 37
       },
       {
         "ru": "2 место среди субъектов РФ по объему несырьевого неэнергетического экспорта",
         "en": "the 2nd largest non-resource non-energy exporter among the subjects of the Russian Federation ",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 38,
+        "hide": 43
+      },
+      {
+        "ru": "Действуют региональный Центр поддержки экспорта, представительство Российского экспортного центра",
+        "en": "There is a regional Export Support Center, a representative office of the Russian Export Center",
+        "show": 44,
+        "hide": 49
       },
       {
         "ru": "в регионе действуют дипломатические и торговые представительства 27 иностранных государств",
         "en": "there are diplomatic and trade missions of 27 foreign states in the region",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "более 400 представительств и филиалов иностранных компаний",
-        "en": "more than 400 representative offices and branches of foreign companies",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "у нас работают мировые бренды:  Bayer, Boeing, DuPont, BASF, CocaCola, OKUMA, Unilever,  Danone,  BNP Paribas, Pepsi co,  Enviro-Chemie,  Siemens AG и другие\n",
-        "en": "we have such global brands as: Bayer, Boeing, DuPont, BASF, CocaCola, OKUMA, Unilever,  Danone,  BNP Paribas, Pepsi co,  Enviro-Chemie,  Siemens AG and others ",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 50,
+        "hide": 55
       },
       {
         "ru": "Свердловская область один из крупнейших в России центров международной конгрессно-выставочной деятельности",
         "en": "the Sverdlovsk Region is one of the largest Russian centers for international congress and exhibition activities",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 56,
+        "hide": 60
       },
       {
         "ru": "более 100 выставочных и 500 конгрессных мероприятий проводятся в регионе ежегодно ",
         "en": "more than 100 international and 500 congress events are held in the region annually ",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 61,
+        "hide": 69
       },
       {
-        "ru": "введен в эксплуатацию Конгресс-центр МВЦ \"Екатеринбург ЭКСПО\" на 40 000 кв. м",
-        "en": "the Congress Center of the IEC Yekaterinburg-EXPO with a total area of 40,000 sq.m. was put into operation",
-        "show": null,
-        "hide": 9007199254740991
+        "ru": "более 400 представительств и филиалов иностранных компаний",
+        "en": "more than 400 representative offices and branches of foreign companies",
+        "show": 70,
+        "hide": 73
+      },
+      {
+        "ru": "у нас работают мировые бренды:  Bayer, Boeing, DuPont, BASF, CocaCola, OKUMA, Unilever,  Danone,  BNP Paribas, Pepsi co,  Enviro-Chemie,  Siemens AG и другие\n",
+        "en": "we have such global brands as: Bayer, Boeing, DuPont, BASF, CocaCola, OKUMA, Unilever,  Danone,  BNP Paribas, Pepsi co,  Enviro-Chemie,  Siemens AG and others ",
+        "show": 74,
+        "hide": 80
       },
       {
         "ru": "Свердловская область в топ-3 регионов РФ по готовности инфраструктуры для проведения событий мирового уровня",
         "en": "the Sverdlovsk region is in the TOP 3 regions of the Russian Federation in terms of infrastructure readiness for holding world-class events",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 81,
+        "hide": 88
+      },
+      {
+        "ru": "введен в эксплуатацию Конгресс-центр МВЦ \"Екатеринбург ЭКСПО\" на 40 000 кв. м",
+        "en": "the Congress Center of the IEC Yekaterinburg-EXPO with a total area of 40,000 sq.m. was put into operation",
+        "show": 89,
+        "hide": 90
       },
       {
         "ru": "Свердловская область приглашает! ",
         "en": "Welcome to the Sverdlovsk region! ",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 91,
+        "hide": 97
       },
       {
         "ru": "ИННОПРОМ, 100+ TechnoBuild, WorldSkills Hi-Tech",
         "en": "INNOPROM, 100+ TechnoBuild, WorldSkills Hi-Tech",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 98,
+        "hide": 104
       },
       {
-        "ru": " Всемирный саммит спорта и бизнеса SportAccord-2021        Универсиада-2023 ",
+        "ru": "Всемирный саммит спорта и бизнеса SportAccord-2021        Универсиада-2023 ",
         "en": "the SportAccord-2021 world’s sports and business summit, the Universiade-2023",
-        "show": null,
+        "show": 105,
         "hide": 9007199254740991
       }
     ]
@@ -486,8 +486,8 @@
     "video": "/content/video/21.mp4",
     "logo": "/content/logos/1920_1080/бриф 21.jpg",
     "logo2016": "/content/logos/БРИФ 21 2016 на 840.jpg",
-    "section_ru": "Туризм и MICE",
-    "section_en": "Tourism and MICE",
+    "section_ru": "Туризм ",
+    "section_en": "Tourism",
     "subtitles": [
       {
         "ru": "1,6 миллионов туристов посетили Свердловскую область в 2019 году",
@@ -502,32 +502,38 @@
         "hide": 25
       },
       {
-        "ru": "ТОП-5 регионов прибытия в Свердловскую область: Челябинская область, Тюменская область, ХМАО, Пермский край, Москва и Московская область",
-        "en": "the TOP 5 regions of arrival in the Sverdlovsk region are: Chelyabinsk region, Tyumen region, Khanty-Mansi Autonomous Okrug, Perm Krai, Moscow and Moscow region",
+        "ru": "ТОП-5 городов прибытия в Свердловскую область:",
+        "en": "the TOP 5 regions of arrival in the Sverdlovsk region are: ",
         "show": 26,
+        "hide": 27
+      },
+      {
+        "ru": "Челябинск, Тюмень, ХМАО, Пермь, Москва ",
+        "en": "Chelyabinsk region, Tyumen region, Khanty-Mansi Autonomous Okrug, Perm Krai, Moscow and Moscow region",
+        "show": 28,
         "hide": 31
       },
       {
-        "ru": "Чаще всего регион посещают иностранные гости из Германии, Белоруссии, Китая, Казахстана.",
+        "ru": "в топе иностранных гостей - Германия, Белоруссия, Китай, Казахстан ",
         "en": "most often the region is visited by foreign guests from Germany, Belarus, China, Kazakhstan",
         "show": 32,
         "hide": 38
       },
       {
         "ru": "На территории области работают около 70 туроператоров",
-        "en": "538 collective accommodation facilities for 18,000 rooms",
+        "en": "about 70 tour operators work in the region",
         "show": 39,
-        "hide": 46
+        "hide": 44
       },
       {
         "ru": "538 коллективных средств размещения на 18 000 номеров",
-        "en": "about 70 tour operators work in the region",
-        "show": 47,
+        "en": "538 collective accommodation facilities for 18,000 rooms",
+        "show": 45,
         "hide": 55
       },
       {
-        "ru": "Екатеринбург — в 10-топ городов РФ по популярным туристическим запросам поисковых систем",
-        "en": "Yekaterinburg is in the TOP 10 cities of the Russian Federation for popular tourist queries of search engines",
+        "ru": "Екатеринбург — в топ-10 городов РФ по поисковым запросам туристов",
+        "en": "Ekaterinburg is in the TOP 10 cities of the Russian Federation for popular tourist queries of search engines",
         "show": 56,
         "hide": 71
       },
@@ -547,72 +553,72 @@
         "ru": "В Свердловской области можно увидеть, как добывают золото и изумруды",
         "en": "one can see how gold and emeralds are mined in the Sverdlovsk region",
         "show": 95,
-        "hide": 110
+        "hide": 102
       },
       {
         "ru": "Познакомиться с уникальными объектами горнозаводской цивилизации",
         "en": "get acquainted with the unique objects of the mining civilization",
-        "show": 111,
-        "hide": 121
+        "show": 103,
+        "hide": 114
       },
       {
         "ru": "Посетить места памяти последнего Российского Императора и членов Дома Романовых",
         "en": "Visit the places of memory of the last Russian Emperor and members of the House of Romanov",
-        "show": 122,
-        "hide": 126
+        "show": 115,
+        "hide": 123
       },
       {
         "ru": "«Императорский маршрут» Екатеринбург - Алапаевск",
-        "en": "Imperial route from Yekaterinburg to Alapaevsk",
-        "show": 127,
-        "hide": 140
+        "en": "Imperial route from Ekaterinburg to Alapaevsk",
+        "show": 124,
+        "hide": 132
       },
       {
         "ru": "попробовать блюда аутентичной уральской кухни",
         "en": "have a taste of authentic Ural cuisine",
-        "show": 141,
-        "hide": 156
+        "show": 133,
+        "hide": 148
       },
       {
         "ru": "отдохнуть на единственном в УрФО гольф-курорте",
         "en": "relax at the only golf resort in Ural Federal District",
-        "show": 157,
-        "hide": 163
+        "show": 149,
+        "hide": 155
       },
       {
         "ru": "совершить сплав по уральским рекам",
         "en": "go rafting on the Ural rivers",
-        "show": 164,
-        "hide": 167
+        "show": 156,
+        "hide": 162
       },
       {
         "ru": "почувствовать адреналлин легендарных \"Уралов\"",
         "en": "feel the adrenaline of the legendary Urals",
-        "show": 168,
-        "hide": 182
+        "show": 163,
+        "hide": 175
       },
       {
-        "ru": "Туристско-рекреационный кластер Гора Белая -",
-        "en": "Tourist-recreational cluster Gora Belaya -",
-        "show": 183,
-        "hide": 192
+        "ru": "Туристско-рекреационный кластер «Гора Белая» -",
+        "en": "Tourist-recreational cluster «Gora Belaya» -",
+        "show": 176,
+        "hide": 184
       },
       {
         "ru": "проект по созданию круглогодичного курорта мирового значения",
         "en": "a project to create a year-round world class resort ",
-        "show": 193,
-        "hide": 199
+        "show": 185,
+        "hide": 193
       },
       {
         "ru": "на площади в 2500 кв километров планируется создание 200 объектов туристской инфраструктуры",
         "en": "on an area of 2,500 sq.km. it is planned to create 200 objects of tourist infrastructure",
-        "show": 200,
-        "hide": 207
+        "show": 194,
+        "hide": 200
       },
       {
         "ru": "Свердловская область приглашает!",
         "en": "Welcome to the Sverdlovsk region! ",
-        "show": 208,
+        "show": 201,
         "hide": 9007199254740991
       }
     ]
@@ -802,7 +808,7 @@
         "hide": 26
       },
       {
-        "ru": "827 000 кв.м. — площадь предприятия «УралВагонЗавод». \nЭто самое крупное промышленное предприятие в мире, занесенное в книгу рекордов Гиннеса",
+        "ru": "827 000 м2 — площадь «УралВагонЗавода». Самое крупное промышленное предприятие в мире\n",
         "en": "827,000 sq.m. is the area of UralVagonZavod enterprise.\nIt is the world’s largest industrial enterprise, listed in the Guinness Book of Records\n",
         "show": 27,
         "hide": 34
@@ -953,7 +959,7 @@
       },
       {
         "ru": "выставка LESPROM-URAL PROFESSIONAL (Екатеринбург) – крупнейшее в Урало-Сибирском регионе событие для профессионалов отрасли",
-        "en": "LESPROM-URAL PROFESSIONAL (Yekaterinburg) is the largest event in the Ural-Siberian region for industry professionals",
+        "en": "LESPROM-URAL PROFESSIONAL Ekaterinburg) is the largest event in the Ural-Siberian region for industry professionals",
         "show": 84,
         "hide": 9007199254740991
       }
@@ -972,67 +978,67 @@
       {
         "ru": "В регионе расположены основные предприятия, связанные с авиастроительной отраслью мира",
         "en": "The main enterprises associated with the aircraft industry in the world are located in the region",
-        "show": 8,
-        "hide": 12
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "ВСМПО-АВИСМА, Ural Boeing Manufacturing  и Уральский завод гражданской авиации",
         "en": "VSMPO-AVISMA, Ural Boeing Manufacturing and The Ural Works of Civil Aviation",
-        "show": 13,
-        "hide": 23
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "150+ авиакомпаний и предприятий других отраслей страны – клиенты Уральского завода гражданской авиации",
         "en": "150+ airlines and other industries enterprises of the country are clients of the Ural Works of Civil Aviation",
-        "show": 24,
-        "hide": 29
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "100 авиадвигателей ремонтируется на Уральском заводе гражданской авиации ежемесячно",
         "en": "100 aircraft engines are repaired at the Ural Works of Civil Aviation monthly",
-        "show": 30,
-        "hide": 36
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "3200 компонентов для авиадвигателей выпускается на Уральском заводе гражданской авиации",
         "en": "3,200 components for aircraft engines are produced at the Ural Works of Civil Aviation",
-        "show": 37,
-        "hide": 42
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "2000 опытных специалистов – сотрудники Уральского завода гражданской авиации",
         "en": "2,000 experienced specialists are the employees of the Ural Works of Civil Aviation",
-        "show": 43,
-        "hide": 53
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "на новой площадке предприятия организовывается совместно с УГМК выпуск региональных самолетов L-610 ",
         "en": "the production of regional aircraft L-610 is organized jointly with UMMC at the new venue of the enterprise",
-        "show": 54,
-        "hide": 62
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "ВСМПО-АВИСМА – основной поставщик сплавов для мировой авиакосмической индустрии ",
         "en": "VSMPO-AVISMA is the main alloy supplier for the global aerospace industry",
-        "show": 63,
-        "hide": 72
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "Boeing, Airbus и Embraer – основные потребители продукции ВСМПО-АВИСМА",
         "en": "Boeing, Airbus and Embraer are the main consumers of VSMPO-AVISMA products",
-        "show": 73,
-        "hide": 85
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "Ural Boeing Manufacturing – высокотехнологичное совместное предприятие по производству комплектующих для самолетов Boeing ",
         "en": "Ural Boeing Manufacturing is a high-tech joint venture for Boeing aircraft components",
-        "show": 86,
-        "hide": 98
+        "show": null,
+        "hide": 9007199254740991
       },
       {
         "ru": "около 6 млрд. рублей – объём инвестиций в Ural Boeing Manufacturing",
         "en": "about 6 billion rubles is the volume of investments in Ural Boeing Manufacturing",
-        "show": 99,
+        "show": null,
         "hide": 9007199254740991
       }
     ]
@@ -1126,7 +1132,7 @@
         "hide": 22
       },
       {
-        "ru": "Объём отгруженных товаров – около 84 млрд. рублей ",
+        "ru": "Объём отгруженных товаров – около 84 млрд. рублей",
         "en": "The volume of sold goods is about 84 billion rubles",
         "show": 23,
         "hide": 29
@@ -1156,15 +1162,21 @@
         "hide": 72
       },
       {
-        "ru": "химпарк Тагил, г.Новоуральск («АМК – УЭХК»,  ТОСЭР «НОВОУРАЛЬСК»), Титановая долина, индустриальный парк «Малахитовая шкатулка»",
-        "en": "Tagil chemical park, Novouralsk (AMK - UEHK, TOSER NOVOURALSK), Titanium Valley, Malachite Box industrial park",
+        "ru": "ВМП холдинг – производитель современных антикоррозионных и других индустриальных лакокрасочных материалов",
+        "en": "VMP Research and Production Holding is a leader among Russian manufacturers of modern anticorrosive and other industrial coatings",
         "show": 73,
         "hide": 81
       },
       {
-        "ru": "На базе «Уралхимпласт» в Свердловской области создан крупный химический кластер ",
-        "en": "A large chemical cluster was created on the basis of Uralchimplast in the Sverdlovsk region",
+        "ru": "Компания «ФОРЭС» занимается выпуском керамических расклинивателей нефтяных скважин – пропантов",
+        "en": "FORES company is engaged in the production of ceramic oil well splitters - proppants",
         "show": 82,
+        "hide": 84
+      },
+      {
+        "ru": "100 000 тонн готовой продукции в месяц – объёмы производства «ФОРЭС»",
+        "en": "The production volume of FORES is 100,000 tons of finished products per month",
+        "show": 85,
         "hide": 9007199254740991
       }
     ]
@@ -1183,54 +1195,66 @@
         "ru": "3 региональных компании входят в ТОП-50 крупнейших IT-компаний России ",
         "en": "3 regional companies are in the TOP 50 of the largest IT companies in Russia",
         "show": 8,
-        "hide": 21
-      },
-      {
-        "ru": "39 тысяч специалистов заняты в IT-сфере Свердловской области",
-        "en": "39 thousand specialists are employed in the IT sphere of the Sverdlovsk region",
-        "show": 22,
-        "hide": 31
-      },
-      {
-        "ru": "Более 55 млрд. рублей в год составляет объем услуг отрасли",
-        "en": "More than 55 billion rubles per year is the volume of the industry services",
-        "show": 32,
-        "hide": 37
-      },
-      {
-        "ru": "«СКБ-контур» четвёртый по объёмам разработчик ПО в стране",
-        "en": "SKB Kontur is the 4th largest software developer in the country",
-        "show": 38,
-        "hide": 52
-      },
-      {
-        "ru": "В регионе реализуется «Контур парк» – совместный проект СКБ и УрФУ",
-        "en": "Kontur Park - a joint project of SKB and UrFU is implemented in the region",
-        "show": 53,
-        "hide": 66
-      },
-      {
-        "ru": "уральская «Кремниевая долина» на 5000 рабочих мест, обеспеченных деловой и социальной инфраструктурой",
-        "en": "Ural Silicon Valley for 5,000 jobs with business and social infrastructure",
-        "show": 67,
-        "hide": 79
+        "hide": 14
       },
       {
         "ru": "72 страны пользуются продуктами сегмента «умный дом» предприятия iRidium ",
         "en": "72 countries use smart home products of iRidium company",
-        "show": 80,
-        "hide": 89
+        "show": 15,
+        "hide": 19
+      },
+      {
+        "ru": "«СКБ Контур» четвёртый по объёмам разработчик ПО в стране",
+        "en": "SKB Kontur is the 4th largest software developer in the country",
+        "show": 20,
+        "hide": 29
+      },
+      {
+        "ru": "В компании работает 1/4 специалистов, занятых в IT-сфере Свердловской области",
+        "en": "The company employs 1/4 of specialists engaged in IT-sphere of Sverdlovsk region",
+        "show": 30,
+        "hide": 34
+      },
+      {
+        "ru": " Штаб-квартира «СКБ Контур» - одно из самых современных офисных пространств на Урале",
+        "en": "SKB Kontur headquarters is one of the most modern office spaces in the Urals",
+        "show": 35,
+        "hide": 34
       },
       {
         "ru": "Уральский центр систем безопасности занимают 6 место в рейтинге крупнейших поставщиков IT для промышленных предприятий",
         "en": "The Ural Security Systems Center ranks 6th as the largest IT supplier for industrial enterprises",
-        "show": 90,
-        "hide": 98
+        "show": 35,
+        "hide": 49
       },
       {
         "ru": "НАГ.Company – ведущий российский разработчик и поставщик для отрасли телекоммуникаций, промышленности и бизнеса",
         "en": "NAG.Company is a leading Russian developer and supplier for the telecommunications industry, manufacturing and business",
-        "show": 99,
+        "show": 50,
+        "hide": 59
+      },
+      {
+        "ru": "В регионе реализуется «Контур парк» – совместный проект СКБ контур и УрФУ",
+        "en": "Kontur Park - a joint project of SKB Kontur and UrFU is implemented in the region",
+        "show": 60,
+        "hide": 69
+      },
+      {
+        "ru": "уральская «Кремниевая долина» на 5000 рабочих мест, обеспеченных деловой и социальной инфраструктурой",
+        "en": "Ural Silicon Valley for 5,000 jobs with business and social infrastructure",
+        "show": 70,
+        "hide": 79
+      },
+      {
+        "ru": "Более 55 млрд. рублей в год составляет объем услуг отрасли",
+        "en": "More than 55 billion rubles per year is the volume of the industry services",
+        "show": 80,
+        "hide": 89
+      },
+      {
+        "ru": "DUMP в Екатеринбурге - крупное ежегодное отраслевое событие ",
+        "en": "DUMP in Ekaterinburg - major annual industry event",
+        "show": 90,
         "hide": 9007199254740991
       }
     ]
@@ -1247,74 +1271,80 @@
     "subtitles": [
       {
         "ru": "2 место в России по объему оказания высокотехнологичной медицинской помощи",
-        "en": "2nd largest in Russia for high-tech medical care",
-        "show": null,
-        "hide": 9007199254740991
+        "en": "2nd largest in Russia in terms of high-tech medical care",
+        "show": 8,
+        "hide": 12
       },
       {
-        "ru": "более 10 000 операций – самый высокий показатель РФ в офтальмологии по количеству проведенных фемтосекундных операций Smile",
-        "en": "more than 10,000 surgeries - the highest indicator of the Russian Federation in ophthalmology for the number of Smile femtosecond operations performed ",
-        "show": null,
-        "hide": 9007199254740991
+        "ru": "более 10 000 фемтосекундных операций Smile – самый высокий показатель РФ в офтальмологии ",
+        "en": "more than 10,000 surgeries - the highest indicator of the Russian Federation in ophthalmology in terms of the number of Smile femtosecond operations performed ",
+        "show": 13,
+        "hide": 23
       },
       {
         "ru": "рекордное количество проводимых ангиопластик коронарных артерий",
         "en": "a record number of coronary angioplasty performed",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 24,
+        "hide": 34
       },
       {
         "ru": "95% успешных реабилитаций в институте мозга",
         "en": "95% of successful rehabilitation at Institute of Brain",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "Свердловская область – лидер в развитии системы перинатальной медицины",
-        "en": "the Sverdlovsk Region is a leader in the development of perinatal medicine ",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "6 млрд. рублей – годовой объём выпуска изделий медицинского назначения",
-        "en": "the annual output of 6 billion rubles for medical products",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "более 600 млн. рублей – годовой экспорт лекарств и медтехники",
-        "en": "the annual export volume of more than 600 million rubles for drugs and medical equipment",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "4 крупных производства лекарственных препаратов",
-        "en": "4 large manufacturers of medicines",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "«Триазавирин» – препарат с доказанным клиническим действием в профилактике COVID-19",
-        "en": "Triazavirin is a drug with proven clinical action in the prevention of COVID-19",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "Около 50 предприятий, занимающихся выпуском медтехники",
-        "en": "About 50 enterprises are engaged in the production of medical equipment",
-        "show": null,
-        "hide": 9007199254740991
-      },
-      {
-        "ru": "Основные объемы: аппараты ИВЛ, кювезы для неонатальной реабилитации ",
-        "en": "The main volumes are: lung ventilators, incubators for neonatal rehabilitation",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 35,
+        "hide": 46
       },
       {
         "ru": "30% муфелей для производства зубных протезов в мире выпускаются в Свердловской области",
         "en": "30% of muffles for dentures in the world are produced in the Sverdlovsk region ",
-        "show": null,
+        "show": 47,
+        "hide": 56
+      },
+      {
+        "ru": "Свердловская область – лидер в развитии системы перинатальной медицины",
+        "en": "the Sverdlovsk Region is a leader in the development of perinatal medicine ",
+        "show": 57,
+        "hide": 69
+      },
+      {
+        "ru": "90% от общероссийского производства составляет выпуск инкубаторов для новорожденных ",
+        "en": "90% of the total Russian production of incubators for newborns",
+        "show": 70,
+        "hide": 77
+      },
+      {
+        "ru": "6 млрд. рублей – годовой объём выпуска изделий медицинского назначения",
+        "en": "an annual output of 6 billion rubles for medical products",
+        "show": 78,
+        "hide": 86
+      },
+      {
+        "ru": "более 600 млн. рублей – годовой экспорт лекарств и медтехники",
+        "en": "an annual export volume of more than 600 million rubles for drugs and medical equipment",
+        "show": 87,
+        "hide": 91
+      },
+      {
+        "ru": "4 крупных производства лекарственных препаратов",
+        "en": "4 large manufacturers of medicines",
+        "show": 92,
+        "hide": 97
+      },
+      {
+        "ru": "«Триазавирин» – препарат с доказанным клиническим действием в профилактике COVID-19",
+        "en": "Triazavirin is a drug with proven clinical action in the prevention of COVID-19",
+        "show": 98,
+        "hide": 104
+      },
+      {
+        "ru": "Около 50 предприятий, занимающихся выпуском медтехники",
+        "en": "About 50 enterprises are engaged in the production of medical equipment",
+        "show": 105,
+        "hide": 114
+      },
+      {
+        "ru": "Основные объемы: аппараты ИВЛ, кювезы для неонатальной реабилитации ",
+        "en": "Main volumes are: lung ventilators, incubators for neonatal rehabilitation",
+        "show": 115,
         "hide": 9007199254740991
       }
     ]
@@ -1333,54 +1363,72 @@
         "ru": "Приборостроение – одна из ключевых отраслей  машиностроительного комплекса Свердловской области",
         "en": "Instrument engineering is one of the key sectors of the machine-building complex of the Sverdlovsk region",
         "show": 8,
-        "hide": 12
+        "hide": 17
       },
       {
         "ru": "Объем производства предприятий приборостроения – 48 266 млн.рублей",
         "en": "The volume of production of instrument-making enterprises is 48,266 million rubles",
-        "show": 13,
-        "hide": 20
+        "show": 18,
+        "hide": 27
       },
       {
-        "ru": "Основной ассортимент: сложнейшие гироскопические приборы и оборудование авиационного назначения, контрольно-проверочное оборудование, медтехника, системы управления и радиоэлектронной аппаратуры для ракетно-космической техники, систем управления для автоматизации технологических процессов в различных отраслях промышленности",
-        "en": "The main assortment is: the most complex gyroscopic instruments and equipment for aviation purposes, control and testing equipment, medical equipment, control systems and radio electronic equipment for rocket and space technology, control systems for the automation of technological processes in various industries",
-        "show": 21,
-        "hide": 35
+        "ru": "Основной ассортимент: сложнейшие гироскопические приборы и оборудование авиационного назначения, контрольно-проверочное оборудование, медтехника,",
+        "en": "The main assortment is: the most complex gyroscopic instruments and equipment for aviation purposes, control and testing equipment, medical equipment, ",
+        "show": 28,
+        "hide": 34
       },
       {
-        "ru": "АО «НПО автоматики им. Академика Н.А. Семихатова» — лидер в области разработки и изготовления систем управления и радиоэлектронной аппаратуры",
-        "en": "JSC NPO Automatics named after Academician N.A. Semikhatov is a leader in the development and manufacture of control systems and electronic equipment",
-        "show": 36,
-        "hide": 43
+        "ru": "системы управления и радиоэлектронной аппаратуры для ракетно-космической техники, систем управления для автоматизации технологических процессов в различных отраслях промышленности",
+        "en": "control systems and radio electronic equipment for rocket and space technology, control systems for the automation of technological processes in various industries",
+        "show": 35,
+        "hide": 38
+      },
+      {
+        "ru": "«Уралгидромаш» - крупное многоотраслевое предприятие гидромашин и электрических машин,  производящее оборудование для более 50 стран мира",
+        "en": "Uralgidromash is a large intersectoral enterprise of hydraulic and electrical machines, producing equipment for more than 50 countries of the world",
+        "show": 39,
+        "hide": 44
       },
       {
         "ru": "Системы управления, произведённые на НПО Автоматики, сейчас используются для запуска космических аппаратов на космодромах Байконур (Казахстан), Плесецк (Россия), Куру (Французская Гвиана)",
         "en": "Control systems produced at NPO Automatics are now used to launch spacecraft at the Baikonur (Kazakhstan), Plesetsk (Russia), Kuru (French Guiana) cosmodromes",
-        "show": 44,
-        "hide": 51
+        "show": 45,
+        "hide": 49
       },
       {
-        "ru": "«Уральский электронный завод» — первое в России предприятие, запустившее производство оптических носителей (флешки, DVD-диски и т.д.)",
-        "en": "Ural Electronic Plant is the first enterprise in Russia to launch the production of optical media (flash drives, DVDs, etc.)",
-        "show": 52,
-        "hide": 68
+        "ru": "160 наименований кабеля и более 14000 маркоразмеров проводов с медными и с алюминиевыми жилами выпускает завод «Уралкабель»",
+        "en": "160 types of cables and more than 14,000 sizes of wires with copper and aluminum conductors are produced by Uracable plant",
+        "show": 50,
+        "hide": 59
       },
       {
         "ru": "4 производителя аппаратов искусственной вентиляции, рекомендуемых для использования в лечебных учреждениях, находятся в Екатеринбурге",
-        "en": "4 manufacturers of artificial ventilation devices recommended for hospital use are located in Yekaterinburg",
-        "show": 69,
-        "hide": 78
+        "en": "4 manufacturers of artificial ventilation devices recommended for hospital use are located in Ekaterinburg",
+        "show": 60,
+        "hide": 73
       },
       {
         "ru": "Швабе – лидер по производству приборов неонатальной реабилитации",
         "en": "Shvabe is a leader in the production of neonatal rehabilitation devices",
-        "show": 79,
-        "hide": 100
+        "show": 74,
+        "hide": 77
       },
       {
         "ru": "«Уральский приборостроительный завод» производит около 3000 аппаратов ИВЛ ежемесячно",
         "en": "Ural Instrument-Making Plant produces about 3,000 lung ventilators monthly",
-        "show": 101,
+        "show": 78,
+        "hide": 87
+      },
+      {
+        "ru": " \n«Уральский электронный завод» — первое в России предприятие, запустившее производство оптических носителей. (флешки, DVD-диски и тд)",
+        "en": "Ural Instrument-Making Plant produces about 3,000 lung ventilators monthly",
+        "show": 88,
+        "hide": 99
+      },
+      {
+        "ru": "«Семихатовские чтения» —отраслевая  научно-практическая конференция традиционно проводится в Екатеринбурге",
+        "en": "Semikhatov Readings is a branch scientific-practical conference traditionally held in Ekaterinburg",
+        "show": 100,
         "hide": 9007199254740991
       }
     ]
@@ -1417,12 +1465,12 @@
         "ru": "135 млрд. рублей  – объём отгруженных товаров предприятий пищевой отрасли ",
         "en": "135 billion rubles is the volume of goods sold by food industry enterprises",
         "show": 30,
-        "hide": 37
+        "hide": 39
       },
       {
-        "ru": "6,8 млрд. рублей — объём  продукции, поставленной за рубеж",
-        "en": "6.8 billion rubles is the volume of products supplied abroad",
-        "show": 38,
+        "ru": "Объём инвестиций в предприятия пищевой промышленность в 2019 году превысил 3,5 млрд. рублей",
+        "en": "the volume of investments in food industry enterprises exceeded 3.5 billion rubles in 2019",
+        "show": 40,
         "hide": 44
       },
       {
@@ -1435,36 +1483,78 @@
         "ru": "В ТОП-5 ведущих производителей жировых пищевых продуктов России входит «Жировой комбинат» Свердловской области",
         "en": "Zhirovoy kombinat of the Sverdlovsk Region is in the TOP 5 leading manufacturers of fatty food products in Russia ",
         "show": 51,
+        "hide": 57
+      },
+      {
+        "ru": "Майонез «ЕЖК Провансаль» – № 1 по потреблению в регионе",
+        "en": "Mayonnaise EZhK Provansal is No. 1 in terms of consumption in the region",
+        "show": 58,
         "hide": 64
       },
       {
         "ru": "В ТОП-10 по среднесуточному надою и объёмам реализации молока вошла Свердловская область",
         "en": "The Sverdlovsk Region is in the TOP 10 for average daily milk yield and milk sales volumes",
         "show": 65,
-        "hide": 84
+        "hide": 69
       },
       {
-        "ru": "Объём инвестиций в предприятия пищевой промышленность в 2019 году превысил 3,5 млрд. рублей",
-        "en": "the volume of investments in food industry enterprises exceeded 3.5 billion rubles in 2019",
-        "show": 85,
-        "hide": 101
+        "ru": "Ирбитский молочный завод перерабатывает 30% молока в Свердловской области ",
+        "en": "Irbit Dairy Plant processes 30% of milk in the Sverdlovsk Region",
+        "show": 70,
+        "hide": 79
       },
       {
-        "ru": "Предприятия региона полностью обеспечивают потребности населения в картофеле, яйцах",
-        "en": "Enterprises of the region fully meet the needs of the population in potatoes and eggs",
-        "show": 102,
-        "hide": 123
+        "ru": "6,8 млрд. рублей — объём  продукции, поставленной за рубеж",
+        "en": "6.8 billion rubles is the volume of products supplied abroad",
+        "show": 80,
+        "hide": 89
+      },
+      {
+        "ru": "Местными предприятиями выпускается весь ассортимент продукции, представленной на рынке Свердловской области",
+        "en": "Local enterprises manufacture the entire range of products on the market of the Sverdlovsk region",
+        "show": 90,
+        "hide": 99
       },
       {
         "ru": "ФГБОУ «Уральский государственный аграрный университет» выпускает более 1000 специалистов отрасли ежегодно",
         "en": "FSBEI Ural State Agrarian University graduates more than 1,000 industry specialists annually",
-        "show": 124,
-        "hide": 145
+        "show": 100,
+        "hide": 109
       },
       {
-        "ru": "Проектная мощность селекционного предприятия «Уральский картофель» 10 000 тонн семян категории «Юлита»",
-        "en": "Rated capacity of the breeding enterprise Uralskiy Kartofel is 10,000 tons of Yulita seeds category",
-        "show": 146,
+        "ru": "Проектная мощность  предприятия \"Черкашин и партнеры\" – 100 тонн мясной и колбасной продукции в сутки",
+        "en": "The designed capacity of Cherkashin & Partners enterprise is 100 tons of meat and sausage products per day",
+        "show": 110,
+        "hide": 119
+      },
+      {
+        "ru": "свежий хлеб и булочки «СМАК» поставляются на территорию проживания 17 млн. человек",
+        "en": "SMAK fresh bread and buns are supplied to the territory of residence of 17 million people",
+        "show": 120,
+        "hide": 126
+      },
+      {
+        "ru": "на предприятии установлена уникальная для российского рынка линия по выпечке французской сдобы",
+        "en": "the enterprise has installed a French muffins baking line unique for the Russian market",
+        "show": 127,
+        "hide": 139
+      },
+      {
+        "ru": "в Верхотурском районе расположено первое в России производство гранулированного иван-чая",
+        "en": "the first in Russia production of granulated Ivan-tea is located in Verkhotursky district",
+        "show": 140,
+        "hide": 144
+      },
+      {
+        "ru": "Расчётная мощность линии иван-чая на 2020 год — 300 тонн готовой продукции",
+        "en": "Estimated capacity of the Ivan-tea line for 2020 is 300 tons of finished products",
+        "show": 145,
+        "hide": 149
+      },
+      {
+        "ru": " Продовольственная безопасность региона только укрепляется",
+        "en": "Food security in the region has been strengthened",
+        "show": 150,
         "hide": 9007199254740991
       }
     ]
@@ -1489,12 +1579,18 @@
         "ru": "250 млн. рублей – объём продукции, экспортируемой за рубеж ежегодно",
         "en": "250 million rubles is the volume of products exported abroad annually",
         "show": 15,
-        "hide": 20
+        "hide": 19
+      },
+      {
+        "ru": "60% продукции мануфактуры Shishkin продается за рубеж, в частности в Германию и Австрию",
+        "en": "60% of Shishkin's textile products are sold abroad, to Germany and Austria in particular",
+        "show": 20,
+        "hide": 24
       },
       {
         "ru": "674 текстильных и швейных предприятий  в регионе",
         "en": "674 textile and clothing companies in the region",
-        "show": 21,
+        "show": 25,
         "hide": 28
       },
       {
@@ -1513,18 +1609,30 @@
         "ru": "Основной ассортимент: спецодежда, средства защиты",
         "en": "The main assortment is: workwear and protective equipment",
         "show": 48,
-        "hide": 61
+        "hide": 64
       },
       {
         "ru": "30 организаций удостоены знака «100 лучших товаров России» ",
         "en": "30 organizations are the winners of the program 100 best goods of Russia",
-        "show": 62,
-        "hide": 85
+        "show": 65,
+        "hide": 79
       },
       {
         "ru": "18 предприятий отмечены знаком «Екатеринбургское качество»",
-        "en": "18 enterprises are marked with the Yekaterinburg quality label",
-        "show": 86,
+        "en": "18 enterprises are marked with the Ekaterinburg quality label",
+        "show": 80,
+        "hide": 89
+      },
+      {
+        "ru": "Неделя моды в Екатеринбурге (EKBFW) - отраслевое событие Урало-Сибирского региона",
+        "en": "Ekaterinburg Fashion Week (EKBFW) is an industry event in the Ural-Siberian region",
+        "show": 90,
+        "hide": 113
+      },
+      {
+        "ru": "детская одежда и карнавальные костюмы уральского бренда batik реализуются в 7 городах-миллионниках",
+        "en": "children's clothing and carnival costumes of the Ural brand batik are sold in 7 cities with over a million people",
+        "show": 114,
         "hide": 9007199254740991
       }
     ]
@@ -1672,7 +1780,7 @@
     "section_en": "Investment policy ",
     "subtitles": [
       {
-        "ru": "Область входит в группу регионов с высокой инвестиционной привлекательностью ",
+        "ru": "Свердловская область входит в группу регионов с высокой инвестиционной привлекательностью ",
         "en": "The region is in the group of places with high investment attractiveness",
         "show": 8,
         "hide": 15
@@ -1681,96 +1789,114 @@
         "ru": "входит в ТОП-10 в интегральном рейтинге инвестпотенциала регионов России  ",
         "en": "is in the TOP 10 in the integrated rating of investment potential of Russian regions",
         "show": 16,
-        "hide": 23
+        "hide": 19
       },
       {
         "ru": "Инвестиционный рейтинг – 1В (высокий потенциал – умеренный риск)",
         "en": "Investment rating is 1B (high potential - moderate risk)",
-        "show": 24,
-        "hide": 28
+        "show": 20,
+        "hide": 24
       },
       {
         "ru": "450 млрд. рублей – объём инвестиций в основной капитал в 2019 году",
         "en": "450 billion rubles is the volume of investments in fixed assets in 2019",
-        "show": 29,
-        "hide": 36
+        "show": 25,
+        "hide": 29
       },
       {
         "ru": "планируемый уровень  инвестиций не менее 560 млрд. рублей",
         "en": "the planned investment level is at least 560 billion rubles",
-        "show": 37,
-        "hide": 40
+        "show": 30,
+        "hide": 34
       },
       {
-        "ru": "2 место в УрФО по уровню развития ГЧП",
-        "en": "2nd place in Ural Federal District in terms of PPP development",
-        "show": 41,
-        "hide": 47
+        "ru": "В Свердловской области создана развитая инфраструктура для поддержки бизнеса",
+        "en": "A well-developed infrastructure to support business has been created in the Sverdlovsk region ",
+        "show": 35,
+        "hide": 39
+      },
+      {
+        "ru": "Областной Фонд поддержки предпринимательства, Венчурный фонд, бизнес-инкубаторы и технопарки",
+        "en": "Regional Fund for Entrepreneurship Support, Venture Fund, business incubators and technoparks",
+        "show": 40,
+        "hide": 44
+      },
+      {
+        "ru": "Создан интегральный институт развития – Агентство по привлечению инвестиций Свердловской области",
+        "en": "An integral development institution was created - the Agency of Investment Promotion of the Sverdlovsk Region",
+        "show": 45,
+        "hide": 49
       },
       {
         "ru": "9 действующих и 2 проектируемых индустральных парка",
         "en": "9 operating and 2 planned industrial parks",
-        "show": 48,
-        "hide": 53
+        "show": 50,
+        "hide": 54
       },
       {
-        "ru": "210 резидентов индустриальных парков в 2019 году  и 2430 вновь созданных рабочих мест",
+        "ru": "210 резидентов индустриальных парков в 2019 году и 2430 созданных рабочих мест",
         "en": "210 residents of industrial parks in 2019 and 2,430 new jobs",
-        "show": 54,
-        "hide": 63
+        "show": 55,
+        "hide": 59
       },
       {
         "ru": "27,9 млрд. рублей – планируемые инвестиции резидентами двух новых ТОРов в г.Новоуральск и г.Лесной ",
         "en": "27.9 billion rubles of planned investments by residents of two new ASEZs in Novouralsk and Lesnoy",
-        "show": 64,
+        "show": 60,
         "hide": 69
       },
       {
         "ru": "5,8 млрд. рублей – выдано кредитов малому бизнесу с поручительством СОФПП ",
         "en": "5.8 billion rubles of loans issued to small businesses with the guarantee of SOFPP",
         "show": 70,
-        "hide": 76
+        "hide": 77
       },
       {
         "ru": "1,8 млрд. рублей – заявленный объём инвестиций по проектам, сопровождаемым Агентством по привлечению инвестиций",
         "en": "1.8 billion rubles is the declared volume of investments for projects supported by the Agency of Investment Promotion ",
-        "show": 77,
-        "hide": 83
-      },
-      {
-        "ru": "региональные институты развития – Агентство по привлечению инвестиций Свердловской области, КРСУ, СОФПП",
-        "en": "regional development institutions are the Agency of Investment Promotion of the Sverdlovsk region, KRSU, SOFPP ",
-        "show": 84,
+        "show": 78,
         "hide": 89
       },
       {
-        "ru": "в АНО реализован новый формат сопровождения инвестиционных проектов по принципу «одного окна»  ",
-        "en": "ANO has implemented a new format for supporting investment projects on the principle of \"one window\"",
+        "ru": "Эффективность преференций  — более 7 рублей инвестиций на 1 рубль налоговых льгот",
+        "en": "Effectiveness of preferences - more than 7 rubles of investments for 1 ruble of tax benefits",
         "show": 90,
-        "hide": 95
+        "hide": 94
+      },
+      {
+        "ru": "Реализован новый формат сопровождения инвестиционных проектов по принципу «одного окна»  ",
+        "en": "ANO has implemented a new format for supporting investment projects on the principle of \"one window\"",
+        "show": 95,
+        "hide": 99
+      },
+      {
+        "ru": "Открыт Центр компетенций в сфере сельхозкооперации и поддержки фермерства",
+        "en": "The Competence Center in the field of agricultural cooperation and farming support was opened",
+        "show": 100,
+        "hide": 104
       },
       {
         "ru": "В Свердловской области создан первый в России Центр франчайзинга ",
         "en": "The first Franchising Center in Russia was established in the Sverdlovsk Region",
-        "show": 96,
-        "hide": 101
+        "show": 105,
+        "hide": 109
       },
       {
         "ru": "2 центра поддержки «Мой бизнес» действуют на территории Свердловской области",
         "en": "2 support centers My Business operate in the Sverdlovsk region",
-        "show": 102,
-        "hide": 106
-      },
-      {
-        "ru": "внедрена технология «кредитный конвейер»",
-        "en": "the credit conveyor technology was introduced",
-        "show": 107,
-        "hide": 111
+        "show": 110,
+        "hide": 112
       },
       {
         "ru": "создана единая витрина на Alibaba.com для товаров 100 компаний Свердловской области",
         "en": "a single showcase was created on Alibaba.com for the goods of 100 companies in the Sverdlovsk region",
-        "show": 112,
+        "show": 113,
+        "hide": 119
+      },
+      {
+        "ru": "Крупнейшие мировые компании уже по достоинству оценили преимущества ведения бизнеса в Свердловской области",
+        "en": "The world's largest companies have already appreciated the advantages of doing business in the Sverdlovsk region",
+        "show": 120,
         "hide": 9007199254740991
       }
     ]
@@ -1786,45 +1912,201 @@
     "section_en": "Building supplies",
     "subtitles": [
       {
-        "ru": "Свердловская область входит в ТОП-5 регионов по количеству строительных компаний",
-        "en": "The Sverdlovsk Region is in the TOP 5 regions by the number of construction companies",
+        "ru": "95% стройматериалов, из которых возводится жильё, производится на территории Свердловской области",
+        "en": "95% of building materials used for housing are produced in the Sverdlovsk region",
         "show": 8,
         "hide": 14
       },
       {
-        "ru": "95% стройматериалов, из которых возводится жильё, производится на территории Свердловской области",
-        "en": "95% of building materials used for housing are produced in the Sverdlovsk region",
-        "show": 15,
-        "hide": 35
-      },
-      {
         "ru": "собственные цемент, железобетонные изделия, стеновые материалы, кирпич, теплоизоляция ",
         "en": "own production of cement, reinforced concrete products, wall materials, bricks, thermal insulation",
-        "show": 36,
-        "hide": 50
+        "show": 15,
+        "hide": 19
+      },
+      {
+        "ru": "объёмы производства отдельных стройматериалов:",
+        "en": "production volumes of some building materials:",
+        "show": 20,
+        "hide": 29
+      },
+      {
+        "ru": "цемент 4230 тыс. тонн",
+        "en": "cement - 4,230 thousand tons",
+        "show": 30,
+        "hide": 39
+      },
+      {
+        "ru": "ЖБИ – 289 тыс. кв.м.",
+        "en": "reinforced concrete products - 289 thousand sq.m.",
+        "show": 40,
+        "hide": 49
+      },
+      {
+        "ru": "кирпич – 176 млн. шт",
+        "en": "brick - 176 million pcs",
+        "show": 50,
+        "hide": 59
+      },
+      {
+        "ru": "Металл профиль – №1 в мире по производству стальных кровель и фасадов.\n20 лет продукция компании представлена на рынке металлочерепицы и профлиста",
+        "en": "Metal profile - No. 1 in the world in the production of steel roofs and facades.\r\n\r\nFor 20 years, the company's products are presented on the market of metal tiles and profiled sheets\r\n",
+        "show": 60,
+        "hide": 76
+      },
+      {
+        "ru": "В Свердловской области 3 предприятия цементной промышленности: в городах Сухой Лог, Невьянск и Екатеринбург",
+        "en": "In Sverdlovsk region, there are 3 enterprises of the cement industry: in Sukhoy Log, Nevyansk and Ekaterinburg",
+        "show": 77,
+        "hide": 89
+      },
+      {
+        "ru": "Brozex Group – крупный производитель и поставщик строительных и отделочных материалов в Екатеринбурге и Свердловской области для оптовых покупателей",
+        "en": "Brozex Group is a large manufacturer and supplier of construction and finishing materials in Yekaterinburg and the Sverdlovsk region for wholesale customers",
+        "show": 90,
+        "hide": 104
+      },
+      {
+        "ru": "ОДИН ИЗ ПРИОРИТЕТНЫХ ИНВЕСТИЦИОННЫХ ПРОЕКТОВ СВЕРДЛОВСКОЙ ОБЛАСТИ – СТРОИТЕЛЬСТВО НОВОГО ЦЕМЕНТНОГО ЗАВОДА ПОД СЫСЕРТЬЮ. НА ПРЕДПРИЯТИИ ПЛАНИРУЕТСЯ ПРОИЗВОДСТВО БЕЛОГО ЦЕМЕНТА",
+        "en": "One of the priority investment projects of the Sverdlovsk Region is the construction of a new cement plant near Sysert. The enterprise plans to produce white cement",
+        "show": 105,
+        "hide": 119
+      },
+      {
+        "ru": "общая площадь введенных зданий - 4123 тыс. кв.м.",
+        "en": "total area of commissioned buildings is 4,123 thousand sq.m.",
+        "show": 120,
+        "hide": 129
+      },
+      {
+        "ru": "2,4 млн кв.м. жилья строится ежегодно",
+        "en": "2 million sq.m. of housing are built annually",
+        "show": 130,
+        "hide": 139
       },
       {
         "ru": "Свердловская область входит в ТОП-10 регионов по объёму ввода жилья в эксплуатацию",
         "en": "The Sverdlovsk Region is in the TOP 10 regions for housing delivery",
-        "show": 51,
-        "hide": 78
+        "show": 140,
+        "hide": 9007199254740991
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "splash": "/content/splash/z5.mp4",
+    "splash2016": "/content/splash/splash2016/z.5..mp4",
+    "video": "/content/video/5.mp4",
+    "logo": "/content/logos/1920_1080/бриф 5.jpg",
+    "logo2016": "/content/logos/БРИФ 5 2016 на 840.jpg",
+    "section_ru": "Комфортная среда ",
+    "section_en": "Comfortable environment",
+    "subtitles": [
+      {
+        "ru": "Свердловская область место удобное для жизни и бизнеса",
+        "en": "The Sverdlovsk region is a comfortable place for life and business",
+        "show": 8,
+        "hide": 12
       },
       {
-        "ru": "2 млн кв.м. жилья строится ежегодно",
-        "en": "2 million sq.m. of housing are built annually",
-        "show": 79,
+        "ru": "Население Свердловской области 4,3 миллиона человек: 5 место в России",
+        "en": "the population of the Sverdlovsk region is 4.3 million people: 5th place in Russia",
+        "show": 13,
+        "hide": 16
+      },
+      {
+        "ru": "Миграционный прирост более 6000 человек ежегодно",
+        "en": "the working age population of the region numbers 2.2 million people",
+        "show": 17,
+        "hide": 20
+      },
+      {
+        "ru": "Наиболее крупные города региона: Екатеринбург, Нижний Тагил, Каменск-Уральский, Первоуральск, Асбест, Серов",
+        "en": "The largest cities in the region: Ekaterinburg, Nizhny Tagil, Kamensk-Uralsky, Pervouralsk, Asbest, Serov",
+        "show": 21,
+        "hide": 28
+      },
+      {
+        "ru": "4 место в рейтинге российских городов по индексу Креативного капитала — система оценки реализованного и скрытого потенциала\n городов в сфере новой экономики PricewaterhouseCoopers",
+        "en": "4th place in the rating of Russian cities according to the Creative Capital Index – a system for assessing the realized and hidden potential of cities within the new economy PricewaterhouseCoopers",
+        "show": 29,
+        "hide": 35
+      },
+      {
+        "ru": "Продолжительность жизни 72 года",
+        "en": "life expectancy is 72 years ",
+        "show": 36,
+        "hide": 40
+      },
+      {
+        "ru": "2 400 000 кв. м. – объем ввода нового жилья в регионе",
+        "en": "2,400,000 sq.m. - the volume of new housing produced in the region",
+        "show": 41,
+        "hide": 59
+      },
+      {
+        "ru": "ПЕРСПЕКТИВНЫЕ РАЙОНЫ ЕКАТЕРИНБУРГА ПОД КОМПЛЕКСНУЮ ЗАСТРОЙКУ: СОЛНЕЧНЫЙ, НОВОКОЛЬЦОВСКИЙ, ИЗУМРУДНЫЙ БОР, НОВЫЙ ИСТОК",
+        "en": "Promising districts of Ekaterinburg for complex development are: Solnechny, Novokoltsovsky, Izumrudnyj Bor, Novyj Istok",
+        "show": 60,
+        "hide": 76
+      },
+      {
+        "ru": "Район «Академический» в Екатеринбурге - первый в новой России пример комплексного освоения территории",
+        "en": "New district of Ekaterinburg like Akademicheskiy are the examples of the territory integrated development",
+        "show": 77,
+        "hide": 87
+      },
+      {
+        "ru": "Более 300 инфраструктурных проектов, повышающих качество жизни",
+        "en": "over 300 infrastructure projects that increase the quality of life",
+        "show": 88,
+        "hide": 92
+      },
+      {
+        "ru": "Создаваемые для комфортной жизни в регионе объекты:",
+        "en": "Sites created for a comfortable life in the region:",
+        "show": 93,
         "hide": 94
       },
       {
-        "ru": "ТОП-5 ритейлеров строительных материалов присутствуют в регионе, которые реализуют строительные материалы местного производства",
-        "en": "the TOP5 retailers of building materials are present in the region, which sell building materials of local production",
+        "ru": "Ледовая арена в Екатеринбурге",
+        "en": "The Ice Arena in Ekaterinburg",
         "show": 95,
-        "hide": 103
+        "hide": 101
       },
       {
-        "ru": "В Свердловской области 20 частных инвестиционных проектов на общую сумму 18,2 млрд рублей",
-        "en": "There are 20 private investment projects in the Sverdlovsk region totaling 18.2 billion rubles",
-        "show": 104,
+        "ru": "Шарташский лесопарк в границах Екатеринбурга",
+        "en": "Shartash forest park within Ekaterinburg limits",
+        "show": 102,
+        "hide": 113
+      },
+      {
+        "ru": "исторический центр и набережная в Краснотурьинске",
+        "en": "the historical center and the embankment in Krasnoturyinsk",
+        "show": 114,
+        "hide": 128
+      },
+      {
+        "ru": "Тропа здоровья в г. Березовский с велодорожками",
+        "en": "the health path in Berezovsky with cycle tracks",
+        "show": 129,
+        "hide": 137
+      },
+      {
+        "ru": "набережная городского пруда в Нижнем Тагиле",
+        "en": "the pond embankment in  Nizhny Tagil",
+        "show": 138,
+        "hide": 147
+      },
+      {
+        "ru": "Новое здание Свердловской филармонии",
+        "en": "the new building of Sverdlovsk State Academic Philharmonic",
+        "show": 148,
+        "hide": 155
+      },
+      {
+        "ru": "Деревня Универсиады 2023, в будущем кампус УрФУ",
+        "en": "the Universiade Village 2023 is under construction – a future UrFU campus",
+        "show": 156,
         "hide": 9007199254740991
       }
     ]
