@@ -92,6 +92,14 @@ export class SSVideoComponent extends HTMLElement  {
     return this.#mainVideo.currentTime
   }
 
+  set volume(volume) {
+    if (this.#mainVideo) this.#mainVideo.volume = volume
+  }
+
+  get volume() {
+    return this.#mainVideo && this.#mainVideo.volume || null
+  }
+
   #initSubtitles = subtitles => {
     this.#ssNodeList = subtitles.map(ss => {
       const node = document.createElement("div")

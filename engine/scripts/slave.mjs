@@ -14,6 +14,16 @@ export class Slave {
 
   #ssData = []
 
+  #volume = 90
+  get volume() {
+    return this.#volume
+  }
+
+  set volume(volume) {
+    this.#volume = volume
+    this.#root.querySelectorAll("*").forEach(node => node.volume = this.#volume)
+  }
+
   constructor(id, root = document.body) {
     this.#id = id ?? UUIDv4()
     this.#qPath = `/lit3d/slave/${this.#id}`
@@ -46,6 +56,9 @@ export class Slave {
     await this.#qClient.subscribe(`${this.#qPath}/splash`, this.#splashCmd)
     await this.#qClient.publish(`${this.#qPath}/splash`, {})
 
+    await this.#qClient.subscribe(`${this.#qPath}/volume/set`, this.#setVolume)
+    await this.#qClient.publish(`${this.#qPath}/volume/set`, null)
+
     return this
   }
 
@@ -62,6 +75,7 @@ export class Slave {
     }
 
     const ssVideo = new SSVideoComponent(ssData, { muted })
+    ssVideo.volume = this.#volume
     
     ssVideo.addEventListener("ended", () => {
       this.#qClient.publish(`${this.#qPath}/ss/ended`, "1")
@@ -92,6 +106,7 @@ export class Slave {
     videoNode.muted = muted
     videoNode.loop = loop
     videoNode.src = src
+    videoNode.volume = this.#volume
 
     videoNode.addEventListener("ended", () =>{
       this.#qClient.publish(`${this.#qPath}/video/ended`, "1")
@@ -150,5 +165,11 @@ export class Slave {
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
     })
+  }
+
+  #setVolume = (volume) => {
+    console.log("setVolume", {volume})
+    if (!Number.isFinite(volume) || volume < 0 || volume > 100) return
+    this.volume = volume
   }
 }
