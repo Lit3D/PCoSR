@@ -14,15 +14,6 @@ export class Slave {
 
   #ssData = []
 
-  #listeners = {
-    [`${this.#qPath}/ss`]: this.#ssCmd,
-    [`${this.#qPath}/video`]: this.#videoCmd,
-    [`${this.#qPath}/audio`]: this.#audioCmd,
-    [`${this.#qPath}/image`]: this.#imageCmd,
-    [`${this.#qPath}/selectors`]: this.#selectorsCmd,
-    [`${this.#qPath}/webcam`]: this.#webcamCmd,
-  }
-
   constructor(id, root = document.body) {
     this.#id = id ?? UUIDv4()
     this.#root = root
@@ -36,9 +27,12 @@ export class Slave {
 
     // Init MQTT
     this.#qClient = await new QClient()
-    for (const [topic, fn] of Object.entries(this.#listeners)) {
-       await this.#qClient.subscribe(topic, fn)
-    }
+    await this.#qClient.subscribe(`${this.#qPath}/ss`, this.#ssCmd)
+    await this.#qClient.subscribe(`${this.#qPath}/video`, this.#videoCmd)
+    await this.#qClient.subscribe(`${this.#qPath}/audio`, this.#audioCmd)
+    await this.#qClient.subscribe(`${this.#qPath}/image`, this.#imageCmd)
+    await this.#qClient.subscribe(`${this.#qPath}/selectors`, this.#selectorsCmd)
+    await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
 
     return this
   }
