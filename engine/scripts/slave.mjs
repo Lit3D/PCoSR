@@ -63,14 +63,18 @@ export class Slave {
 
     const ssVideo = new SSVideoComponent(ssData, { muted })
     
-    ssVideo.addEventListener("ended", () => this.#qClient.publish(`${this.#qPath}/ss/ended`, "1"), { once: true })
+    ssVideo.addEventListener("ended", () => {
+      this.#qClient.publish(`${this.#qPath}/ss/ended`, "1")
+      this.#splashCmd()
+    }, { once: true, passive: true })
+
     ssVideo.addEventListener("timeupdate", () => this.#qClient.publish(`${this.#qPath}/ss/status`, JSON.stringify({
       src: ssVideo.src,
       muted: ssVideo.muted,
       loop: false,
       duration: ssVideo.duration,
       currentTime: ssVideo.currentTime,
-    })))
+    })), { passive: true })
 
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
@@ -89,20 +93,23 @@ export class Slave {
     videoNode.loop = loop
     videoNode.src = src
 
-    videoNode.addEventListener("ended", () => this.#qClient.publish(`${this.#qPath}/video/ended`, "1"), { once: true })
+    videoNode.addEventListener("ended", () =>{
+      this.#qClient.publish(`${this.#qPath}/video/ended`, "1")
+      this.#splashCmd()
+    }, { once: true, passive: true })
+
     videoNode.addEventListener("timeupdate", () => this.#qClient.publish(`${this.#qPath}/video/status`, JSON.stringify({
       src: videoNode.src,
       muted: videoNode.muted,
       loop: videoNode.loop,
       duration: videoNode.duration,
       currentTime: videoNode.currentTime,
-    })))
+    })), { passive: true })
 
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(videoNode)
       videoNode.play()
-      console.log("PLAY")
     })
   }
 
@@ -135,10 +142,11 @@ export class Slave {
   }
 
   #webcamCmd = ({ hdmi = 1 }) => {
-
+    console.log("webcamCmd", {hdmi})
   }
 
   #splashCmd = () => {
+    console.log("splashCmd", {})
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
     })
