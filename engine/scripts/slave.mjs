@@ -16,7 +16,7 @@ export class Slave {
 
   #volume = 90
   get volume() {
-    return this.#volume
+    return this.#volume / 100
   }
 
   set volume(volume) {
@@ -75,7 +75,7 @@ export class Slave {
     }
 
     const ssVideo = new SSVideoComponent(ssData, { muted })
-    ssVideo.volume = this.#volume
+    ssVideo.volume = this.volume
     
     ssVideo.addEventListener("ended", () => {
       this.#qClient.publish(`${this.#qPath}/ss/ended`, "1")
@@ -106,7 +106,7 @@ export class Slave {
     videoNode.muted = muted
     videoNode.loop = loop
     videoNode.src = src
-    videoNode.volume = this.#volume
+    videoNode.volume = this.volume
 
     videoNode.addEventListener("ended", () =>{
       this.#qClient.publish(`${this.#qPath}/video/ended`, "1")
