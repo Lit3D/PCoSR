@@ -10,12 +10,13 @@ export class Slave {
   #root = undefined
 
   #qClient = undefined
-  #qPath = `/lit3d/slave/${this.#id}`
+  #qPath = undefined
 
   #ssData = []
 
   constructor(id, root = document.body) {
     this.#id = id ?? UUIDv4()
+    this.#qPath = `/lit3d/slave/${this.#id}`
     this.#root = root
     return this.#init()
   }
