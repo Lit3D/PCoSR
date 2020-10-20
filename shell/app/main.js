@@ -32,7 +32,7 @@ app.commandLine.appendSwitch("video-threads", 48)
 app.commandLine.appendSwitch("disable-accelerated-mjpeg-decode")
 app.commandLine.appendSwitch("disable-accelerated-video-decode")
 app.commandLine.appendSwitch("disable-accelerated-video-encode")
-// app.disableHardwareAcceleration()
+app.disableHardwareAcceleration()
 
 //app.commandLine.appendSwitch("disk-cache-size","0")
 
