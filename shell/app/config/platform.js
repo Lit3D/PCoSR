@@ -17,4 +17,7 @@ const OS = `${type()} ${release()}`
 const PLATFORM = platform()
 const RAM = totalmem()
 
-module.exports = { ARCH, CPUS, HOSTNAME, MACS, IPv4, IPv6, NETWORKS, OS, PLATFORM, RAM }
+const [,,ENGINE_HOST] = /^\s*(https?:\/\/)?([^\/]{3,}).*$/i.exec(process.argv[1] || "") || ["","","localhost"]
+const ENGINE_URL = `https://${ENGINE_HOST}/engine/index.html`
+
+module.exports = { ARCH, CPUS, HOSTNAME, MACS, IPv4, IPv6, NETWORKS, OS, PLATFORM, RAM, ENGINE_HOST, ENGINE_URL }

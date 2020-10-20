@@ -1,10 +1,7 @@
 const { screen } = require("electron")
 const path = require("path")
 
-const { MACS, IPv4, IPv6, HOSTNAME } = require("./platform.js")
-
-const [,,ENGINE_HOST] = /^\s*(https?:\/\/)?([^\/]{3,}).*$/i.exec(process.argv[1] || "") || ["","","localhost"]
-const DEFAULT_ENGINE_URL = `https://${ENGINE_HOST}/engine/index.html`
+const { MACS, IPv4, IPv6, HOSTNAME, ENGINE_URL } = require("./platform.js")
 
 class Config {
   static GetDisplays = () =>
@@ -26,13 +23,12 @@ class Config {
   static GetConfig = () => {
     const config = this.GetFileConfig() ?? {
       id: HOSTNAME,
-      engine: DEFAULT_ENGINE_URL,
       viewPorts: this.GetDisplays().map(({ id, x, y, width, height }) => ({
         id, x, y, width, height,
         fullscreen: true,
       }))
     }
-    return {...config, mac: MACS[0], IPv4: IPv4[0], IPv6: IPv6[0], hostname: HOSTNAME }
+    return {...config, mac: MACS[0], IPv4: IPv4[0], IPv6: IPv6[0], hostname: HOSTNAME, engine: ENGINE_URL }
   }
 
   constructor() { throw new Error("Unconstructable class") }

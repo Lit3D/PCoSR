@@ -3,6 +3,7 @@ const WINDOW_OPTIONS = require("./window-options.js")
 
 const { DISPLAY } = require("./pages/index.js")
 const { Config } = require("./config/config.js")
+const { ENGINE_HOST } = require("./config/platform.js")
 
 const REMOTE_DEBUGGING_PORT = 1337
 const CHESS_BOARD_TIMEOUT = 3 * 1000 // 30s
