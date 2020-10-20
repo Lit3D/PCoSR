@@ -3,6 +3,9 @@ const path = require("path")
 
 const { MACS, IPv4, IPv6, HOSTNAME } = require("./platform.js")
 
+const [,,ENGINE_HOST] = /^\s*(https?:\/\/)?([^\/]{3,}).*$/i.exec(process.argv[1] || "") || ["","","localhost"]
+const DEFAULT_ENGINE_URL = `https://${ENGINE_HOST}/engine/index.html`
+
 class Config {
   static GetDisplays = () =>
     screen.getAllDisplays()
@@ -23,6 +26,7 @@ class Config {
   static GetConfig = () => {
     const config = this.GetFileConfig() ?? {
       id: HOSTNAME,
+      engine: DEFAULT_ENGINE_URL,
       viewPorts: this.GetDisplays().map(({ id, x, y, width, height }) => ({
         id, x, y, width, height,
         fullscreen: true,

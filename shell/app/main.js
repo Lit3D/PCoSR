@@ -4,8 +4,6 @@ const WINDOW_OPTIONS = require("./window-options.js")
 const { DISPLAY } = require("./pages/index.js")
 const { Config } = require("./config/config.js")
 
-const [,,ENGINE_HOST] = /^\s*(https?:\/\/)?([^\/]{3,}).*$/i.exec(process.argv[1] || "") || ["","","localhost"]
-
 const REMOTE_DEBUGGING_PORT = 1337
 const CHESS_BOARD_TIMEOUT = 3 * 1000 // 30s
 
@@ -61,11 +59,7 @@ function gpu() {
   windows.forEach(w => w.loadURL("chrome://gpu/"))
 }
 
-function devTools() {
-  windows.forEach(w => w.webContents.openDevTools())
-}
-
-function initViewPorts({viewPorts, mac, IPv4, IPv6, hostname}) {
+function initViewPorts({ engine, viewPorts, mac, IPv4, IPv6, hostname }) {
   for (const {id, x, y, width, height, fullscreen, content} of viewPorts) {
 
     const position =  fullscreen ? {
@@ -92,7 +86,7 @@ function initViewPorts({viewPorts, mac, IPv4, IPv6, hostname}) {
     !fullscreen && win.setSize(width, height)
 
     win.loadURL(DISPLAY({x, y, width, height, id: id, mac, IPv4, IPv6, hostname }))
-    const url = content || `https://ENGINE_HOST/${id}.html`
+    const url = content || `${engine}?id=${id}`
     setTimeout(() => allowClient && win && win.loadURL(url), CHESS_BOARD_TIMEOUT)
     
     win.show()
@@ -104,7 +98,6 @@ function initGlobalShortcut() {
   globalShortcut.register("CommandOrControl+G", gpu)
   globalShortcut.register("CommandOrControl+Q", exit)
   globalShortcut.register("CommandOrControl+U", urls)
-  globalShortcut.register("CommandOrControl+D", devTools)
   globalShortcut.register("F5", reload)
 }
 

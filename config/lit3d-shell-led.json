@@ -1,7 +1,8 @@
 {
   "id": "ss-led",
+  "engine": "https://srv-led.pcosr.local/engine/index.html",
   "viewPorts": [{
-    "id": "led",
+    "id": "0",
     "x": 0,
     "y": 0,
     "width": 2016,

@@ -1,100 +1,89 @@
 {
   "id": "ss-line",
+  "engine": "https://srv-led.pcosr.local/engine/index.html",
   "viewPorts": [{
     "id": "1",
     "x": 0,
     "y": 0,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=1"
+    "fullscreen": true
   },{
     "id": "2",
     "x": 1920,
     "y": 0,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=2"
+    "fullscreen": true
   },{
     "id": "3",
     "x": 3840,
     "y": 0,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=3"
+    "fullscreen": true
   },{
     "id": "4",
     "x": 5760,
     "y": 0,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=4"
+    "fullscreen": true
   },{
     "id": "5",
     "x": 0,
     "y": 1080,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=5"
+    "fullscreen": true
   },{
     "id": "6",
     "x": 1920,
     "y": 1080,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=6"
+    "fullscreen": true
   },{
     "id": "7",
     "x": 3840,
     "y": 1080,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=7"
+    "fullscreen": true
   },{
     "id": "8",
     "x": 5760,
     "y": 1080,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=8"
+    "fullscreen": true
   },{
     "id": "9",
     "x": 0,
     "y": 2160,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=9"
+    "fullscreen": true
   },{
     "id": "10",
     "x": 1920,
     "y": 2160,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=10"
+    "fullscreen": true
   },{
     "id": "11",
     "x": 3840,
     "y": 2160,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=11"
+    "fullscreen": true
   },{
     "id": "12",
     "x": 5760,
     "y": 2160,
     "width": 1920,
     "height": 1080,
-    "fullscreen": true,
-    "content": "https://srv-ss.pcosr.local/engine/?id=12"
+    "fullscreen": true
   }]
 }
