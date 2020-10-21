@@ -22,6 +22,7 @@ export class SSWebcamComponent extends HTMLElement  {
       // video: { width: 1920, height: 1080 },
       video: true,
     })
+    console.dir(stream)
     this.#videoNode.srcObject = stream
     this.#videoNode.autoplay = true
     // this.#videoNode.autoplay = true
