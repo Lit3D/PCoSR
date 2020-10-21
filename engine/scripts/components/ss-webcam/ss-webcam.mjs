@@ -17,14 +17,14 @@ export class SSWebcamComponent extends HTMLElement  {
   #init = async () => {
     this.#root.innerHTML = TEMPLATE
     this.#root.appendChild(this.#videoNode)
-
-    this.#videoNode.autoplay = true
-
     const stream = await navigator.mediaDevices.getUserMedia({
-      audio: true,
-      video: { width: 1920, height: 1080 },
+      audio: false,
+      // video: { width: 1920, height: 1080 },
+      video: true,
     })
     this.#videoNode.srcObject = stream
+    this.#videoNode.autoplay = true
+    // this.#videoNode.autoplay = true
     return this
   }
 
