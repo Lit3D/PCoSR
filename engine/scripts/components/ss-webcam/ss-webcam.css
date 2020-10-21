@@ -1,0 +1,35 @@
+:host {
+  --width: 100vw;
+  --height: 100vh;
+
+  position: relative;
+
+  width: var(--width);
+  min-width: var(--width);
+  max-width: var(--width);
+
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--height);
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  --width: 1440px;
+  --height: 810px;
+
+  display: block;
+
+  width: var(--width);
+  min-width: var(--width);
+  max-width: var(--width);
+
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--height);
+}
