@@ -15,6 +15,7 @@ export class SSWebcamComponent extends HTMLElement  {
   }
 
   #init = async () => {
+    console.dir("111111")
     this.#root.innerHTML = TEMPLATE
     this.#root.appendChild(this.#videoNode)
     const stream = await navigator.mediaDevices.getUserMedia({

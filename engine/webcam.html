@@ -12,7 +12,8 @@
     import { SSWebcamComponent } from "./scripts/components/ss-webcam/index.mjs"
     void async function main() {
       const ssWebcam = await new SSWebcamComponent()
-      document.body.appendChild(ssWebcam)
+      console.dir(ssWebcam)
+      // document.body.appendChild(ssWebcam)
     }()
   </script>
 </body>
