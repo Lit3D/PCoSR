@@ -158,7 +158,7 @@ export class Slave {
   }
 
   #webcamCmd = (options) => {
-    console.log("webcamCmd", {hdmi})
+    console.log("webcamCmd", {options})
     if (Object.keys(options).length === 0) return
 
     const ssWebcam = new SSWebcamComponent(options)
