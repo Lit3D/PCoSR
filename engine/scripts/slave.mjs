@@ -2,6 +2,7 @@ import { UUIDv4 } from "./uuid.mjs"
 import { QClient } from "./q-client.mjs"
 import { SSVideoComponent } from "./components/ss-video/index.mjs"
 import { SSSelectors } from "./components/ss-selectors/index.mjs"
+import { SSWebcamComponent } from "./components/ss-webcam/index.mjs"
 
 const SS_DATA_URL = "/assets/ss-data.json"
 
@@ -156,8 +157,15 @@ export class Slave {
     })
   }
 
-  #webcamCmd = ({ hdmi = 1 }) => {
-    console.log("webcamCmd", {hdmi})
+  #webcamCmd = async (options) => {
+    console.log("webcamCmd", {options})
+    if (Object.keys(options).length === 0) return
+
+    const ssWebcam = await new SSWebcamComponent(options)
+    requestAnimationFrame(() => {
+      this.#root.innerHTML = ""
+      this.#root.appendChild(ssWebcam)
+    })
   }
 
   #splashCmd = () => {

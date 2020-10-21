@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <script type="text/javascript" src="vendors/mqtt.min.js"></script>
+  <title>Lit3D Engine</title>
+</head>
+<body>
+  <script type="module">
+    import { SSWebcamComponent } from "./scripts/components/ss-webcam/index.mjs"
+    void async function main() {
+      const ssWebcam = await new SSWebcamComponent()
+      console.dir(ssWebcam)
+      // document.body.appendChild(ssWebcam)
+    }()
+  </script>
+</body>
+</html>
