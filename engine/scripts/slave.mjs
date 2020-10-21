@@ -161,7 +161,7 @@ export class Slave {
     console.log("webcamCmd", {options})
     if (Object.keys(options).length === 0) return
 
-    const ssWebcam = new SSWebcamComponent(options)
+    const ssWebcam = await new SSWebcamComponent(options)
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(ssWebcam)
