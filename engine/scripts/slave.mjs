@@ -157,7 +157,7 @@ export class Slave {
     })
   }
 
-  #webcamCmd = (options) => {
+  #webcamCmd = async (options) => {
     console.log("webcamCmd", {options})
     if (Object.keys(options).length === 0) return
 
