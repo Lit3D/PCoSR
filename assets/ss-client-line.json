@@ -23,11 +23,11 @@
   },{
     "id": 6,
     "wrapper": true,
-    "selector": { "top": "10", "bottom": "07" }
+    "selector": { "top": "10", "bottom": "7" }
   },{
     "id": 7,
     "wrapper": true,
-    "selector": { "top": "18", "bottom": "08" }
+    "selector": { "top": "18", "bottom": "8" }
   },{
     "id": 8,
     "wrapper": true,
@@ -35,7 +35,7 @@
   },{
     "id": 9,
     "wrapper": true,
-    "selector": { "top": "16", "bottom": "05" }
+    "selector": { "top": "16", "bottom": "5" }
   },{
     "id": 10,
     "wrapper": true,
