@@ -1,5 +1,11 @@
 .ss-client-line {
   display: grid;
   grid-template-columns: 1920px 1920px 1920px 1920px;
-  grid-template-rows: 540px 540px 540px 540px 540px 540px;
+  grid-template-rows: 1080px 1080px 1080px;
+
+  --ss-selector-width: 100%;
+  --ss-selector-height: 100%;
+
+  --ss-video-width: 100%;
+  --ss-video-height: 100%;
 }
