@@ -194,7 +194,7 @@ export class Slave {
       return
     }
 
-    const ssSelectorComponent = await new SSSelectorComponent({ top: ssTop, bottom: ssBottom })
+    const ssSelectorComponent = new SSSelectorComponent({ top: ssTop, bottom: ssBottom })
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(ssSelectorComponent)
