@@ -1,6 +1,6 @@
 :host {
-  --width: 100vw;
-  --height: 100vh;
+  --width: var(--ss-webcam-width, 100vw);
+  --height: var(--ss-webcam-height, 100vh);
 
   position: relative;
 

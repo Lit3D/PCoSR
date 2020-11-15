@@ -1,7 +1,6 @@
 :host {
-  display: block;
-  --width: var(--ss-width, 100vw);
-  --height: var(--ss-height, 100vh);
+  --width: var(--ss-selector-width, 100vw);
+  --height: var(--ss-selector-height, 100vh);
 
   position: relative;
 

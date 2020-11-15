@@ -1,7 +1,7 @@
 :host {
   display: block;
-  --width: 100vw;
-  --height: 100vh;
+  --width: var(--ss-video-width, 100vw);
+  --height: var(--ss-video-height, 100vh);
 
   position: relative;
 
