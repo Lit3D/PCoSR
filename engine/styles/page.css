@@ -22,16 +22,5 @@ html, body {
 body {
   margin: 0;
   background-color: #000;
-  background-image: url(/assets/images/splash.png);
   color: rgb(255 255 255 / 0);
 }
-
-.sw--2016 {
-  background-image: url(/assets/images/splash2016.png)
-}
-
-/*.line-slave {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 50vh 50vh;
-}*/

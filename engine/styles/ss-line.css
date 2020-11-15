@@ -1,0 +1,5 @@
+.ss-line {
+  display: grid;
+  grid-template-columns: 1920px 1920px 1920px 1920px;
+  grid-template-rows: 540px 540px 540px 540px 540px 540px;
+}

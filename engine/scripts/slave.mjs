@@ -1,7 +1,6 @@
 import { UUIDv4 } from "./uuid.mjs"
 import { QClient } from "./q-client.mjs"
 import { SSVideoComponent } from "./components/ss-video/index.mjs"
-import { SSSelectors } from "./components/ss-selectors/index.mjs"
 import { SSWebcamComponent } from "./components/ss-webcam/index.mjs"
 
 const SS_DATA_URL = "/assets/ss-data.json"
@@ -33,9 +32,6 @@ export class Slave {
   }
 
   #init = async () => {
-    // Add body class
-    this.#root.classList.add(`sw--${window.screen.width}`)
-
     // Get SS Video Data
     const response = await fetch(SS_DATA_URL)
     this.#ssData = await response.json()
@@ -50,8 +46,6 @@ export class Slave {
     await this.#qClient.publish(`${this.#qPath}/audio`, {})
     await this.#qClient.subscribe(`${this.#qPath}/image`, this.#imageCmd)
     await this.#qClient.publish(`${this.#qPath}/image`, {})
-    await this.#qClient.subscribe(`${this.#qPath}/selectors`, this.#selectorsCmd)
-    await this.#qClient.publish(`${this.#qPath}/selectors`, {})
     await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
     await this.#qClient.publish(`${this.#qPath}/webcam`, {})
     await this.#qClient.subscribe(`${this.#qPath}/splash`, this.#splashCmd)
@@ -146,17 +140,6 @@ export class Slave {
     })
   }
 
-  #selectorsCmd = ({ top, bottom }) => {
-    console.log("selectorsCmd", {top, bottom})
-    if (top === undefined || bottom === undefined) return
-
-    const ssSelectors = new SSSelectors({ top, bottom })
-    requestAnimationFrame(() => {
-      this.#root.innerHTML = ""
-      this.#root.appendChild(ssSelectors)
-    })
-  }
-
   #webcamCmd = async (options) => {
     console.log("webcamCmd", {options})
     if (Object.keys(options).length === 0) return
@@ -170,9 +153,7 @@ export class Slave {
 
   #splashCmd = () => {
     console.log("splashCmd", {})
-    requestAnimationFrame(() => {
-      this.#root.innerHTML = ""
-    })
+    requestAnimationFrame(() => this.#root.innerHTML = "")
   }
 
   #setVolume = (volume) => {
