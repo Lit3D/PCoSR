@@ -32,10 +32,6 @@ node_modules
 ssl/*
 !ssl/.gitkeep
 
-### Content ###
-content/*
-!content/.gitkeep
-
 ### Nginx exclude configs ###
 nginx/*
 !nginx/conf
