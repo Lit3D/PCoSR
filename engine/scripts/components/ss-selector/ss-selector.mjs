@@ -13,6 +13,8 @@ export class SSSelectorComponent extends HTMLElement  {
   #bottomVideo = undefined
 
   constructor({ top, bottom } = {}) {
+    super()
+
     // Init root template
     this.#root.innerHTML = TEMPLATE
 
