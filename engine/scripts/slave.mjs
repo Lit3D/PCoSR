@@ -49,7 +49,7 @@ export class Slave {
         case "webcam":
           return () => this.#webcamCmd(data)
         case "selector":
-          return () => this.#electorCmd(data)
+          return () => this.#selectorCmd(data)
         case "splash":
           return () => this.#splashCmd(data)
       }
