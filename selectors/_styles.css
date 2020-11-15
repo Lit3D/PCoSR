@@ -1,0 +1,135 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.mf__container {
+  display: grid;
+  grid-template-columns: 1920px 1920px 1920px 1920px;
+  grid-template-rows: 540px 540px 540px 540px 540px 540px;
+  gap: 0 0;
+  /* grid-template-areas:
+    "a b c d"
+    "a b c d"
+    "e f g h"
+    "e f g h"
+    "i j k l"
+    "i j k l"; */
+}
+.mf__block {
+    width: 1920px;
+    height: 540px;
+}
+
+.mf__container-video {
+    display: grid;
+    grid-template-columns: 1920px 1920px 1920px 1920px;
+    grid-template-rows: 1080px 1080px 1080px 1080px 1080px 1080px;
+    gap: 0 0;
+    /* grid-template-areas:
+      "a b c d"
+      "a b c d"
+      "e f g h"
+      "e f g h"
+      "i j k l"
+      "i j k l"; */
+  }
+  .mf__block-video {
+      width: 1920px;
+      height: 1080px;
+  }
+
+.mf__video {
+    visibility: hidden;
+    width: 1920px;
+    height: 1080px;
+}
+.mf__video.active {
+    visibility: visible;
+}
+.mf__video--1 {
+    grid-area: a;
+}
+
+.mf__video--2 {
+    grid-area: b;
+}
+
+.mf__video--3 {
+    grid-area: c;
+}
+
+.mf__video--4 {
+    grid-area: d;
+}
+
+.mf__video--5 {
+    grid-area: e;
+}
+
+.mf__video--6 {
+    grid-area: f;
+}
+
+.mf__video--7 {
+    grid-area: g;
+}
+
+.mf__video--8 {
+    grid-area: h;
+}
+
+.mf__video--9 {
+    grid-area: i;
+}
+
+.mf__video--10 {
+    grid-area: j;
+}
+
+.mf__video--11 {
+    grid-area: k;
+}
+
+.mf__video--12 {
+    grid-area: l;
+}
