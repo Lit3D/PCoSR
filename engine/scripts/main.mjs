@@ -4,9 +4,17 @@ import { UUIDv4 } from "./uuid.mjs"
 const ID = (new URLSearchParams(window.location.search).get("id") || "").toLowerCase() || UUIDv4()
 document.title += ` - ${ID}`
 
-// Add body class
+const CFG_ID = `ss-client-${ID}`
+const SS_CONFIG_URL = `/assets/${CFG_ID}.json`
+
 document.body.classList.add(`sw--${window.screen.width}`)
+document.body.classList.add(CFG_ID)
 
 void async function line() {
-  await new Slave(ID)
+  const response = await fetch(SS_CONFIG_URL)
+  const { slaves } = await response.json()
+  for (const { id, wrapper, ...options } of slaves) {
+    if (wrapper) options = {...options, root: document.body.appendChild(document.createElement("div")) }
+    await new Slave(id, options)
+  }
 }().catch(err => document.body.innerHTML = `<div class="error">GLOBAL ERROR: ${err}</div>`)

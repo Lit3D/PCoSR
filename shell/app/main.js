@@ -14,12 +14,7 @@ dialog.showErrorBox = (title, content) => console.error(`${title}\n${content}`)
 const powerSaveID = powerSaveBlocker.start("prevent-display-sleep")
 
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required")
-// app.commandLine.appendSwitch("disable-http2")
 app.commandLine.appendSwitch("disable-renderer-backgrounding")
-// app.commandLine.appendSwitch("enable-accelerated-2d-canvas")
-// app.commandLine.appendSwitch("enable-gpu-rasterization")
-// app.commandLine.appendSwitch("enable-oop-rasterization")
-// app.commandLine.appendSwitch("enable-zero-copy")
 app.commandLine.appendSwitch("force-device-scale-factor", "1")
 app.commandLine.appendSwitch("high-dpi-support", "1")
 app.commandLine.appendSwitch("ignore-certificate-errors")
@@ -29,12 +24,18 @@ app.commandLine.appendSwitch("no-proxy-server")
 app.commandLine.appendSwitch("remote-debugging-port", String(REMOTE_DEBUGGING_PORT))
 
 app.commandLine.appendSwitch("video-threads", 48)
-//app.commandLine.appendSwitch("disable-accelerated-mjpeg-decode")
-//app.commandLine.appendSwitch("disable-accelerated-video-decode")
-//app.commandLine.appendSwitch("disable-accelerated-video-encode")
-//app.disableHardwareAcceleration()
 
-//app.commandLine.appendSwitch("disk-cache-size","0")
+const DISABLE_VIDEO_ACCELERATION_RX = /\s*\-*disable\-?video\-?acceleration\s*/i
+if (process.argv.some(arg => DISABLE_VIDEO_ACCELERATION_RX.test(arg))) {
+  app.commandLine.appendSwitch("disable-accelerated-mjpeg-decode")
+  app.commandLine.appendSwitch("disable-accelerated-video-decode")
+  app.commandLine.appendSwitch("disable-accelerated-video-encode")
+}
+
+const DISABLE_HARDWARE_ACCELERATION_RX = /\s*\-*disable\-?hardware\-?acceleration\s*/i
+if (process.argv.some(arg => DISABLE_HARDWARE_ACCELERATION_RX.test(arg))) {
+  app.disableHardwareAcceleration()
+}
 
 app.on("ready", main)
 app.on("window-all-closed", exit)

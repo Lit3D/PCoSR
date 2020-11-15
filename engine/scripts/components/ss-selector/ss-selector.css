@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  --width: var(--ss-width, 100vw);
+  --height: var(--ss-height, 100vh);
+
+  position: relative;
+
+  width: var(--width);
+  min-width: var(--width);
+  max-width: var(--width);
+
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--height);
+
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 50%;
+}
+
+.video {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}

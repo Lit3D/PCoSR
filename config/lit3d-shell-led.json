@@ -1,7 +1,7 @@
 {
   "id": "ss-led",
   "viewPorts": [{
-    "id": "0",
+    "id": "led",
     "x": 0,
     "y": 0,
     "width": 2016,

@@ -1,0 +1,7 @@
+{
+  "id": "ss-led",
+  "slaves": [{
+    "id": 0,
+    "splash": true,
+  }]
+}

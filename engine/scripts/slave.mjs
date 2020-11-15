@@ -2,6 +2,7 @@ import { UUIDv4 } from "./uuid.mjs"
 import { QClient } from "./q-client.mjs"
 import { SSVideoComponent } from "./components/ss-video/index.mjs"
 import { SSWebcamComponent } from "./components/ss-webcam/index.mjs"
+import { SSSelectorComponent } from "./components/ss-selector/index.mjs"
 
 const SS_DATA_URL = "/assets/ss-data.json"
 
@@ -14,6 +15,8 @@ export class Slave {
 
   #ssData = []
 
+  #defaultState = undefined
+
   #volume = 90
   get volume() {
     return this.#volume
@@ -24,11 +27,33 @@ export class Slave {
     this.#root.querySelectorAll("*").forEach(node => node.volume = this.#volume / 100)
   }
 
-  constructor(id, root = document.body) {
+  constructor(id, { root = document.body, ...options} = {}) {
     this.#id = id ?? UUIDv4()
     this.#qPath = `/lit3d/slave/${this.#id}`
     this.#root = root
+    this.#defaultState = this.#getDefaultState(options)
     return this.#init()
+  }
+
+  #getDefaultState = options => {
+    for (const [key, data] of Object.entries(options)) {
+      switch(key) {
+        case "ss":
+          return () => this.#ssCmd(data)
+        case "audio":
+          return () => this.#audioCmd(data)
+        case "video":
+          return () => this.#videoCmd(data)
+        case "image":
+          return () => this.#imageCmd(data)
+        case "webcam":
+          return () => this.#webcamCmd(data)
+        case "splash":
+          return () => this.#splashCmd(data)
+      }
+    }
+
+    return this.#splashCmd(data)
   }
 
   #init = async () => {
@@ -48,11 +73,14 @@ export class Slave {
     await this.#qClient.publish(`${this.#qPath}/image`, {})
     await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
     await this.#qClient.publish(`${this.#qPath}/webcam`, {})
+    await this.#qClient.subscribe(`${this.#qPath}/selector`, this.#selectorCmd)
+    await this.#qClient.publish(`${this.#qPath}/selector`, {})
     await this.#qClient.subscribe(`${this.#qPath}/splash`, this.#splashCmd)
     await this.#qClient.publish(`${this.#qPath}/splash`, {})
-
     await this.#qClient.subscribe(`${this.#qPath}/volume/set`, this.#setVolume)
     await this.#qClient.publish(`${this.#qPath}/volume/set`, null)
+
+    this.#defaultState()
 
     return this
   }
@@ -60,7 +88,6 @@ export class Slave {
   #ssCmd = ({id, muted = true }) => {
     console.log("ssCmd", {id, muted})
     if (id === undefined) return
-
 
     const ssData = this.#ssData.find(item => item.id === id )
 
@@ -74,7 +101,7 @@ export class Slave {
     
     ssVideo.addEventListener("ended", () => {
       this.#qClient.publish(`${this.#qPath}/ss/ended`, "1")
-      this.#splashCmd()
+      this.#defaultState()
     }, { once: true, passive: true })
 
     ssVideo.addEventListener("timeupdate", () => this.#qClient.publish(`${this.#qPath}/ss/status`, JSON.stringify({
@@ -105,7 +132,7 @@ export class Slave {
 
     videoNode.addEventListener("ended", () =>{
       this.#qClient.publish(`${this.#qPath}/video/ended`, "1")
-      this.#splashCmd()
+      this.#defaultState()
     }, { once: true, passive: true })
 
     videoNode.addEventListener("timeupdate", () => this.#qClient.publish(`${this.#qPath}/video/status`, JSON.stringify({
@@ -124,7 +151,7 @@ export class Slave {
   }
 
   #audioCmd = ({src, loop}) => {
-    console.log("videoCmd", {src, loop})
+    console.log("audioCmd", {src, loop})
     if (src === undefined) return
   }
 
@@ -148,6 +175,29 @@ export class Slave {
     requestAnimationFrame(() => {
       this.#root.innerHTML = ""
       this.#root.appendChild(ssWebcam)
+    })
+  }
+
+  #selectorCmd = ({ top, bottom }) => {
+    console.log("selectorCmd", {top, bottom})
+    if (top === undefined || bottom === undefined) return
+
+    const ssTop = this.#ssData.find(item => item.id === top )?.selector
+    if (ssTop === undefined) {
+      this.#root.innerHTML = `[SS ERROR] Incorrect selector ID: ${top}`
+      return
+    }
+
+    const ssBottom = this.#ssData.find(item => item.id === bottom )?.selector
+    if (ssBottom === undefined) {
+      this.#root.innerHTML = `[SS ERROR] Incorrect selector ID: ${bottom}`
+      return
+    }
+
+    const SSSelectorComponent = await new SSSelectorComponent({ top: ssTop, bottom: ssBottom })
+    requestAnimationFrame(() => {
+      this.#root.innerHTML = ""
+      this.#root.appendChild(SSSelectorComponent)
     })
   }
 

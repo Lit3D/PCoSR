@@ -3,5 +3,5 @@
 @import "page.css";
 @import "video.css";
 
-@import "ss-led.css";
-@import "ss-line.css";
+@import "ss-client-led.css";
+@import "ss-client-line.css";

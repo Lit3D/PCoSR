@@ -1,12 +1,11 @@
 {
   "id": "ss-line",
   "viewPorts": [{
-    "id": "1",
+    "id": "line",
     "x": 0,
     "y": 0,
     "width": 7680,
     "height": 3240,
-    "fullscreen": false,
-    "content": "https://srv-ss.pcosr.local/selectors/index.html"
+    "fullscreen": false
   }]
 }
