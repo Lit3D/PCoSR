@@ -14,7 +14,7 @@ void async function line() {
   const response = await fetch(SS_CONFIG_URL)
   const { slaves } = await response.json()
   for (const { id, wrapper, ...options } of slaves) {
-    if (wrapper) options = {...options, root: document.body.appendChild(document.createElement("div")) }
+    if (slaves.length > 1) options = {...options, root: document.body.appendChild(document.createElement("div")) }
     await new Slave(id, options)
   }
 }().catch(err => document.body.innerHTML = `<div class="error">GLOBAL ERROR: ${err}</div>`)
