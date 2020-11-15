@@ -48,12 +48,14 @@ export class Slave {
           return () => this.#imageCmd(data)
         case "webcam":
           return () => this.#webcamCmd(data)
+        case "selector":
+          return () => this.#electorCmd(data)
         case "splash":
           return () => this.#splashCmd(data)
       }
     }
 
-    return this.#splashCmd(data)
+    return () => this.#splashCmd(data)
   }
 
   #init = async () => {
