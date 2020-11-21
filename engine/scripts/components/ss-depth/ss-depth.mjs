@@ -6,7 +6,7 @@ const WIDTH = 136
 const HEIGHT = 240
 
 const MIN_DEPTH = 0
-const MAX_DEPTH = 5000
+const MAX_DEPTH = 3000
 const MIN_SENSE = 3
 const MAX_SENSE = 30
 
@@ -45,6 +45,7 @@ export class SSDepthComponent extends HTMLElement  {
   }
 
   #render = depth => {
+    console.dir(depth)
     let depthPixelIndex = 0
 
     for (let i = 0; i < this.#imageDataSize; i+=4) {
