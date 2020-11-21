@@ -52,7 +52,7 @@ export class RealSenseRenderer extends EventTarget {
 
       // Search depth
       if (value < this.#minDepth || value > this.#maxDepth) {
-        this.#pixelArray[i  ] = 0xff
+        this.#pixelArray[i  ] = 0x00
         this.#pixelArray[i+1] = 0x00
         this.#pixelArray[i+2] = 0x00
         this.#pixelArray[i+3] = 0xff
