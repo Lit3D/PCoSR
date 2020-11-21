@@ -6,6 +6,8 @@ export class RealSenseClient extends EventTarget {
   #id = 0
   #ws = undefined
 
+  #ended = false
+
   constructor(url, id = 0) {
     super()
     this.#url = url
@@ -14,6 +16,7 @@ export class RealSenseClient extends EventTarget {
   }
 
   #connect = () => {
+    if (this.#ended) return
     console.debug(`RealSenseClient [${this.#url}] connecting...`)
     this.#ws = new WebSocket(this.#url)
 
@@ -42,5 +45,10 @@ export class RealSenseClient extends EventTarget {
       return
     }
     this.dispatchEvent(new CustomEvent("depth", { detail: data }))
+  }
+
+  release() {
+    this.#ended = true
+    this.#ws.close()
   }
 }

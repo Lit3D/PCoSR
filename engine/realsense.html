@@ -4,15 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <script type="module" src="scripts/components/ss-depth/index.mjs"></script>
   <title>Lit3D Engine</title>
 </head>
 <body>
-  <script type="module">
-    import { RealSenseClient } from "./scripts/realsense.mjs"
-    void async function main() {
-      const client =  new RealSenseClient("wss://depth-1.pcosr.local:8080", 0)
-      client.addEventListener("depth", event => console.dir(event))
-    }()
-  </script>
+  <ss-depth></ss-depth>
 </body>
 </html>

@@ -1,0 +1,21 @@
+:host {
+  --width: var(--ss-selector-width, 100vw);
+  --height: var(--ss-selector-height, 100vh);
+
+  display: block;
+
+  position: fixed;
+  left: calc(50% - var(--width) / 2 * 1px);
+  top: calc(50% - var(--height) / 2 * 1px);
+  width: calc(var(--width) * 1px);
+  height: calc(var(--height) * 1px);
+  z-index: 999;
+
+  background-color: rgb(255 255 255 / .5);
+}
+
+canvas {
+  display: block;
+  width: calc(var(--width) * 1px);
+  height: calc(var(--height) * 1px);
+}
