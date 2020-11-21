@@ -12,6 +12,13 @@
     void async function main() {
       const client =  await new RealSenseClient("wss://depth-1.pcosr.local:8080", 0)
       const data = await client.request()
+      console.log("1")
+      console.dir(data)
+      const data = await client.request()
+      console.log("2")
+      console.dir(data)
+      const data = await client.request()
+      console.log("3")
       console.dir(data)
     }()
   </script>
