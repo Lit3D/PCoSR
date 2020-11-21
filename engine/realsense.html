@@ -10,16 +10,8 @@
   <script type="module">
     import { RealSenseClient } from "./scripts/realsense.mjs"
     void async function main() {
-      const client =  await new RealSenseClient("wss://depth-1.pcosr.local:8080", 0)
-      const data1 = await client.request()
-      console.log("1")
-      console.dir(data1)
-      const data2 = await client.request()
-      console.log("2")
-      console.dir(data2)
-      const data3 = await client.request()
-      console.log("3")
-      console.dir(data3)
+      const client =  new RealSenseClient("wss://depth-1.pcosr.local:8080", 0)
+      client.addEventListener("depth", event => console.dir(event))
     }()
   </script>
 </body>
