@@ -35,9 +35,9 @@ export class RealSenseClient extends EventTarget {
   }
 
   #waitMessage = () => new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => reject(new Error(`Message response timeout`)), MESSAGE_RESPONSE_TIMEOUT)
+    // const timeout = setTimeout(() => reject(new Error(`Message response timeout`)), MESSAGE_RESPONSE_TIMEOUT)
     this.#ws.addEventListener("message", ({data}) => {
-      clearTimeout(timeout)
+      // clearTimeout(timeout)
       try {
         data = JSON.parse(data)
       } catch (err) {
