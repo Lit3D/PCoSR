@@ -5,13 +5,16 @@ const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url
 const WIDTH = 640
 const HEIGHT = 360
 
-const MIN_DEPTH = 0
+const MIN_DEPTH = 500
 const MAX_DEPTH = 3000
 const MIN_SENSE = 3
 const MAX_SENSE = 30
 
 export class SSDepthComponent extends HTMLElement  {
   static TAG_NAME = "ss-depth"
+
+  #min_depth = MIN_DEPTH
+  #max_depth = MAX_DEPTH
 
   #realSenseClient = undefined
 
@@ -46,7 +49,9 @@ export class SSDepthComponent extends HTMLElement  {
 
   #render = depth => {
     console.dir(depth)
+
     let depthPixelIndex = 0
+    const depthZone = this.#max_depth - this.#min_depth
 
     for (let i = 0; i < this.#imageDataSize; i+=4) {
       const y = Math.floor(depthPixelIndex / WIDTH)
@@ -54,7 +59,17 @@ export class SSDepthComponent extends HTMLElement  {
       const value = (depth[y] ?? [])[x] ?? 0
       depthPixelIndex++
 
-      const gray = value / MAX_DEPTH * 255
+      // Search depth
+      if (value < this.#min_depth || value > this.#max_depth) {
+        this.#pixelArray[i  ] = 0xff
+        this.#pixelArray[i+1] = 0x00
+        this.#pixelArray[i+2] = 0x00
+        this.#pixelArray[i+3] = 0xff
+        continue
+      }
+
+      //const gray = value / MAX_DEPTH * 255
+      const gray = (value - this.#min_depth) / depthZone * 255
       this.#pixelArray[i] = gray
       this.#pixelArray[i+1] = gray
       this.#pixelArray[i+2] = gray
