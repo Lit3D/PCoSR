@@ -2,8 +2,8 @@ import { RealSenseClient } from "../../realsense.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
-const WIDTH = 136
-const HEIGHT = 240
+const WIDTH = 270
+const HEIGHT = 480
 
 const MIN_DEPTH = 0
 const MAX_DEPTH = 3000
