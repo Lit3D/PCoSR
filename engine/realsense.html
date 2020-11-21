@@ -10,7 +10,9 @@
   <script type="module">
     import { RealSenseClient } from "./scripts/realsense.mjs"
     void async function main() {
-      new RealSenseClient()
+      const client =  await new RealSenseClient()
+      const data = await client.request()
+      console.dir(data)
     }()
   </script>
 </body>
