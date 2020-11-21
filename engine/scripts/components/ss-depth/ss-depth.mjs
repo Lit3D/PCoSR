@@ -44,7 +44,8 @@ export class SSDepthComponent extends HTMLElement  {
   }
 
   #depthFrame = ({detail}) => {
-    this.#render(detail)
+    console.dir(detail)
+    //this.#render(detail)
   }
 
   #render = depth => {
