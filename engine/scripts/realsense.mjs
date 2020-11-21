@@ -11,7 +11,7 @@ export class RealSenseClient {
 
     // Listen for messages
     this.#socket.addEventListener('message', event => {
-        console.dir(event.data)
+        console.dir(JSON.parse(event.data))
     })
   }
 }
