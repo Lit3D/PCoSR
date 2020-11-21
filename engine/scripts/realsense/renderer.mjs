@@ -37,7 +37,7 @@ export class RealSenseRenderer extends EventTarget {
 
   process = (depthFrame) => {
     if (this.#pause) return
-    console.dir(depthFrame)
+    this.#render(depthFrame)
   }
 
   #render = (depthFrame) => {
