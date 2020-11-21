@@ -51,7 +51,7 @@ export class RealSenseRenderer extends EventTarget {
       depthPixelIndex++
 
       // Search depth
-      if (value < this.#min_depth || value > this.#max_depth) {
+      if (value < this.#minDepth || value > this.#maxDepth) {
         this.#pixelArray[i  ] = 0xff
         this.#pixelArray[i+1] = 0x00
         this.#pixelArray[i+2] = 0x00
@@ -60,7 +60,7 @@ export class RealSenseRenderer extends EventTarget {
       }
 
       //const gray = value / MAX_DEPTH * 255
-      const gray = (value - this.#min_depth) / depthZone * 255
+      const gray = (value - this.#minDepth) / depthZone * 255
       this.#pixelArray[i] = gray
       this.#pixelArray[i+1] = gray
       this.#pixelArray[i+2] = gray
