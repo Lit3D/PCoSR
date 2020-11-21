@@ -10,7 +10,7 @@
   <script type="module">
     import { RealSenseClient } from "./scripts/realsense.mjs"
     void async function main() {
-      const client =  await new RealSenseClient()
+      const client =  await new RealSenseClient("wss://depth-1.pcosr.local", 0)
       const data = await client.request()
       console.dir(data)
     }()
