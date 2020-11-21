@@ -3,7 +3,7 @@ export class RealSenseClient {
   #socket = undefined
 
   constructor() {
-    this.#socket = new WebSocket("ws://depth-1.pcosr.local:8080")
+    this.#socket = new WebSocket("wss://depth-1.pcosr.local:8080")
     this.#socket.addEventListener('open', () => {
       console.log("Connected")
         //this.#socket.send('Hello Server!');
