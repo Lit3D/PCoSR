@@ -33,7 +33,7 @@ export class SSDepthComponent extends HTMLElement  {
     this.#renderer = new RealSenseRenderer(this.#ctx)
     this.#renderer.addEventListener("setup", this.#resize, { once: true })
     this.#realSense.attachProcessor(this.#renderer)
-    // this.#renderer.start()
+    this.#renderer.start()
   }
 
   disconnectedCallback() {
