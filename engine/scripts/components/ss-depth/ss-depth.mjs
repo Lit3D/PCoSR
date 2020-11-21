@@ -45,6 +45,8 @@ export class SSDepthComponent extends HTMLElement  {
   }
 
   #render = depth => {
+    let depthPixelIndex = 0
+
     for (let i = 0; i < this.#imageDataSize; i+=4) {
       const y = Math.floor(depthPixelIndex / WIDTH)
       const x = depthPixelIndex - y * WIDTH
