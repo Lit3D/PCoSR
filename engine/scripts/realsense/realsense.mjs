@@ -30,7 +30,7 @@ export class RealSense {
 
     this.#servers = servers
     this.#devices = devices
-    this.#config = {...config, height: height.height * this.#devices.length}
+    this.#config = {...config, height: config.height * this.#devices.length}
 
     this.#initClients()
     return this
