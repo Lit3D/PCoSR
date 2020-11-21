@@ -11,15 +11,15 @@
     import { RealSenseClient } from "./scripts/realsense.mjs"
     void async function main() {
       const client =  await new RealSenseClient("wss://depth-1.pcosr.local:8080", 0)
-      const data = await client.request()
+      const data1 = await client.request()
       console.log("1")
-      console.dir(data)
-      const data = await client.request()
+      console.dir(data1)
+      const data2 = await client.request()
       console.log("2")
-      console.dir(data)
-      const data = await client.request()
+      console.dir(data2)
+      const data3 = await client.request()
       console.log("3")
-      console.dir(data)
+      console.dir(data3)
     }()
   </script>
 </body>
