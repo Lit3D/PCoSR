@@ -1,93 +1,44 @@
-import { RealSenseClient } from "../../realsense.mjs"
+import { RealSense, RealSenseRenderer } from "../../realsense/index.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
-
-const WIDTH = 640
-const HEIGHT = 360
-
-const MIN_DEPTH = 500
-const MAX_DEPTH = 3000
-const MIN_SENSE = 3
-const MAX_SENSE = 30
 
 export class SSDepthComponent extends HTMLElement  {
   static TAG_NAME = "ss-depth"
 
-  #min_depth = MIN_DEPTH
-  #max_depth = MAX_DEPTH
-
-  #realSenseClient = undefined
+  #realSense = undefined
+  #renderer = undefined
 
   #root = this.attachShadow({ mode: "open" })
 
   #canvas = document.createElement("canvas")
   #ctx = this.#canvas.getContext("2d")
-  #imageData = this.#ctx.createImageData(WIDTH, HEIGHT)
-  #pixelArray = this.#imageData.data
-  #imageDataSize = this.#pixelArray.length
-
-  //#etalon = new Array(WIDTH * HEIGHT).fill(0)
-
+  
   constructor() {
     super()
 
     // Init root template
     this.#root.innerHTML = TEMPLATE
-
-    this.style.setProperty("--width", WIDTH);
-    this.style.setProperty("--height", HEIGHT);
-
-    // Setup canvas
-    this.#canvas.width = WIDTH
-    this.#canvas.height = HEIGHT
     this.#root.appendChild(this.#canvas)
   }
 
-  #depthFrame = ({detail}) => {
-    console.dir(detail)
-    //this.#render(detail)
+  #resize = ({detail: {width, height}}) => {
+    this.style.setProperty("--width", width)
+    this.style.setProperty("--height", height)
+    this.#canvas.width = width
+    this.#canvas.height = height
   }
 
-  #render = depth => {
-    console.dir(depth)
-
-    let depthPixelIndex = 0
-    const depthZone = this.#max_depth - this.#min_depth
-
-    for (let i = 0; i < this.#imageDataSize; i+=4) {
-      const y = Math.floor(depthPixelIndex / WIDTH)
-      const x = depthPixelIndex - y * WIDTH
-      const value = (depth[y] ?? [])[x] ?? 0
-      depthPixelIndex++
-
-      // Search depth
-      if (value < this.#min_depth || value > this.#max_depth) {
-        this.#pixelArray[i  ] = 0xff
-        this.#pixelArray[i+1] = 0x00
-        this.#pixelArray[i+2] = 0x00
-        this.#pixelArray[i+3] = 0xff
-        continue
-      }
-
-      //const gray = value / MAX_DEPTH * 255
-      const gray = (value - this.#min_depth) / depthZone * 255
-      this.#pixelArray[i] = gray
-      this.#pixelArray[i+1] = gray
-      this.#pixelArray[i+2] = gray
-      this.#pixelArray[i+3] = 0xff
-    }
-
-    requestAnimationFrame(() => this.#ctx.putImageData(this.#imageData, 0, 0))
-  }
-
-  connectedCallback() {
-    this.#realSenseClient = new RealSenseClient("wss://depth-1.pcosr.local:8080", 0)
-    this.#realSenseClient.addEventListener("depth", this.#depthFrame)
+  async connectedCallback() {
+    this.#realSense = await new RealSense()
+    this.#renderer = new RealSenseRenderer(this.#ctx)
+    this.#renderer.addEventListener("setup", this.#resize, { once: true })
+    this.#realSense.attachProcessor(this.#renderer)
+    this.#renderer.start()
   }
 
   disconnectedCallback() {
-    this.#realSenseClient.removeEventListener("depth", this.#depthFrame)
-    this.#realSenseClient.release()
+    this.#realSense.detachProcessor(this.#renderer)
+    this.#realSense.release()
   }
 }
 

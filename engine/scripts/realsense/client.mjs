@@ -1,17 +1,18 @@
 
-const RECONNECT_TIMEOUT = 1 * 1000 // 1s
+const RECONNECT_TIMEOUT = 2 * 1000 // 2s
 
-export class RealSenseClient extends EventTarget {
+export class RealSenseClient {
   #url = undefined
-  #id = 0
   #ws = undefined
 
   #ended = false
 
-  constructor(url, id = 0) {
-    super()
+  #listeners = []
+  on = (listener) => this.#listeners = [...this.#listeners, listener]
+  off = (listener) => this.#listeners = this.#listeners.filter(item => item !== listener)
+
+  constructor(url) {
     this.#url = url
-    this.#id = String(id)
     this.#connect()
   }
 
@@ -44,7 +45,7 @@ export class RealSenseClient extends EventTarget {
       console.error(`RealSenseClient [${this.#url}] incorrect message: ${err}`)
       return
     }
-    this.dispatchEvent(new CustomEvent("depth", { detail: data }))
+    this.#listeners.forEach(listener => listener(data))
   }
 
   release() {
