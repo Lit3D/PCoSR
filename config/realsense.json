@@ -1,6 +1,6 @@
 {
-  "minDepth": 700,
-  "maxDepth": 2900,
+  "minDepth": 800,
+  "maxDepth": 2800,
   "width": 640,
   "height": 180,
   "servers": ["wss://depth-1.pcosr.local:8080", "wss://depth-2.pcosr.local:8080"],
