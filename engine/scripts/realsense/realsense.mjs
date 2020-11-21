@@ -46,6 +46,7 @@ export class RealSense {
 
   #onDepthData = ({detail}) => {
     this.#depthData = {...this.#depthData, ...detail}
+    console.dir(this.#depthData)
     this.#processData()
   }
 
