@@ -16,5 +16,7 @@
   user-select: none;
   cursor: none;
 
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
