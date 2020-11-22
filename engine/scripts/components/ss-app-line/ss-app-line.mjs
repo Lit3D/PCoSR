@@ -82,6 +82,15 @@ export class SSAppLineComponent extends HTMLElement  {
     this.#wave.removeEventListener("ended", this.#waveCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/wave`, this.#waveCmd)
   }
+
+  debug = (cmd, options) => {
+    cmd = cmd.toLowerCase()
+    switch (cmd) {
+      case "wave":
+        this.#waveCmd(options)
+        return
+    }
+  }
 }
 
 customElements.define(SSAppLineComponent.TAG_NAME, SSAppLineComponent)
