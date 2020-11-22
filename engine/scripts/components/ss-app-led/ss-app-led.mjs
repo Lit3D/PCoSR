@@ -28,7 +28,7 @@ export class SSAppLedComponent extends HTMLElement  {
     this.#root.innerHTML = TEMPLATE
   }
 
-  #clear = () => this.#root.querySelectorAll(`[${COMPONENT_ATTRIBUTE}]`).forEach(node => node.remove())
+  #clear = () => this.#root.innerHTML = TEMPLATE
 
   #error = message => {
     console.error(message)
