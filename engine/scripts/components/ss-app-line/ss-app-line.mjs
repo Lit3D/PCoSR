@@ -53,14 +53,14 @@ export class SSAppLineComponent extends HTMLElement  {
   async connectedCallback() {
     try {
       let response = await fetch(SS_DATA_URL)
-      this.#ssData = await response.json()
+      const ssData = await response.json()
 
       response = await fetch(SELECTORS_CONFIG_URL)
       const selectorsConfig = await response.json()
 
       this.#selectors.forEach((videoNode, i) => {
         const id = selectorsConfig[i]
-        const { selector } = this.#ssData.find(item => item.id === id)
+        const { selector } = ssData.find(item => item.id === id)
         videoNode.src = selector["webm"] ?? selector["mp4"]
         setTimeout(() => videoNode.play(),0)
       })
