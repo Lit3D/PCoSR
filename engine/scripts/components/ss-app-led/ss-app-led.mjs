@@ -39,7 +39,7 @@ export class SSAppLedComponent extends HTMLElement  {
     })
   }
 
-  #ssCmd = ({id, muted = true } = {}) => {
+  #ssCmd = ({id, muted = false } = {}) => {
     console.debug(`SSAppLedComponent [SS]: ${JSON.stringify({id, muted})}`)
     if (id === undefined || id === null) return
 
