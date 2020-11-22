@@ -141,6 +141,9 @@ export class SSAppLedComponent extends HTMLElement  {
 
   async connectedCallback() {
     try {
+      const response = await fetch(SS_DATA_URL)
+      this.#ssData = await response.json()
+
       this.#qClient = await new QClient()
 
       await this.#qClient.subscribe(`${Q_PATH}/ss`, this.#ssCmd)
@@ -167,6 +170,27 @@ export class SSAppLedComponent extends HTMLElement  {
     await this.#qClient.unsubscribe(`${Q_PATH}/webcam`, this.#webcamCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/splash`, this.#splashCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/volume/set`, this.#setVolume)
+  }
+
+  debug = (cmd, options) => {
+    cmd = cmd.toLowerCase()
+    switch (cmd) {
+      case "ss":
+        this.#ssCmd(options)
+        return
+      case "video":
+        this.#videoCmd(options)
+        return
+      case "image":
+        this.#imageCmd(options)
+        return
+      case "webcam":
+        this.#webcamCmd(options)
+        return
+      case "splash":
+        this.#splashCmd(options)
+        return
+    }
   }
 }
 

@@ -2229,16 +2229,5 @@
         "hide": 9007199254740991
       }
     ]
-  },{
-    "id": "23",
-    "splash": "/content/splash/z23.mp4",
-    "splash2016": "/content/splash/splash2016/z.23..mp4",
-    "video": "/content/video/23.mp4",
-    "logo": "/content/logos/1920_1080/бриф 23.jpg",
-    "logo2016": "/content/logos/БРИФ 23 2016 на 840.jpg",
-    "selector": "/content/selectors/s23.mp4",
-    "section_ru": "Универсиада",
-    "section_en": "Unuversiada",
-    "subtitles": []
   }
 ]
