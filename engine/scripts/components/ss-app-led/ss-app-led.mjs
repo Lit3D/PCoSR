@@ -85,7 +85,8 @@ export class SSAppLedComponent extends HTMLElement  {
     videoNode.src = src
     videoNode.volume = this.volume / 100
 
-    videoNode.addEventListener("ended", () =>{
+    videoNode.addEventListener("ended", () => {
+      if (videoNode.loop) return
       requestAnimationFrame(this.#clear)
       this.#qClient
           .publish(`${Q_PATH}/video/ended`, "1")
