@@ -70,7 +70,6 @@ ss-viewport:nth-of-type(12) { grid-area: 5 / 4 / span 2 / span 1 }
 
 .selector {
   display: block;
-  object-fit: cover;
 
   width: 100%;
   max-width: 100%;

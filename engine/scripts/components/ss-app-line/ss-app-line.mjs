@@ -41,7 +41,10 @@ export class SSAppLineComponent extends HTMLElement  {
     console.debug(`SSAppLineComponent [WAVE]: ${JSON.stringify({src})}`)
     if (src === undefined || src === null) {
       this.#wave.pause()
-      requestAnimationFrame(() => this.#wave.classList.remove("active"))
+      requestAnimationFrame(() => {
+        this.#selectors.forEach(videoNode => videoNode.play())
+        this.#wave.classList.remove("active")
+      })
       return
     }
 
@@ -49,6 +52,7 @@ export class SSAppLineComponent extends HTMLElement  {
     this.#wave.currentTime = 0
     requestAnimationFrame(() => {
       this.#wave.classList.add("active")
+      this.#selectors.forEach(videoNode => videoNode.pause())
       setTimeout(() => this.#wave.play(), 0)
     })
   }
