@@ -6,6 +6,7 @@
     "y": 0,
     "width": 7680,
     "height": 3240,
-    "fullscreen": false
+    "fullscreen": false,
+    "master": false
   }]
 }
