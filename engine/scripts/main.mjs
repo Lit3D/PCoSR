@@ -10,5 +10,16 @@ void async function main() {
   document.body.appendChild(new SSAppComponent())
 }().catch(err => {
   console.error(err)
-  document.body.innerHTML = `<div class="error">GLOBAL ERROR: ${err}</div>`
+  document.body.innerHTML = `<div class="error">MAIN ERROR: ${err}</div>`
+})
+
+const MASTER = new URLSearchParams(window.location.search).has("master")
+void async function master() {
+  if (!MASTER) return
+  const { Master } = await import("./master.mjs")
+  const master = await new Master()
+  window.addEventListener("unload", async () => await master.release())
+}().catch(err => {
+  console.error(err)
+  document.body.innerHTML = `<div class="error">MASTER ERROR: ${err}</div>`
 })

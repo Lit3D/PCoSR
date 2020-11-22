@@ -1,8 +1,8 @@
-import { QClient } from "../../q-client.mjs"
+import { QClient, Q_PATH_LED } from "../../q-client.mjs"
 import { SSViewportComponent } from "../ss-viewport/index.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
-const Q_PATH = "/lit3d/slave/led"
+const Q_PATH = Q_PATH_LED
 
 export class SSAppLedComponent extends HTMLElement  {
   static TAG_NAME = "ss-app-led"

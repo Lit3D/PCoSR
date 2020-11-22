@@ -21,6 +21,8 @@
   --rows: 6;
   grid-template-columns: repeat(var(--columns), calc(var(--width) / var(--columns)));
   grid-template-rows: repeat(var(--rows), calc(var(--height) / var(--rows)));
+
+  background-color: var(--color-bg);
 }
 
 video:nth-of-type(1)  { grid-area: 1 / 1 / span 1 / span 1 }

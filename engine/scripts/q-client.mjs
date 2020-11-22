@@ -12,6 +12,10 @@ const OPTIONS = {
   rejectUnauthorized: false,
 }
 
+export const Q_PATH_MASTER = "/lit3d/master"
+export const Q_PATH_LED = "/lit3d/slave/led"
+export const Q_PATH_LINE = "/lit3d/slave/line"
+
 export class QClient {
   static _instance = undefined
 

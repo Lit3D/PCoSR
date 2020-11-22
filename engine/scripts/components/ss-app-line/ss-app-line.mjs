@@ -1,9 +1,9 @@
-import { QClient } from "../../q-client.mjs"
+import { QClient, Q_PATH_LINE } from "../../q-client.mjs"
 import { SSViewportComponent } from "../ss-viewport/index.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
-const Q_PATH = "/lit3d/slave/line"
+const Q_PATH = Q_PATH_LINE
 const SS_DATA_URL = "/content/ss-data.json"
 const SELECTORS_CONFIG_URL = "/config/selectors.json"
 
@@ -50,6 +50,8 @@ export class SSAppLineComponent extends HTMLElement  {
 
     this.#wave.src = src
     this.#wave.currentTime = 0
+
+    this.#viewports.forEach(viewport => viewport.command("splash", {}))
     requestAnimationFrame(() => {
       this.#wave.classList.add("active")
       this.#selectors.forEach(videoNode => videoNode.pause())
@@ -85,15 +87,6 @@ export class SSAppLineComponent extends HTMLElement  {
   async disconnectedCallback() {
     this.#wave.removeEventListener("ended", this.#waveCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/wave`, this.#waveCmd)
-  }
-
-  debug = (cmd, options) => {
-    cmd = cmd.toLowerCase()
-    switch (cmd) {
-      case "wave":
-        this.#waveCmd(options)
-        return
-    }
   }
 }
 

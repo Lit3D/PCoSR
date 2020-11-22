@@ -165,7 +165,7 @@ export class SSViewportComponent extends HTMLElement  {
     await this.#qClient.unsubscribe(`${this.#qPath}/splash`, this.#splashCmd)
   }
 
-  debug = (cmd, options) => {
+  command = (cmd, options) => {
     cmd = cmd.toLowerCase()
     switch (cmd) {
       case "ss":
