@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/1.mp4",
       "webm": "/content/splash/1.webm",
@@ -104,6 +105,7 @@
   },
   {
     "id": 2,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/2.mp4",
       "webm": "/content/splash/2.webm",
@@ -195,6 +197,7 @@
   },
   {
     "id": 3,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/3.mp4",
       "webm": "/content/splash/3.webm",
@@ -310,6 +313,7 @@
   },
   {
     "id": 4,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/4.mp4",
       "webm": "/content/splash/4.webm",
@@ -431,6 +435,7 @@
   },
   {
     "id": 6,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/6.mp4",
       "webm": "/content/splash/6.webm",
@@ -570,6 +575,7 @@
   },
   {
     "id": 21,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/21.mp4",
       "webm": "/content/splash/21.webm",
@@ -727,6 +733,7 @@
   },
   {
     "id": 7,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/7.mp4",
       "webm": "/content/splash/7.webm",
@@ -818,6 +825,7 @@
   },
   {
     "id": 8,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/8.mp4",
       "webm": "/content/splash/8.webm",
@@ -909,6 +917,7 @@
   },
   {
     "id": 18,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/18.mp4",
       "webm": "/content/splash/18.webm",
@@ -1036,6 +1045,7 @@
   },
   {
     "id": 11,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/11.mp4",
       "webm": "/content/splash/11.webm",
@@ -1139,6 +1149,7 @@
   },
   {
     "id": 9,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/9.mp4",
       "webm": "/content/splash/9.webm",
@@ -1248,6 +1259,7 @@
   },
   {
     "id": 12,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/12.mp4",
       "webm": "/content/splash/12.webm",
@@ -1327,6 +1339,7 @@
   },
   {
     "id": 10,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/10.mp4",
       "webm": "/content/splash/10.webm",
@@ -1418,6 +1431,7 @@
   },
   {
     "id": 13,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/13.mp4",
       "webm": "/content/splash/13.webm",
@@ -1509,6 +1523,7 @@
   },
   {
     "id": 16,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/16.mp4",
       "webm": "/content/splash/16.webm",
@@ -1618,6 +1633,7 @@
   },
   {
     "id": 14,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/14.mp4",
       "webm": "/content/splash/14.webm",
@@ -1721,6 +1737,7 @@
   },
   {
     "id": 15,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/15.mp4",
       "webm": "/content/splash/15.webm",
@@ -1860,6 +1877,7 @@
   },
   {
     "id": 17,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/17.mp4",
       "webm": "/content/splash/17.webm",
@@ -1951,6 +1969,7 @@
   },
   {
     "id": 19,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/19.mp4",
       "webm": "/content/splash/19.webm",
@@ -2024,6 +2043,7 @@
   },
   {
     "id": 20,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/20.mp4",
       "webm": "/content/splash/20.webm",
@@ -2109,6 +2129,7 @@
   },
   {
     "id": 22,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/22.mp4",
       "webm": "/content/splash/22.webm",
@@ -2254,6 +2275,7 @@
   },
   {
     "id": 24,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/24.mp4",
       "webm": "/content/splash/24.webm",
@@ -2369,6 +2391,7 @@
   },
   {
     "id": 5,
+    "type": "ss-video",
     "splash": {
       "mp4": "/content/splash/5.mp4",
       "webm": "/content/splash/5.webm",
@@ -2505,5 +2528,19 @@
         "hide": 9007199254740991
       }
     ]
+  },
+  {
+    "id": 23,
+    "type": "video",
+    "video": {
+      "mp4": "/content/video/23.mp4",
+      "webm": "/content/video/23.webm"
+    },
+    "selector": {
+      "mp4": "/content/selectors/23.mp4",
+      "webm": "/content/selectors/23.webm"
+    },
+    "section_ru": "Универсиада 2023",
+    "section_en": "Universiade 2023"
   }
 ]

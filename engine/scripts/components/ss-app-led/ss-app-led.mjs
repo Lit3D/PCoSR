@@ -5,7 +5,7 @@ import { SSWebcamComponent } from "../ss-webcam/index.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 const Q_PATH = "/lit3d/slave/led"
-const SS_DATA_URL = "/assets/ss-data.json"
+const SS_DATA_URL = "/content/ss-data.json"
 
 export class SSAppLedComponent extends HTMLElement  {
   static TAG_NAME = "ss-app-led"
