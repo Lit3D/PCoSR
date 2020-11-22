@@ -1,4 +1,5 @@
 import { RealSense, RealSenseRenderer } from "../../realsense/index.mjs"
+import { COMPONENT_ATTRIBUTE } from "../common.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
@@ -15,6 +16,7 @@ export class SSDepthComponent extends HTMLElement  {
   
   constructor() {
     super()
+    this.setAttribute(COMPONENT_ATTRIBUTE, 1)
 
     // Init root template
     this.#root.innerHTML = TEMPLATE

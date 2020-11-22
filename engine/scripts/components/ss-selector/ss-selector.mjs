@@ -1,3 +1,5 @@
+import { COMPONENT_ATTRIBUTE } from "../common.mjs"
+
 const TEMPLATE = `
   <link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">
   <video id="topVideo" class="video video--top"></video>
@@ -14,6 +16,7 @@ export class SSSelectorComponent extends HTMLElement  {
 
   constructor({ top, bottom } = {}) {
     super()
+    this.setAttribute(COMPONENT_ATTRIBUTE, 1)
 
     // Init root template
     this.#root.innerHTML = TEMPLATE

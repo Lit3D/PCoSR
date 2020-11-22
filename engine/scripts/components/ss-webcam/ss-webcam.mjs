@@ -1,3 +1,4 @@
+import { COMPONENT_ATTRIBUTE } from "../common.mjs"
 
 const TEMPLATE = `
   <link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">
@@ -11,6 +12,7 @@ export class SSWebcamComponent extends HTMLElement  {
 
   constructor() {
     super()
+    this.setAttribute(COMPONENT_ATTRIBUTE, 1)
     return this.#init()
   }
 

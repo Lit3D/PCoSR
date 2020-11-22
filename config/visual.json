@@ -1,5 +1,7 @@
 [{
   "id": "main",
+  "name": "Основной ролик о свердловской области",
+  "description": "",
   "ru": {
     "led": "/content/visual_ru/main/led.mp4",
     "line": null
@@ -10,6 +12,8 @@
   }
 },{
   "id": "pack_1",
+  "name": "Название пака 1",
+  "description": "",
   "ru": {
     "led": "/content/visual_ru/pack_1/led.mp4",
     "line": "/content/visual_ru/pack_1/line.mp4"
@@ -20,6 +24,8 @@
   }
 },{
   "id": "pack_2",
+  "name": "Название пака 2",
+  "description": "",
   "ru": {
     "led": "/content/visual_ru/pack_2/led.mp4",
     "line": "/content/visual_ru/pack_2/line.mp4"
@@ -30,6 +36,8 @@
   }
 },{
   "id": "pack_3",
+  "name": "Название пака 3",
+  "description": "",
   "ru": {
     "led": "/content/visual_ru/pack_3/led.mp4",
     "line": "/content/visual_ru/pack_3/line.mp4"
@@ -40,6 +48,8 @@
   }
 },{
   "id": "pack_4",
+  "name": "Название пака 4",
+  "description": "",
   "ru": {
     "led": "/content/visual_ru/pack_4/led.mp4",
     "line": "/content/visual_ru/pack_4/line.mp4"
@@ -50,6 +60,8 @@
   }
 },{
   "id": "pack_5",
+  "name": "Название пака 5",
+  "description": "",
   "ru": {
     "led": "/content/visual_ru/pack_5/led.mp4",
     "line": "/content/visual_ru/pack_5/line.mp4"
