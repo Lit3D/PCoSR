@@ -1,5 +1,3 @@
-import { COMPONENT_ATTRIBUTE } from "../common.mjs"
-
 const TEMPLATE = `
   <link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">
   <video id="splashVideo" class="splash"></video>
@@ -42,7 +40,6 @@ export class SSVideoComponent extends HTMLElement  {
     ...options
   } = {}, { muted = true } = {}) {
     super()
-    this.setAttribute(COMPONENT_ATTRIBUTE, 1)
 
     const screenWidth = window.screen.width
 
