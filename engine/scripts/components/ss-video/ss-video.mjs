@@ -138,7 +138,7 @@ export class SSVideoComponent extends HTMLElement  {
   }
 
   #dispatchTimeupdate = () => this.dispatchEvent(new Event("timeupdate"))
-  #dispatchEnded = () => this.dispatchEvent(new Event("build"))
+  #dispatchEnded = () => this.dispatchEvent(new Event("ended"))
 
   play() {
     requestAnimationFrame(() => {
