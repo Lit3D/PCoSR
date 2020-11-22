@@ -1,6 +1,7 @@
 import { QClient, Q_PATH_MASTER, Q_PATH_LED, Q_PATH_LINE } from "./q-client.mjs"
 
 const Q_PATH = Q_PATH_MASTER
+const VISUAL_DATA_URL = "/config/visual.json"
 
 export class Master {
   #qClient = undefined
@@ -28,7 +29,7 @@ export class Master {
   }
 
   #init = async () => {
-    const response = await fetch(SS_DATA_URL)
+    const response = await fetch(VISUAL_DATA_URL)
     this.#visualData = await response.json()
 
     this.#qClient = await new QClient()
