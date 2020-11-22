@@ -1,5 +1,6 @@
 
 const HOST = `${window.location.origin.replace(/^http/,"ws")}/mqtt`
+const GLOBAL_Q = new URLSearchParams(window.location.search).has("debug")
 
 const OPTIONS = {
   keepalive: 30,
@@ -42,6 +43,8 @@ export class QClient {
     })
     
     this.#client.on("message", this.#onMessage)
+
+    if (GLOBAL_Q) window.Q = this.publish
   }
 
   #onMessage = (topic, message) => {
