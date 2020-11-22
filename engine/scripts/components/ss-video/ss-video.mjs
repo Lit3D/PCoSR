@@ -33,12 +33,12 @@ export class SSVideoComponent extends HTMLElement  {
   constructor({
     splash,
     video,
-    logo,
+    logos,
     section_ru,
     section_en,
     subtitles,
     ...options
-  } = {}, { muted = true } = {}) {
+  } = {}, { muted = true, webm = false } = {}) {
     super()
 
     const screenWidth = window.screen.width
@@ -50,17 +50,17 @@ export class SSVideoComponent extends HTMLElement  {
     this.#splashVideo = this.#root.getElementById("splashVideo")
     this.#splashVideo.muted = true
     this.#splashVideo.loop = false
-    this.#splashVideo.src = options[`splash${screenWidth}`] ?? splash
+    this.#splashVideo.src = splash[`${webm ? "webm" : "mp4"}-${screenWidth}`] ?? splash[webm ? "webm" : "mp4"]
 
     // Configure main vieo
     this.#mainVideo = this.#root.getElementById("mainVideo")
     this.#mainVideo.muted = muted
     this.#mainVideo.loop = false
-    this.#mainVideo.src = video
+    this.#mainVideo.src = video[webm ? "webm" : "mp4"]
 
     // Configure final image
     this.#logotypesImg = this.#root.getElementById("logotypesImg")
-    this.#logotypesImg.src = options[`logo${screenWidth}`] ?? logo
+    this.#logotypesImg.src = logos[screenWidth] ?? logos["default"]
 
     this.#ssWrapperNode = this.#root.getElementById("ssWrapperNode")
     this.#ssLine = this.#root.getElementById("ssLine")

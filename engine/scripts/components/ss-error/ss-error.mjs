@@ -21,3 +21,5 @@ export class SSErrorComponent extends HTMLElement {
     this.#root.appendChild(this.#message)
   }
 }
+
+customElements.define(SSErrorComponent.TAG_NAME, SSErrorComponent)

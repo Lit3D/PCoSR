@@ -2403,8 +2403,7 @@
       "webm": "/content/video/5.webm"
     },
     "logos": {
-      "default": "/content/logos/5.jpg",
-      "2016": "/content/logos_2016/5.jpg"
+      "default": "/content/logos/5.png"
     },
     "selector": {
       "mp4": "/content/selectors/5.mp4",
