@@ -14,7 +14,7 @@ export class SSAppLineComponent extends HTMLElement  {
 
   #qClient = undefined
 
-  //#viewports = Array.from(new Array(12), (_,i) => new SSViewportComponent(`${Q_PATH}/${i+1}`))
+  #viewports = Array.from(new Array(12), (_,i) => new SSViewportComponent(`${Q_PATH}/${i+1}`))
   #selectors = Array.from(new Array(24), () => document.createElement("video"))
   #wave = document.createElement("video")
 
@@ -29,7 +29,7 @@ export class SSAppLineComponent extends HTMLElement  {
       this.#root.appendChild(videoNode)
     })
 
-    //this.#viewports.forEach(viewport => this.#root.appendChild(viewport))
+    this.#viewports.forEach(viewport => this.#root.appendChild(viewport))
 
     this.#wave.classList.add("wave")
     this.#wave.muted = true
@@ -68,8 +68,8 @@ export class SSAppLineComponent extends HTMLElement  {
       this.#wave.addEventListener("ended", this.#waveCmd, { passive: true })
 
       this.#qClient = await new QClient()
-      await this.#qClient.subscribe(`${this.#qPath}/wave`, this.#waveCmd)
-      await this.#qClient.publish(`${this.#qPath}/wave`, {})
+      await this.#qClient.subscribe(`${Q_PATH}/wave`, this.#waveCmd)
+      await this.#qClient.publish(`${Q_PATH}/wave`, {})
     } catch (err) {
       console.error(`SSAppLineComponent [connectedCallback] error: ${err.message}`)
     }
@@ -77,7 +77,7 @@ export class SSAppLineComponent extends HTMLElement  {
 
   async disconnectedCallback() {
     this.#wave.removeEventListener("ended", this.#waveCmd)
-    await this.#qClient.unsubscribe(`${this.#qPath}/wave`, this.#waveCmd)
+    await this.#qClient.unsubscribe(`${Q_PATH}/wave`, this.#waveCmd)
   }
 }
 
