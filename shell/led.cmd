@@ -1,1 +1,1 @@
-C:\Lit3D\shell\build\lit3d-shell-win32-x64\lit3d-shell.exe https://srv-led.pcosr.local
+C:\Lit3D\shell\build\lit3d-shell-win32-x64\lit3d-shell.exe srv-led.pcosr.local
