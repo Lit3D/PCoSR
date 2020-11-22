@@ -1,6 +1,6 @@
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
-export default class SSAppLedComponent extends HTMLElement  {
+export class SSAppLedComponent extends HTMLElement  {
   static TAG_NAME = "ss-app-led"
 
   #root = this.attachShadow({ mode: "open" })
