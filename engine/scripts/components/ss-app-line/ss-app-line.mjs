@@ -47,7 +47,10 @@ export class SSAppLineComponent extends HTMLElement  {
 
     this.#wave.src = src
     this.#wave.currentTime = 0
-    setTimeout(() => this.#wave.play(), 0)
+    requestAnimationFrame(() => {
+      this.#wave.classList.add("active")
+      setTimeout(() => this.#wave.play(), 0)
+    })
   }
 
   async connectedCallback() {
