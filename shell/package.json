@@ -22,7 +22,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "electron": "^10.1.6",
+    "electron": "^11.0.2",
     "electron-packager": "^15.0.0",
     "rimraf": "^3.0.2"
   }
