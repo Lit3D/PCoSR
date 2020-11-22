@@ -29,7 +29,6 @@
     "selector": { "top": "16", "bottom": "5" }
   },{
     "id": 10,
-    "wrapper": true,
     "selector": { "top": "3", "bottom": "4" }
   },{
     "id": 11,

@@ -1,6 +1,6 @@
 
 const HOST = `${window.location.origin.replace(/^http/,"ws")}/mqtt`
-// const HOST = `ws://wb.pcosr.local:18883/mqtt`
+
 const OPTIONS = {
   keepalive: 30,
   clientId: "QClient-" + Math.random().toString(16).substr(2, 8),
@@ -23,15 +23,21 @@ export class QClient {
     return QClient._instance = QClient._instance ?? new Promise(this.#connect)
   }
 
-  #connect = resolve => {
+  #connect = callback => {
+    console.debug(`QClient [${HOST}] connecting...`)
     this.#client = mqtt.connect(HOST, OPTIONS)
+    
     this.#client.on("error", err => {
-      console.error(err)
+      console.error(`QClient [${HOST}] connection error: ${err.message}`)
       this.#client.end(this.#connect)
     })
-    this.#client.on("connect", () => console.log("Connected"))
+    
+    this.#client.on("connect", () => {
+      console.debug(`QClient [${HOST}] connected`)
+      callback && callback(this)
+    })
+    
     this.#client.on("message", this.#onMessage)
-    resolve && resolve(this)
   }
 
   #onMessage = (topic, message) => {
@@ -40,34 +46,27 @@ export class QClient {
     try {
       data = JSON.parse(msg)
     } catch (err) {
-      console.error(err)
+      console.error(`QClient [${HOST}] massage parse error: ${err.message}`)
       return
     }
 
     (this.#listeners[topic] ?? []).forEach(cb => cb(data))
   }
 
-  publish(topic, message) {
-    return new Promise((resolve, reject) =>
-      this.#client.publish(topic, JSON.stringify(message), { qos: 0, retain: false}, err =>
-        err ? reject(err) : resolve()
-      )
-    )
-  }
+  publish = (topic, message) => new Promise((resolve, reject) => {
+    message = JSON.stringify(message)
+    this.#client.publish(topic, message, { qos: 0, retain: false }, err => err ? reject(err) : resolve())
+  })
 
-  subscribe(topic, callback) {
-    return new Promise((resolve, reject) => {
-      this.#listeners[topic] = [...(this.#listeners[topic] ?? []), callback]
-      if (this.#listeners[topic].length !== 1) resolve()
-      this.#client.subscribe(topic, { qos: 0 }, err => err ? reject(err) : resolve())
-    })
-  }
+  subscribe = (topic, callback) => new Promise((resolve, reject) => {
+    this.#listeners[topic] = [...(this.#listeners[topic] ?? []), callback]
+    if (this.#listeners[topic].length !== 1) return resolve()
+    this.#client.subscribe(topic, { qos: 0 }, err => err ? reject(err) : resolve())
+  })
 
-  unsubscribe(topic, callback) {
-    return new Promise((resolve, reject) => {
-      this.#listeners[topic] = (this.#listeners[topic] ?? []).filter(cb => cb !== callback)
-      if (this.#listeners[topic].length > 0) resolve()
-      this.#client.unsubscribe(topic, err => err ? reject(err) : resolve())
-    })
-  }
+  unsubscribe = (topic, callback) => new Promise((resolve, reject) => {
+    this.#listeners[topic] = (this.#listeners[topic] ?? []).filter(cb => cb !== callback)
+    if (this.#listeners[topic].length > 0) return resolve()
+    this.#client.unsubscribe(topic, err => err ? reject(err) : resolve())
+  })
 }

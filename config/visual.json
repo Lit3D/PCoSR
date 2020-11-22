@@ -1,0 +1,61 @@
+[{
+  "id": "main",
+  "ru": {
+    "led": "/content/visual_ru/main/led.mp4",
+    "line": null
+  },
+  "en": {
+    "led": "/content/visual_en/main/led.mp4",
+    "line": null
+  }
+},{
+  "id": "pack_1",
+  "ru": {
+    "led": "/content/visual_ru/pack_1/led.mp4",
+    "line": "/content/visual_ru/pack_1/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_1/led.mp4",
+    "line": "/content/visual_en/pack_1/line.mp4"
+  }
+},{
+  "id": "pack_2",
+  "ru": {
+    "led": "/content/visual_ru/pack_2/led.mp4",
+    "line": "/content/visual_ru/pack_2/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_2/led.mp4",
+    "line": "/content/visual_en/pack_2/line.mp4"
+  }
+},{
+  "id": "pack_3",
+  "ru": {
+    "led": "/content/visual_ru/pack_3/led.mp4",
+    "line": "/content/visual_ru/pack_3/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_3/led.mp4",
+    "line": "/content/visual_en/pack_3/line.mp4"
+  }
+},{
+  "id": "pack_4",
+  "ru": {
+    "led": "/content/visual_ru/pack_4/led.mp4",
+    "line": "/content/visual_ru/pack_4/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_4/led.mp4",
+    "line": "/content/visual_en/pack_4/line.mp4"
+  }
+},{
+  "id": "pack_5",
+  "ru": {
+    "led": "/content/visual_ru/pack_5/led.mp4",
+    "line": "/content/visual_ru/pack_5/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_5/led.mp4",
+    "line": "/content/visual_en/pack_5/line.mp4"
+  }
+}]

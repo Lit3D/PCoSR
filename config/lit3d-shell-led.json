@@ -1,5 +1,5 @@
 {
-  "id": "ss-led",
+  "id": "srv-led",
   "viewPorts": [{
     "id": "led",
     "x": 0,
