@@ -23,7 +23,7 @@ export class Master {
     if (!led) return console.error(`Master [VISUAL] incorrect Lang: ${lang}`)
 
     Promise.all([
-      this.#qClient.publish(`${Q_PATH_LED}/video`, { src: led }),
+      this.#qClient.publish(`${Q_PATH_LED}/video`, { src: led, muted: false }),
       this.#qClient.publish(`${Q_PATH_LINE}/wave`, { src: line }),
     ]).catch(err => console.error(`Master [VISUAL] error: ${err.message}`))
   }
