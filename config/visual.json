@@ -77,9 +77,5 @@
   "ru": {
     "led": "/content/visual_ru/pack_6/led.mp4",
     "line": "/content/visual_ru/pack_6/line.mp4"
-  },
-  "en": {
-    "led": "/content/visual_en/pack_6/led.mp4",
-    "line": "/content/visual_en/pack_6/line.mp4"
   }
 }]
