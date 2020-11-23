@@ -1,12 +1,22 @@
 {
-  "name": "psco",
-  "version": "0.1.0",
-  "private": true,
+  "name": "PCoSR-admin",
+  "description": "PCoSR Admin panel",
+  "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "repository": "https://github.com/lit3d/PCoSR",
+  "homepage": "https://github.com/lit3d/PCoSR",
+  "bugs": "https://github.com/lit3d/PCoSR/issues",
+  "author": "Lit3D <info@lit3d.io> (https://github.com/lit3d)",
+  "contributors": [
+    "Wisdman <wisdman@wisdman.io> (https://github.com/wisdman)",
+    "Yulia Fedyakina <iulia.fedyakina@gmail.com> (https://github.com/saigach)"
+  ],
+  "license": "unlicense",
+  "private": true,
   "dependencies": {
     "autoprefixer": "^9.8.0",
     "axios": "^0.20.0",
