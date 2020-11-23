@@ -16,4 +16,10 @@
   "name": "Делегат 1",
   "description": "Можно что то написать про сценарий",
   "steps": ["pack_1", "pack_3", "main", "pack_5"]
+},{
+  "id": "visitors_2",
+  "lang": "ru",
+  "name": "Делегат 2",
+  "description": "Можно что то написать про сценарий",
+  "steps": ["pack_6", "pack_3", "pack_5"]
 }]
