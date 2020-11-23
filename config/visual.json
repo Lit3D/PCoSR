@@ -76,10 +76,10 @@
   "description": "",
   "ru": {
     "led": "/content/visual_ru/pack_6/led.mp4",
-    "line": "/content/visual_ru/pack_5/line.mp4"
+    "line": "/content/visual_ru/pack_6/line.mp4"
   },
   "en": {
-    "led": "/content/visual_en/pack_5/led.mp4",
-    "line": "/content/visual_en/pack_5/line.mp4"
+    "led": "/content/visual_en/pack_6/led.mp4",
+    "line": "/content/visual_en/pack_6/line.mp4"
   }
 }]
