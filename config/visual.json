@@ -70,4 +70,16 @@
     "led": "/content/visual_en/pack_5/led.mp4",
     "line": "/content/visual_en/pack_5/line.mp4"
   }
+},{
+  "id": "pack_6",
+  "name": "Название пака 6",
+  "description": "",
+  "ru": {
+    "led": "/content/visual_ru/pack_6/led.mp4",
+    "line": "/content/visual_ru/pack_5/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_5/led.mp4",
+    "line": "/content/visual_en/pack_5/line.mp4"
+  }
 }]
