@@ -107,7 +107,7 @@ export class RealSense {
     let {key, shiftKey} = event
     key = key.toUpperCase()
 
-    if (this.#isVisualMode && this.#processor.keydown(key, shiftKey)) {
+    if (this.isVisualMode && this.#processor.keydown(key, shiftKey)) {
       event.preventDefault()
       event.stopPropagation()
       return
