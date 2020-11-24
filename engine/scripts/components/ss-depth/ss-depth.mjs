@@ -7,7 +7,7 @@ export class SSDepthComponent extends HTMLElement  {
 
   #canvas = document.createElement("canvas")
   #ctx = this.#canvas.getContext("2d")
-  #imageData = this.#ctx.createImageData(0, 0)
+  #imageData = this.#ctx.createImageData(1, 1)
 
   #pixelArray = this.#imageData.data
   get pixelArray() { return this.#pixelArray }
