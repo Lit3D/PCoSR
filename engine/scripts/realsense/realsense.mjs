@@ -33,7 +33,7 @@ export class RealSense {
     this.#servers = servers
     this.#devices = devices
     
-    const {width, height} = this.#config
+    const {width, height} = config
     console.log({width, height})
     this.#depthData = this.#devices.reduce((acc, device) => 
       ({...acc, [device]: Array.from(new Array(height), () => new Array(width).fill(0)) }),
