@@ -65,7 +65,7 @@ function gpu() {
 }
 
 function initViewPorts({ engine, viewPorts, mac, IPv4, IPv6, hostname }) {
-  for (const {id, x, y, width, height, fullscreen, content, master} of viewPorts) {
+  for (const {id, x, y, width, height, fullscreen, content, master, nodeIntegration} of viewPorts) {
 
     const position =  fullscreen ? {
                         x: x + width / 4,
@@ -76,11 +76,14 @@ function initViewPorts({ engine, viewPorts, mac, IPv4, IPv6, hostname }) {
                         x, y, width, height,
                       }
 
-    let win = new BrowserWindow({
+    const windowOptions = {
       ...WINDOW_OPTIONS,
       ...position,
       fullscreen, kiosk: fullscreen,
-    })
+    }
+    windowOptions.webPreferences.nodeIntegration = !!nodeIntegration
+
+    let win = new BrowserWindow(windowOptions)
 
     win.on("closed", () => {
       windows = windows.filter(w => w !== win)
