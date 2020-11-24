@@ -58,7 +58,7 @@ export class RealSense {
 
   #processData = () => {
     const depthFrame = this.#devices.map(device => this.#depthData[device]).flat()
-    this.#processors.forEach(processor => processor.process(depthFrame))
+    if (this.#processor) this.#processor.process(depthFrame)
   }
 
   release = () => {
