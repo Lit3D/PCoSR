@@ -44,6 +44,7 @@ export class Master {
   }
 
   #scenarioStep = () => {
+    if (!this.#currentScenario) return
     this.#step += 1
     console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({step: this.#scenarioStep})}`)
     const lang = this.#currentScenario.lang
