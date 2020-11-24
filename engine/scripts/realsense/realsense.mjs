@@ -34,16 +34,14 @@ export class RealSense {
     this.#devices = devices
     
     const {width, height} = config
-    console.log({width, height})
     this.#depthData = this.#devices.reduce((acc, device) => 
       ({...acc, [device]: Array.from(new Array(height), () => new Array(width).fill(0)) }),
       {}
     )
 
     this.#config = {...config, height: height * this.#devices.length}
-    console.dir(this.#depthData)
 
-    // this.#initClients()
+    this.#initClients()
     return this
   }
 
