@@ -21,7 +21,8 @@ export class SSAppWaveComponent extends HTMLElement  {
     this.#root.appendChild(this.#wave)
   }
 
-  #ssWave = (src) => {
+  #ssWave = ({ src }) => {
+    if (!src) return
     this.#wave.src = src
     setTimeout(() => this.#wave.play(),0)
   }
@@ -47,7 +48,7 @@ export class SSAppWaveComponent extends HTMLElement  {
 
   async disconnectedCallback() {
     this.#wave.removeEventListener("ended", this.#ended)
-    await this.#qClient.unsubscribe(`${Q_PATH}/wave`, this.#ssWave)
+    await this.#qClient.unsubscribe(`${Q_PATH}/wave`, {})
   }
 }
 
