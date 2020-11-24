@@ -1,17 +1,16 @@
-import { RealSense, RealSenseRenderer } from "../../realsense/index.mjs"
-
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
 export class SSDepthComponent extends HTMLElement  {
   static TAG_NAME = "ss-depth"
 
-  #realSense = undefined
-  #renderer = undefined
-
   #root = this.attachShadow({ mode: "open" })
 
   #canvas = document.createElement("canvas")
   #ctx = this.#canvas.getContext("2d")
+  #imageData = this.#ctx.createImageData(0, 0)
+
+  #pixelArray = this.#imageData.data
+  get pixelArray() { return this.#pixelArray }
   
   constructor() {
     super()
@@ -21,25 +20,16 @@ export class SSDepthComponent extends HTMLElement  {
     this.#root.appendChild(this.#canvas)
   }
 
-  #resize = ({detail: {width, height}}) => {
+  resize = (width, height) => {
     this.style.setProperty("--width", width)
     this.style.setProperty("--height", height)
     this.#canvas.width = width
     this.#canvas.height = height
+    this.#imageData = this.#ctx.createImageData(width, height)
+    this.#pixelArray = this.#imageData.data
   }
 
-  async connectedCallback() {
-    this.#realSense = await new RealSense()
-    this.#renderer = new RealSenseRenderer(this.#ctx)
-    this.#renderer.addEventListener("setup", this.#resize, { once: true })
-    this.#realSense.attachProcessor(this.#renderer)
-    this.#renderer.start()
-  }
-
-  disconnectedCallback() {
-    this.#realSense.detachProcessor(this.#renderer)
-    this.#realSense.release()
-  }
+  draw = () => requestAnimationFrame(() => this.#ctx.putImageData(this.#imageData, 0, 0))
 }
 
 customElements.define(SSDepthComponent.TAG_NAME, SSDepthComponent)

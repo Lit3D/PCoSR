@@ -1,26 +1,23 @@
 
 import { RealSenseClient } from "./client.mjs"
-import { CONFIG_PATH, SETUP_PROCESSOR_SYMBOL } from "./env.mjs"
+import { RealSenseProcessor } from "./processor.mjs"
+import { CONFIG_PATH } from "./env.mjs"
 
-const EMPTY_DATA = new Array(640).fill(0)
+import { SSDepthComponent } from "../components/ss-depth/index.mjs"
+
+const DEBUG_MODE = new URLSearchParams(window.location.search).has("debug")
 
 export class RealSense {
   static _instance = undefined
 
-  #config = {}
-  get config() { return {...this.#config} }
-
   #servers = []
   #devices = []
-  #clients = []
+
   #depthData = {}
 
-  #processors = []
-  attachProcessor = (processor) => {
-    processor[SETUP_PROCESSOR_SYMBOL]({...this.#config})
-    this.#processors = [...this.#processors, processor]
-  }
-  detachProcessor = (processor) => this.#processors = this.#processors.filter(item => item !== processor)
+  #clients = []
+
+  #processor = undefined
 
   constructor() {
     return RealSense._instance = RealSense._instance ?? this.#init()
@@ -28,20 +25,21 @@ export class RealSense {
 
   #init = async () => {
     const response = await fetch(CONFIG_PATH)
-    const {servers, devices, ...config} = await response.json()
+    const {minDepth, maxDepth, width, height, servers, devices, frames} = await response.json()
 
     this.#servers = servers
     this.#devices = devices
     
-    const {width, height} = config
     this.#depthData = this.#devices.reduce((acc, device) => 
       ({...acc, [device]: Array.from(new Array(height), () => new Array(width).fill(0)) }),
       {}
     )
 
-    this.#config = {...config, height: height * this.#devices.length}
-
+    this.#processor = new RealSenseProcessor({ minDepth, maxDepth, width, height: height * this.#devices.length, frames })
     this.#initClients()
+    this.#processor.start()
+
+    if (DEBUG_MODE) { window.addEventListener("keydown", this.#keydown) }
     return this
   }
 
@@ -73,6 +71,63 @@ export class RealSense {
       client.release()
       return []
     })
+  }
+
+  toJSON() {
+    const { height, ...data } = this.#processor.toJSON()
+    return {...data, height: height / this.#devices.length}
+  }
+
+  saveConfig = () => {
+    const a = document.createElement("a")
+    const file = new Blob([JSON.stringify(this.toJSON())], {type: "text/plain"})
+    a.href = URL.createObjectURL(file)
+    a.download = "realsense.json";
+    a.click()
+  }
+
+
+  #renderer = undefined
+  get isVisualMode() { return !!this.#renderer }
+  set isVisualMode(value) {
+    if (value === this.isVisualMode) return
+
+    if (value) {
+      this.#renderer = new SSDepthComponent()
+      this.#processor.attachRenderer(this.#renderer)
+      document.body.appendChild(this.#renderer)
+      return
+    }
+
+    this.#processor.detachRenderer(this.#renderer)
+    this.#renderer.remove()
+  }
+
+  keydown = event => {
+    let {key, shiftKey} = event
+    key = key.toUpperCase()
+
+    if (this.#isVisualMode && this.#processor.keydown(key, shiftKey)) {
+      event.preventDefault()
+      event.stopPropagation()
+      return
+    }
+
+    switch(key) {
+      case "S":
+        this.saveConfig()
+        break
+
+      case "R":
+        this.isVisualMode = !this.isVisualMode
+        break
+
+      default:
+        return
+    }
+
+    event.preventDefault()
+    event.stopPropagation()
   }
 
 }
