@@ -22,7 +22,7 @@ export class Frame extends EventTarget {
       console.debug(`Frame [${this.#x}, ${this.#y}, ${this.#width}, ${this.#height}] active ${this.#action} action`)
       this.dispatchEvent(new CustomEvent("active", { detail: this.#action }))
     }
-    this.#active = value
+    this.#isActive = value
   }
 
   get x1() { return this.#x }
