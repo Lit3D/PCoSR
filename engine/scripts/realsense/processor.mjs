@@ -121,10 +121,10 @@ export class RealSenseProcessor extends EventTarget {
         if (frame.point(x,y)) {
           const delta = etalon - value
           if (frame.detectDelta(delta)) {
-            this.#pixelArray[i  ] = 0xff
-            this.#pixelArray[i+1] = 0x00
-            this.#pixelArray[i+2] = 0x00
-            this.#pixelArray[i+3] = 0xff
+            pixelArray[i  ] = 0xff
+            pixelArray[i+1] = 0x00
+            pixelArray[i+2] = 0x00
+            pixelArray[i+3] = 0xff
             continue pointsLoop
           }
         }
@@ -132,18 +132,18 @@ export class RealSenseProcessor extends EventTarget {
 
       // Search depth
       if (value < this.#minDepth || value > this.#maxDepth) {
-        this.#pixelArray[i  ] = 0x00
-        this.#pixelArray[i+1] = 0x00
-        this.#pixelArray[i+2] = 0x00
-        this.#pixelArray[i+3] = 0xff
+        pixelArray[i  ] = 0x00
+        pixelArray[i+1] = 0x00
+        pixelArray[i+2] = 0x00
+        pixelArray[i+3] = 0xff
         continue
       }
 
       const gray = (value - this.#minDepth) / depthZone * 255
-      this.#pixelArray[i] = gray
-      this.#pixelArray[i+1] = gray
-      this.#pixelArray[i+2] = gray
-      this.#pixelArray[i+3] = 0xff
+      pixelArray[i] = gray
+      pixelArray[i+1] = gray
+      pixelArray[i+2] = gray
+      pixelArray[i+3] = 0xff
     }
 
     this.#renderer.draw()
