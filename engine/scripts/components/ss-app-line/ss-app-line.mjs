@@ -49,9 +49,6 @@ export class SSAppLineComponent extends HTMLElement  {
       return
     }
 
-    const selectors = selectorsConfig.find(({id}) => id === this.#id)
-    console.dir(selectors)
-
     const [top, bottom] = selectorsConfig.find(({id}) => id === this.#id)?.ss ?? []
     let selector = ssData.find(item => item.id === top)?.selector
     this.#top.src = selector["webm"] ?? selector["mp4"]

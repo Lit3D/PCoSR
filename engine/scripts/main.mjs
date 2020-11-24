@@ -9,7 +9,7 @@ document.body.classList.add(`sw--${window.screen.width}`)
 
 void async function main() {
   const { default: SSAppComponent } = await import(APP_MODULE)
-  document.body.appendChild(new SSAppComponent(N))
+  document.body.appendChild(new SSAppComponent(Number.parseInt(N) || 0))
 }().catch(err => {
   console.error(err)
   document.body.innerHTML = `<div class="error">MAIN ERROR: ${err}</div>`
