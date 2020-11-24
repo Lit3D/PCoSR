@@ -33,7 +33,7 @@ export class Master {
   }
 
   #currentScenario = undefined
-  #scenarioStep = -1
+  #step = -1
 
   #scenarioCmd = ({ id, lang = "ru" } = {}) => {
     console.debug(`Master [SCENARIO]: ${JSON.stringify({id, lang})}`)
@@ -44,10 +44,10 @@ export class Master {
   }
 
   #scenarioStep = () => {
-    this.#scenarioStep += 1
+    this.#step += 1
     console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({step: this.#scenarioStep})}`)
     const lang = this.#currentScenario.lang
-    const id = this.#currentScenario.steps[this.#scenarioStep]
+    const id = this.#currentScenario.steps[this.#step]
     if (!id) return this.#scenarioEnd()
     this.#visualCmd({ id, lang })
   }
@@ -55,7 +55,7 @@ export class Master {
   #scenarioEnd = () => {
     console.debug(`Master [SCENARIO END]`)
     this.#currentScenario = undefined
-    this.#scenarioStep = -1
+    this.#step = -1
     return
   }
 
