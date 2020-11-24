@@ -1,4 +1,4 @@
-import { Q_PATH_LINE } from "../../q-client.mjs"
+import { QClient, Q_PATH_LINE } from "../../q-client.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
@@ -37,7 +37,7 @@ export class SSAppWaveComponent extends HTMLElement  {
       await this.#qClient.subscribe(`${Q_PATH}/wave`, this.#ssWave)
       await this.#qClient.publish(`${Q_PATH}/wave`, {})
     } catch (err) {
-      this.#viewport.error = `SSAppWaveComponent [connectedCallback] error: ${err.message}`
+      console.error(`SSAppWaveComponent [connectedCallback] error: ${err.message}`)
       return
     }
 
