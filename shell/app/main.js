@@ -82,6 +82,7 @@ function initViewPorts({ engine, viewPorts, mac, IPv4, IPv6, hostname }) {
       fullscreen, kiosk: fullscreen,
     }
     windowOptions.webPreferences.nodeIntegration = !!nodeIntegration
+    windowOptions.webPreferences.enableRemoteModule = !!nodeIntegration
 
     let win = new BrowserWindow(windowOptions)
 
