@@ -45,6 +45,7 @@ export class RealSenseProcessor extends EventTarget {
     height = 0,
     frames = [],
   }) {
+    super()
     this.#minDepth = minDepth
     this.#maxDepth = maxDepth
     this.#width = width
