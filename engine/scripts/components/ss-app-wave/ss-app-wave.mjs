@@ -34,6 +34,7 @@ export class SSAppWaveComponent extends HTMLElement  {
 
   async connectedCallback() {
     try {
+      this.#qClient = await new QClient()
       await this.#qClient.subscribe(`${Q_PATH}/wave`, this.#ssWave)
       await this.#qClient.publish(`${Q_PATH}/wave`, {})
     } catch (err) {
