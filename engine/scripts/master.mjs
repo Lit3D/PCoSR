@@ -55,6 +55,12 @@ export class Master {
 
   #scenarioEnd = () => {
     console.debug(`Master [SCENARIO END]`)
+
+    Promise.all([
+      this.#qClient.publish(`${Q_PATH_LED}/splash`, {}),
+      this.#qClient.publish(`${Q_PATH_LINE}/wave`, {}),
+    ]).catch(err => console.error(`Master [SCENARIO] error: ${err.message}`))
+
     this.#currentScenario = undefined
     this.#step = -1
     return
