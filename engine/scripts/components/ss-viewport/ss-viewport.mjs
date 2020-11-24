@@ -92,7 +92,7 @@ export class SSViewportComponent extends HTMLElement  {
       if (videoNode.loop) return
       requestAnimationFrame(this.#clear)
       this.#qClient
-          .publish(`${this.#qPath}/video/ended`, "1")
+          .publish(`${this.#qPath}/video/ended`, 1)
           .catch(err => console.error(`SSViewportComponent [VIDEO] error: ${err.message}`))
     }, { once: true, passive: true })
 
