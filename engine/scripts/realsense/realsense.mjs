@@ -2,6 +2,8 @@
 import { RealSenseClient } from "./client.mjs"
 import { CONFIG_PATH, SETUP_PROCESSOR_SYMBOL } from "./env.mjs"
 
+const EMPTY_DATA = new Array(640).fill(0)
+
 export class RealSense {
   static _instance = undefined
 
@@ -31,6 +33,8 @@ export class RealSense {
     this.#servers = servers
     this.#devices = devices
     this.#config = {...config, height: config.height * this.#devices.length}
+    this.#depthData = this.#devices.reduce((acc, device) => ({...acc, [device]: new Array().fill(EMPTY_DATA) }), {})
+    console.dir(this.#depthData)
 
     this.#initClients()
     return this
