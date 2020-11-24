@@ -103,7 +103,7 @@ export class RealSense {
     this.#renderer.remove()
   }
 
-  keydown = event => {
+  #keydown = event => {
     let {key, shiftKey} = event
     key = key.toUpperCase()
 
