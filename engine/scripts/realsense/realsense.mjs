@@ -32,8 +32,12 @@ export class RealSense {
 
     this.#servers = servers
     this.#devices = devices
-    this.#config = {...config, height: config.height * this.#devices.length}
-    this.#depthData = this.#devices.reduce((acc, device) => ({...acc, [device]: new Array().fill(EMPTY_DATA) }), {})
+    
+    const {width, height} = this.#config
+    const empty = new Array(width).fill(0)
+    this.#depthData = this.#devices.reduce((acc, device) => ({...acc, [device]: new Array(height).fill(empty) }), {})
+
+    this.#config = {...config, height: height * this.#devices.length}
     console.dir(this.#depthData)
 
     this.#initClients()
