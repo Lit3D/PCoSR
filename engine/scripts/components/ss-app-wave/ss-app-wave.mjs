@@ -3,6 +3,7 @@ import { QClient, Q_PATH_LINE } from "../../q-client.mjs"
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
 const Q_PATH = Q_PATH_LINE
+const currentWindow = require("electron").remote.getCurrentWindow()
 
 export class SSAppWaveComponent extends HTMLElement  {
   static TAG_NAME = "ss-app-wave"
@@ -22,12 +23,19 @@ export class SSAppWaveComponent extends HTMLElement  {
   }
 
   #ssWave = ({ src }) => {
-    if (!src) return
+    if (!src) {
+      currentWindow.hide()
+      this.#wave.pause()
+      return
+    }
     this.#wave.src = src
+    this.#wave.currentTime = 0
+    currentWindow.show()
     setTimeout(() => this.#wave.play(),0)
   }
 
   #ended = () => {
+    currentWindow.hide()
     this.#qClient
         .publish(`${Q_PATH}/wave/ended`, "1")
         .catch(err => console.error(`SSAppWaveComponent [SS] error: ${err.message}`))
