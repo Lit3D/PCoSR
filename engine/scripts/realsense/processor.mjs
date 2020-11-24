@@ -157,7 +157,7 @@ export class RealSenseProcessor extends EventTarget {
 
   removeFrame() {
     if (!this.#selectedFrame) return
-    this.#selectedFrame.removeEventListener("active", this.#onActive)
+    this.#selectedFrame.removeEventListener("active", this.#onFrameActive)
     this.#frames = this.#frames.filter(frame => frame !== this.#selectedFrame)
     this.#selectedFrame = undefined
   }
