@@ -1,4 +1,4 @@
-import { QClient, Q_PATH_LINE } from "../../q-client.mjs"
+import { Q_PATH_LINE } from "../../q-client.mjs"
 import { SSViewportComponent } from "../ss-viewport/index.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
@@ -12,82 +12,56 @@ export class SSAppLineComponent extends HTMLElement  {
 
   #root = this.attachShadow({ mode: "open" })
 
-  #qClient = undefined
+  #top = document.createElement("video")
+  #bottom = document.createElement("video")
+  #viewport = undefined
 
-  #viewports = Array.from(new Array(12), (_,i) => new SSViewportComponent(`${Q_PATH}/${i+1}`))
-  #selectors = Array.from(new Array(24), () => document.createElement("video"))
-  #wave = document.createElement("video")
-
-  constructor() {
+  #id = 0
+  constructor(id = 0) {
     super()
+    this.#id = id
     this.#root.innerHTML = TEMPLATE
 
-    this.#selectors.forEach(videoNode => {
-      videoNode.classList.add("selector")
-      videoNode.muted = true
-      videoNode.loop = true
-      this.#root.appendChild(videoNode)
-    })
+    this.#top.classList.add("selector")
+    this.#top.muted = true
+    this.#top.loop = true
+    this.#root.appendChild(this.#top)
 
-    this.#viewports.forEach(viewport => this.#root.appendChild(viewport))
+    this.#bottom.classList.add("selector")
+    this.#bottom.muted = true
+    this.#bottom.loop = true
+    this.#root.appendChild(this.#bottom)
 
-    this.#wave.classList.add("wave")
-    this.#wave.muted = true
-    this.#wave.loop = false
-    this.#root.appendChild(this.#wave)
-  }
-
-  #waveCmd = ({ src } = {}) => {
-    console.debug(`SSAppLineComponent [WAVE]: ${JSON.stringify({src})}`)
-    if (src === undefined || src === null) {
-      this.#wave.pause()
-      requestAnimationFrame(() => {
-        this.#selectors.forEach(videoNode => videoNode.play())
-        this.#wave.classList.remove("active")
-      })
-      return
-    }
-
-    this.#wave.src = src
-    this.#wave.currentTime = 0
-
-    this.#viewports.forEach(viewport => viewport.command("splash", {}))
-    requestAnimationFrame(() => {
-      this.#wave.classList.add("active")
-      this.#selectors.forEach(videoNode => videoNode.pause())
-      setTimeout(() => this.#wave.play(), 0)
-    })
+    this.#viewport = new SSViewportComponent(`${Q_PATH}/${this.#id}`)
+    this.#root.appendChild(this.#viewport)
   }
 
   async connectedCallback() {
+    let ssData, selectorsConfig
     try {
       let response = await fetch(SS_DATA_URL)
-      const ssData = await response.json()
+      ssData = await response.json()
 
       response = await fetch(SELECTORS_CONFIG_URL)
-      const selectorsConfig = await response.json()
-
-      this.#selectors.forEach((videoNode, i) => {
-        const id = selectorsConfig[i]
-        const { selector } = ssData.find(item => item.id === id)
-        videoNode.src = selector["webm"] ?? selector["mp4"]
-        setTimeout(() => videoNode.play(),0)
-      })
-
-      this.#wave.addEventListener("ended", this.#waveCmd, { passive: true })
-
-      this.#qClient = await new QClient()
-      await this.#qClient.subscribe(`${Q_PATH}/wave`, this.#waveCmd)
-      await this.#qClient.publish(`${Q_PATH}/wave`, {})
+      selectorsConfig = await response.json()
     } catch (err) {
-      console.error(`SSAppLineComponent [connectedCallback] error: ${err.message}`)
+      this.#viewport.error = `SSAppLineComponent [connectedCallback] error: ${err.message}`
+      return
     }
+
+    const [top, bottom] = selectorsConfig.find(({id}) => id === this.#id)?.ss ?? []
+    let selector = ssData.find(item => item.id === top)?.selector
+    this.#top.src = selector["webm"] ?? selector["mp4"]
+    selector = ssData.find(item => item.id === bottom)?.selector
+    this.#bottom.src = selector["webm"] ?? selector["mp4"]
+
+    setTimeout(() => {
+      this.#top.play()
+      this.#bottom.play()
+    },0)
   }
 
-  async disconnectedCallback() {
-    this.#wave.removeEventListener("ended", this.#waveCmd)
-    await this.#qClient.unsubscribe(`${Q_PATH}/wave`, this.#waveCmd)
-  }
+  async disconnectedCallback() { }
 }
 
 customElements.define(SSAppLineComponent.TAG_NAME, SSAppLineComponent)

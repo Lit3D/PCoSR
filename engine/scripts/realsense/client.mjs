@@ -1,5 +1,5 @@
 
-const RECONNECT_TIMEOUT = 2 * 1000 // 2s
+import { RECONNECT_TIMEOUT } from "./env.mjs"
 
 export class RealSenseClient {
   #url = undefined

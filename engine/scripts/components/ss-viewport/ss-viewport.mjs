@@ -22,9 +22,12 @@ export class SSViewportComponent extends HTMLElement  {
     this.#root.querySelectorAll("*").forEach(node => node.volume = this.#volume / 100)
   }
 
-  constructor(qPath) {
+  #webm = false
+
+  constructor(qPath, { webm = false } = {}) {
     super()
     this.#qPath = qPath
+    this.#webm = webm
     this.#root.innerHTML = TEMPLATE
   }
 
@@ -46,7 +49,7 @@ export class SSViewportComponent extends HTMLElement  {
     const ssData = this.#ssData.find(item => item.id === id )
     if (!ssData) return this.#error(`SSViewportComponent [SS] incorrect ID: ${id}`)
 
-    const ssVideo = new SSVideoComponent(ssData, { muted })
+    const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm })
     ssVideo.volume = this.volume / 100
 
     ssVideo.addEventListener("ended", () => {
@@ -74,7 +77,7 @@ export class SSViewportComponent extends HTMLElement  {
     })
   }
 
-  #videoCmd = ({ src, muted = true, loop = false } = {}) => {
+  #videoCmd = ({ src, muted = false, loop = false } = {}) => {
     console.debug(`SSViewportComponent [VIDEO]: ${JSON.stringify({src, muted, loop})}`)
     if (src === undefined || src === null) return
 
@@ -89,7 +92,7 @@ export class SSViewportComponent extends HTMLElement  {
       if (videoNode.loop) return
       requestAnimationFrame(this.#clear)
       this.#qClient
-          .publish(`${this.#qPath}/video/ended`, "1")
+          .publish(`${this.#qPath}/video/ended`, 1)
           .catch(err => console.error(`SSViewportComponent [VIDEO] error: ${err.message}`))
     }, { once: true, passive: true })
 

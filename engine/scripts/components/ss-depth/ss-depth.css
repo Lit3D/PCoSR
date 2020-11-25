@@ -1,6 +1,6 @@
 :host {
-  --width: var(--ss-selector-width, 100vw);
-  --height: var(--ss-selector-height, 100vh);
+  --width: 100px;
+  --height: 100px;
 
   display: block;
 
@@ -11,7 +11,7 @@
   height: calc(var(--height) * 1px);
   z-index: 999;
 
-  background-color: rgb(255 255 255 / .5);
+  background-color: rgb(255 255 255 / 1);
 }
 
 canvas {

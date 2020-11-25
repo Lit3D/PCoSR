@@ -30,7 +30,7 @@ export class SSAppLedComponent extends HTMLElement  {
       await this.#qClient.subscribe(`${Q_PATH}/volume/set`, this.#setVolume)
       await this.#qClient.publish(`${Q_PATH}/volume/set`, null)
     } catch (err) {
-      console.error(`SSAppLedComponent [connectedCallback] error: ${err.message}`)
+      this.#viewport.error = `SSAppLedComponent [connectedCallback] error: ${err.message}`
     }
   }
 

@@ -1,0 +1,31 @@
+:host {
+  --width: 100vw;
+  --height: 100vh;
+
+  position: relative;
+
+  width: var(--width);
+  min-width: var(--width);
+  max-width: var(--width);
+
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--height);
+
+  overflow: hidden;
+  user-select: none;
+  cursor: none;
+
+  display: block;
+  background-color: var(--color-bg);
+}
+
+.wave {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-height: 100%;
+}
