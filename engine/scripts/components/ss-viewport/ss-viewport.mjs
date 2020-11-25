@@ -86,6 +86,7 @@ export class SSViewportComponent extends HTMLElement  {
     requestAnimationFrame(() => {
       this.#clear()
       this.#root.appendChild(ssVideo)
+      this.#currentSS = id
       setTimeout(() => ssVideo.play(),0)
     })
   }
