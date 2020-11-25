@@ -21,17 +21,17 @@
   "lang": "en",
   "name": "Delegate 1",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_1-2", "main", "pack_3-4", "pack_5"]
+  "steps": ["pack_1", "pack_2", "main", "pack_3", "pack_4", "pack_5"]
 },{
   "id": "visitors_2",
   "lang": "ru",
   "name": "Делегат 2",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_6", "pack_3-4", "pack_5"]
+  "steps": ["pack_6", "pack_4", "pack_5"]
 },{
   "id": "visitors_2",
   "lang": "en",
   "name": "Делегат 2",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_6", "pack_3-4", "pack_5"]
+  "steps": ["pack_6", "pack_4", "pack_5"]
 }]
