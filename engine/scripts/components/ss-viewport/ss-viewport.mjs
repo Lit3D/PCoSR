@@ -28,7 +28,6 @@ export class SSViewportComponent extends HTMLElement  {
     super()
     this.#qPath = qPath
     this.#webm = webm
-    this.#allowRestartSS = allowRestartSS
     this.#root.innerHTML = TEMPLATE
   }
 
