@@ -82,15 +82,13 @@ export class Master {
     await this.#qClient.subscribe(`${Q_PATH_LED}/video/ended`, this.#scenarioStep)
     await this.#qClient.publish(`${Q_PATH_LED}/video/ended`, 1)
 
-
-
-    //this.#realsense = await new RealSense()
+    this.#realsense = await new RealSense()
 
     return this
   }
 
   release = async () => {
-    //await this.#realsense.release()
+    await this.#realsense.release()
     await this.#qClient.unsubscribe(`${Q_PATH}/visual`, this.#visualCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/scenario`, this.#scenarioCmd)
   }
