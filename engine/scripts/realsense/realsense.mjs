@@ -74,9 +74,10 @@ export class RealSense {
     })
   }
 
-  #onActive = (event) => {
-    console.dir(event)
-  }
+  #activeListeners = []
+  onActive = (listener) => this.#activeListeners = [...this.#activeListeners, listener]
+  offActive = (listener) => this.#activeListeners = this.#activeListeners.filter(l => l !== listener)
+  #onActive = ({detail}) => this.#activeListeners.forEach(l => l(detail))
 
   toJSON() {
     const { height, ...data } = this.#processor.toJSON()

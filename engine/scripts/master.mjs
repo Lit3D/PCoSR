@@ -4,6 +4,7 @@ import { RealSense } from "./realsense/index.mjs"
 const Q_PATH = Q_PATH_MASTER
 const VISUAL_DATA_URL = "/config/visual.json"
 const SCENARIOS_DATA_URL = "/config/scenarios.json"
+const SELECTORS_DATA_URL = "/config/selectors.json"
 
 export class Master {
   #qClient = undefined
@@ -11,6 +12,7 @@ export class Master {
 
   #visualData = []
   #scenarios = []
+  #selectors = []
 
   constructor() {
     return this.#init()
@@ -73,6 +75,9 @@ export class Master {
     response = await fetch(SCENARIOS_DATA_URL)
     this.#scenarios = await response.json()
 
+    response = await fetch(SELECTORS_DATA_URL)
+    this.#selectors = await response.json()
+
     this.#qClient = await new QClient()
     await this.#qClient.subscribe(`${Q_PATH}/visual`, this.#visualCmd)
     await this.#qClient.publish(`${Q_PATH}/visual`, {})
@@ -83,11 +88,20 @@ export class Master {
     await this.#qClient.publish(`${Q_PATH_LED}/video/ended`, 1)
 
     this.#realsense = await new RealSense()
+    this.#realsense.onActive(this.#onActive)
 
     return this
   }
 
+  #onActive = (id) => {
+    if (!Number.isFinite(id) || id < 0) return console.error(`Master [onActive] incorrect active id: ${id}`)
+    const monitor = this.#selectors.find(({ss}) => ss.includes(id))?.id
+    if (!Number.isFinite(monitor) || monitor < 0) return console.error(`Master [onActive] incorrect monitor id: ${monitor} by id: ${id}`)
+    console.debug(`Master [onActive] active: ${JSON.stringify({id, monitor})}`)
+  }
+
   release = async () => {
+    this.#realsense.offActive(this.#onActive)
     await this.#realsense.release()
     await this.#qClient.unsubscribe(`${Q_PATH}/visual`, this.#visualCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/scenario`, this.#scenarioCmd)
