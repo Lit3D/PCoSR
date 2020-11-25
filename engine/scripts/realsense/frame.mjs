@@ -95,13 +95,14 @@ export class Frame extends EventTarget {
   #configDepth = () => {
     let result = prompt(
       "Настройка глубины",
-      `{ minSense: ${this.#minSense}, maxSense: ${this.#maxSense}, pathos: ${this.#pathos} }`,
+      `{ "minSense": ${this.#minSense}, "maxSense": ${this.#maxSense}, "pathos": ${this.#pathos} }`,
     )
 
     if (!result) return
     try {
       result = JSON.parse(result)
     } catch(err) {
+      console.error(`Frame [configDepth] json parse error: ${err.message}`)
       return
     }
 
