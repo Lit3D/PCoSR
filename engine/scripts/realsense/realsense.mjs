@@ -37,6 +37,7 @@ export class RealSense {
 
     this.#processor = new RealSenseProcessor({ minDepth, maxDepth, width, height: height * this.#devices.length, frames })
     this.#initClients()
+    this.#processor.addEventListener("active", this.#onActive)
     this.#processor.start()
 
     if (DEBUG_MODE) { window.addEventListener("keydown", this.#keydown) }
@@ -71,6 +72,10 @@ export class RealSense {
       client.release()
       return []
     })
+  }
+
+  #onActive = (event) => {
+    console.dir(event)
   }
 
   toJSON() {
