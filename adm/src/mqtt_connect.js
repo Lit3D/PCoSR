@@ -56,7 +56,7 @@ export class QClient {
 
     (this.#listeners[topic] ?? []).forEach(cb => cb(data))
   }
-
+//set
   publish = (topic, message) => new Promise((resolve, reject) => {
     message = JSON.stringify(message)
     this.#client.publish(topic, message, { qos: 0, retain: false }, err => err ? reject(err) : resolve())

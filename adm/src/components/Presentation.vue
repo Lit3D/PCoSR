@@ -71,10 +71,10 @@
     },
     methods: {
       startHdmi: function() {
-        this.qClient.set(this.target, JSON.stringify({hdmi:1}))
+        this.qClient.publish(this.target, {hdmi:1})
       },
       goToSplash() {
-          this.qClient.set(this.ledTargetSpash, "1")
+          this.qClient.publish(this.ledTargetSpash, 1)
       },
       handleRemove(file, fileList) {
         console.log(file, fileList);

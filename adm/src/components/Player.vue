@@ -53,8 +53,8 @@ export default {
         //     muted: true
         // }
         if(this.dimLight) {
-            this.qClient.set("/devices/wb-dac/controls/EXT1_O1/on", String(0))
-            this.qClient.set("/devices/wb-dac/controls/EXT1_O2/on", String(0))
+            this.qClient.publish("/devices/wb-dac/controls/EXT1_O1/on", 0)
+            this.qClient.publish("/devices/wb-dac/controls/EXT1_O2/on", 0)
         }
         let target
         if(typeof this.target == 'string') {
@@ -63,7 +63,7 @@ export default {
         else {
             target = this.target.play
         }
-        this.qClient.set(target, JSON.stringify(this.options))
+        this.qClient.publish(target, this.options)
     },
     pause: function() {
         let target
@@ -73,7 +73,7 @@ export default {
         else {
             target = this.target.pause
         }
-        this.qClient.set(target, "1")
+        this.qClient.publish(target, 1)
     },
     getMessage: function(topic, message) {
         console.log(topic, message)
@@ -95,8 +95,8 @@ export default {
     },
   },
   mounted() {
-        this.qClient.client.on("message", this.getMessage)
-        this.qClient.client.subscribe(this.target, {qos: 0})
+        //this.qClient.client.on("message", this.getMessage)
+        this.qClient.subscribe(this.target, {qos: 0})
     }
 }
 </script>

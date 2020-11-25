@@ -205,8 +205,8 @@ import { QClient } from "../mqtt_connect.js"
                     return
                 }
                 const value = val * 100
-                this.qClient.set("/devices/wb-dac/controls/EXT1_O1/on", String(value))
-                this.qClient.set("/devices/wb-dac/controls/EXT1_O2/on", String(value))
+                this.qClient.publish("/devices/wb-dac/controls/EXT1_O1/on", value)
+                this.qClient.publish("/devices/wb-dac/controls/EXT1_O2/on", value)
             },
             nicheTopLight: function(val) {
                 if(this.skipWatch) {
@@ -214,7 +214,7 @@ import { QClient } from "../mqtt_connect.js"
                     return
                 }
                 const value = val * 100
-                this.qClient.set("/devices/wb-dac/controls/EXT1_O4/on", String(value))
+                this.qClient.publish("/devices/wb-dac/controls/EXT1_O4/on", value)
             },
             nicheBottomLight: function(val) {
                 if(this.skipWatch) {
@@ -222,7 +222,7 @@ import { QClient } from "../mqtt_connect.js"
                     return
                 }
                 const value = val * 100
-                this.qClient.set("/devices/wb-dac/controls/EXT1_O3/on", String(value))
+                this.qClient.publish("/devices/wb-dac/controls/EXT1_O3/on", value)
             },
             europeAsiaLight: function(val) {
                 if(this.skipWatch) {
@@ -230,21 +230,21 @@ import { QClient } from "../mqtt_connect.js"
                     return
                 }
                 const value = val * 100
-                this.qClient.set("/devices/wb-dac/controls/EXT1_O5/on", String(value))
+                this.qClient.publish("/devices/wb-dac/controls/EXT1_O5/on", value)
             },
             lightOuter: function(val) {
                 if(this.skipWatch) {
                     this.skipWatch = false
                     return
                 }
-                this.qClient.set("/devices/wb-gpio/controls/EXT2_R3A3/on", String(~~val))
+                this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A3/on", ~~val)
             },
             lightExponates: function(val) {
                 if(this.skipWatch) {
                     this.skipWatch = false
                     return
                 }
-                this.qClient.set("/devices/wb-gpio/controls/EXT2_R3A2/on", String(~~val))
+                this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A2/on", ~~val)
             },
             lightRoom: function(val) {
                 if(this.skipWatch) {
@@ -252,36 +252,36 @@ import { QClient } from "../mqtt_connect.js"
                     return
                 }
                 console.log(val)
-                this.qClient.set("/devices/wb-gpio/controls/EXT2_R3A1/on", String(~~val))
+                this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A1/on", ~~val)
             },
             ventilation: function(val) {
                 if(this.skipWatch) {
                     this.skipWatch = false
                     return
                 }
-                this.qClient.set("/devices/wb-gpio/controls/EXT2_R3A4/on", String(~~val))
+                this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A4/on", ~~val)
             },
             ventilationHood: function(val) {
                 if(this.skipWatch) {
                     this.skipWatch = false
                     return
                 }
-                this.qClient.set("/devices/wb-gpio/controls/EXT2_R3A5/on", String(~~val))
+                this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A5/on", ~~val)
             }
         },
         mounted() {
             console.log(this)
-            this.qClient.client.on("message", this.getMessage)
-            this.qClient.client.subscribe("/devices/wb-dac/controls/EXT1_O1", {qos: 0})
-            //this.qClient.client.subscribe("/devices/wb-dac/controls/EXT1_O2", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-dac/controls/EXT1_O3", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-dac/controls/EXT1_O4", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-dac/controls/EXT1_O5", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-gpio/controls/EXT2_R3A1", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-gpio/controls/EXT2_R3A2", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-gpio/controls/EXT2_R3A3", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-gpio/controls/EXT2_R3A4", {qos: 0})
-            this.qClient.client.subscribe("/devices/wb-gpio/controls/EXT2_R3A5", {qos: 0})
+            //this.qClient.client.on("message", this.getMessage)
+            this.qClient.subscribe("/devices/wb-dac/controls/EXT1_O1", {qos: 0})
+            //this.qClient.subscribe("/devices/wb-dac/controls/EXT1_O2", {qos: 0})
+            this.qClient.subscribe("/devices/wb-dac/controls/EXT1_O3", {qos: 0})
+            this.qClient.subscribe("/devices/wb-dac/controls/EXT1_O4", {qos: 0})
+            this.qClient.subscribe("/devices/wb-dac/controls/EXT1_O5", {qos: 0})
+            this.qClient.subscribe("/devices/wb-gpio/controls/EXT2_R3A1", {qos: 0})
+            this.qClient.subscribe("/devices/wb-gpio/controls/EXT2_R3A2", {qos: 0})
+            this.qClient.subscribe("/devices/wb-gpio/controls/EXT2_R3A3", {qos: 0})
+            this.qClient.subscribe("/devices/wb-gpio/controls/EXT2_R3A4", {qos: 0})
+            this.qClient.subscribe("/devices/wb-gpio/controls/EXT2_R3A5", {qos: 0})
         }
     }
 

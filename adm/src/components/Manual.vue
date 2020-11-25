@@ -243,13 +243,13 @@
                 let options = {
                     id: index
                 }
-                this.qClient.set(`/lit3d/slave/line/${lineNum}/ss`, JSON.stringify(options))
+                this.qClient.publish(`/lit3d/slave/line/${lineNum}/ss`, options)
             },
             getMessage: function(topic, message, packet) {
                 console.log(topic, message, packet)
             },
             goToSplash() {
-                this.qClient.set(this.ledTargetSpash, {})
+                this.qClient.publish(this.ledTargetSpash, {})
             },
             getTitle(id) {
                 //return id + ". " + this.presList.filter(item => item.id == id)[0].subtitle_ru
@@ -257,7 +257,7 @@
             }
         },
         mounted() {
-            this.qClient.client.on("message", this.getMessage)
+            //this.qClient.client.on("message", this.getMessage)
             for(let i=1;i<=12;i++) {
                 this.qClient.client.subscribe(`/lit3d/line/${i}`, {qos: 0})
             }

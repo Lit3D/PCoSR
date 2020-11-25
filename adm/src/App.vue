@@ -75,7 +75,7 @@
               id: index,
               muted: true
           }
-          this.qClient.set(`/lit3d/slave/${lineNum}/ss-play`, JSON.stringify(options))
+          this.qClient.publish(`/lit3d/slave/${lineNum}/ss-play`, options)
       }
     },
     watch: {
@@ -84,7 +84,7 @@
               this.skipWatch = false
               return
           }
-          this.qClient.set(this.volumeTargetSet, JSON.stringify(val))
+          this.qClient.publish(this.volumeTargetSet, val)
       }
     },
     mounted() {
@@ -95,8 +95,8 @@
       //   this.$router.push({ path: 'auth' });
       // }
 
-        this.qClient.client.on("message", this.getMessage)
-        //this.qClient.client.subscribe(this.volumeTargetGet, {qos: 0})
+        //this.qClient.client.on("message", this.getMessage)
+        this.qClient.subscribe(this.volumeTargetGet, {qos: 0})
     }
   }
 </script>
