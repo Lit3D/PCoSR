@@ -77,6 +77,10 @@
   "ru": {
     "led": "/content/visual_ru/pack_6/led.mp4",
     "line": "/content/visual_ru/pack_6/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_6/led.mp4",
+    "line": "/content/visual_en/pack_6/line.mp4"
   }
 },{
   "id": "pack_1-2",
@@ -85,6 +89,10 @@
   "ru": {
     "led": "/content/visual_ru/pack_1-2/led.mp4",
     "line": "/content/visual_ru/pack_1-2/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_1-2/led.mp4",
+    "line": "/content/visual_en/pack_1-2/line.mp4"
   }
 },{
   "id": "pack_3-4",
@@ -93,5 +101,9 @@
   "ru": {
     "led": "/content/visual_ru/pack_3-4/led.mp4",
     "line": "/content/visual_ru/pack_3-4/line.mp4"
+  },
+  "en": {
+    "led": "/content/visual_en/pack_3-4/led.mp4",
+    "line": "/content/visual_en/pack_3-4/line.mp4"
   }
 }]
