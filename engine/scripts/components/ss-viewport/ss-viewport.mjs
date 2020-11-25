@@ -48,7 +48,7 @@ export class SSViewportComponent extends HTMLElement  {
 
 
   #ssCmd = ({id, muted = false, restart = true } = {}) => {
-    console.debug(`SSViewportComponent [SS]: ${JSON.stringify({id, muted})}`)
+    console.debug(`SSViewportComponent [SS]: ${JSON.stringify({id, muted, restart})}`)
     if (id === undefined || id === null) return
 
     const ssData = this.#ssData.find(item => item.id === id )
