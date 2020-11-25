@@ -78,4 +78,20 @@
     "led": "/content/visual_ru/pack_6/led.mp4",
     "line": "/content/visual_ru/pack_6/line.mp4"
   }
+},{
+  "id": "pack_1-2",
+  "name": "Паки 1 и 2 вместе",
+  "description": "",
+  "ru": {
+    "led": "/content/visual_ru/pack_1-2/led.mp4",
+    "line": "/content/visual_ru/pack_1-2/line.mp4"
+  }
+},{
+  "id": "pack_3-4",
+  "name": "Паки 3 и 4 вместе",
+  "description": "",
+  "ru": {
+    "led": "/content/visual_ru/pack_3-4/led.mp4",
+    "line": "/content/visual_ru/pack_3-4/line.mp4"
+  }
 }]
