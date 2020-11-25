@@ -56,6 +56,12 @@ export class SSViewportComponent extends HTMLElement  {
 
     if (this.#currentSS && !restart) return
 
+    if (ssData.type === "video") {
+      const { video } = ssData
+      this.#videoCmd({src: video[this.#webm ? "webm" : "mp4"], muted})
+      return
+    }
+
     const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm })
     ssVideo.volume = this.volume / 100
 
