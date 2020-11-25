@@ -62,7 +62,7 @@ export class RealSenseProcessor extends EventTarget {
       return frame
     })
 
-    this.#etalonDepth = new Array(this.#width * this.#height).fill(0)
+    this.#etalonDepth = Array.from(new Array(this.#height), () => new Array(this.#width).fill(0))
   }
 
   #onFrameActive = ({detail}) => this.dispatchEvent(new CustomEvent("active", { detail }))
@@ -76,12 +76,14 @@ export class RealSenseProcessor extends EventTarget {
 
   #trainingDepth = (depthFrame) => {
     if (!this.#trainingDepthMode) return
-    this.#etalonDepth = this.#etalonDepth.map((a, i) => {
-      const b = depthFrame[i] ?? 0
-      if (b < this.#minDepth || b > this.#maxDepth) return a
-      if (a > 0 && b > 0) return Math.min(a, b)
-      if (b > 0) return b
-      return a
+    this.#etalonDepth = this.#etalonDepth.map((arr, y) => {
+      return arr.map((a, x) => {
+        const b = (depthFrame[y] ?? [])[x] ?? 0
+        if (b < this.#minDepth || b > this.#maxDepth) return a
+        if (a > 0 && b > 0) return Math.min(a, b)
+        if (b > 0) return b
+        return a
+      })
     })
   }
 
@@ -106,7 +108,7 @@ export class RealSenseProcessor extends EventTarget {
       const y = Math.floor(depthPixelIndex / this.#width)
       const x = depthPixelIndex - y * this.#width
       const value = (depthFrame[y] ?? [])[x] ?? 0
-      const etalon = this.#etalonDepth[depthPixelIndex] ?? 0
+      const etalon = (this.#etalonDepth[y] ?? [])[x] ?? 0
       depthPixelIndex++
 
       //Frames
