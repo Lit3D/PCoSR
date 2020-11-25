@@ -37,6 +37,9 @@ export class Master {
   #currentScenario = undefined
   #step = -1
 
+  #randomSS = undefined
+  #randomLine = 1
+
   #scenarioCmd = ({ id, lang = "ru" } = {}) => {
     console.debug(`Master [SCENARIO]: ${JSON.stringify({id, lang})}`)
     if (id === undefined || id === null) return this.#scenarioEnd()
@@ -46,6 +49,14 @@ export class Master {
     this.#scenarioStep()
   }
 
+  #randomStep = () => {
+    if (!this.#randomSS) return
+    const id = this.#randomSS.pop()
+    console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id: id})}`)
+    if (!id) return this.#scenarioStep()
+    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false })
+  }
+
   #scenarioStep = () => {
     if (!this.#currentScenario) return
     this.#step += 1
@@ -53,6 +64,15 @@ export class Master {
     const lang = this.#currentScenario.lang
     const id = this.#currentScenario.steps[this.#step]
     if (!id) return this.#scenarioEnd()
+
+    if (id === "random") {
+      this.#randomLine = this.#randomLine === 1 ? 0 : 1
+      this.#randomSS = this.#selectors.map(({ss}) => ss[this.#randomLine])
+      console.debug(`Master [SCENARIO STEP] random line: ${JSON.stringify({randomLine: this.#randomLine})}`)
+      this.#randomStep()
+      return
+    }
+
     this.#visualCmd({ id, lang })
   }
 
@@ -65,6 +85,7 @@ export class Master {
     ]).catch(err => console.error(`Master [SCENARIO] error: ${err.message}`))
 
     this.#currentScenario = undefined
+    this.#randomSS = undefined
     this.#step = -1
     return
   }
@@ -88,6 +109,9 @@ export class Master {
     await this.#qClient.subscribe(`${Q_PATH_LED}/video/ended`, this.#scenarioStep)
     await this.#qClient.publish(`${Q_PATH_LED}/video/ended`, 1)
 
+    await this.#qClient.subscribe(`${Q_PATH_LED}/ss/ended`, this.#randomStep)
+    await this.#qClient.publish(`${Q_PATH_LED}/ss/ended`, 1)
+
     this.#realsense = await new RealSense()
     this.#realsense.onActive(this.#onActive)
 
@@ -109,5 +133,7 @@ export class Master {
     await this.#realsense.release()
     await this.#qClient.unsubscribe(`${Q_PATH}/visual`, this.#visualCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/scenario`, this.#scenarioCmd)
+    await this.#qClient.unsubscribe(`${Q_PATH_LED}/video/ended`, this.#scenarioStep)
+    await this.#qClient.unsubscribe(`${Q_PATH_LED}/ss/ended`, this.#randomStep)
   }
 }
