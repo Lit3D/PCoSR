@@ -98,6 +98,9 @@ export class Master {
     const monitor = this.#selectors.find(({ss}) => ss.includes(id))?.id
     if (!Number.isFinite(monitor) || monitor < 0) return console.error(`Master [onActive] incorrect monitor id: ${monitor} by id: ${id}`)
     console.debug(`Master [onActive] active: ${JSON.stringify({id, monitor})}`)
+    this.#qClient
+        .publish(`${Q_PATH_LINE}/${monitor}/ss`, { id, restart: false })
+        .catch(err => console.error(`Master [onActive] error: ${err.message}`))
   }
 
   release = async () => {
