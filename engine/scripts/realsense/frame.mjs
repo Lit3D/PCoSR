@@ -80,10 +80,8 @@ export class Frame extends EventTarget {
     let activePoints = 0
     for (let y = y1; y <= y2; y++) {
       for (let x = x1; x <= x2; x++) {
-        const i = y * this.#width + x
-
-        const etalon = etalonDepth[i]
-        const value = depthFrame[i]
+        const etalon = (etalonDepth[y] ?? [])[x] ?? 0
+        const value = (depthFrame[y] ?? [])[x] ?? 0
         if  (etalon <= 0 || value <= 0) continue
 
         const delta = etalon - value
