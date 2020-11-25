@@ -42,6 +42,7 @@ export class Master {
     if (id === undefined || id === null) return this.#scenarioEnd()
     this.#currentScenario = this.#scenarios.find(item => item.id === id && item.lang === lang)
     if (!this.#currentScenario) return this.#scenarioEnd()
+    this.#step = -1
     this.#scenarioStep()
   }
 
