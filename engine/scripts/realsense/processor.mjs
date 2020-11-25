@@ -123,6 +123,7 @@ export class RealSenseProcessor extends EventTarget {
 
         if (frame.point(x,y)) {
           const delta = etalon - value
+          console.log("delta", delta)
           if (frame.detectDelta(delta)) {
             pixelArray[i  ] = 0xff
             pixelArray[i+1] = 0x00
