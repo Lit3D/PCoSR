@@ -10,7 +10,6 @@ import VueRouter from 'vue-router'
 
 import Auto from './components/Auto.vue';
 import Manual from './components/Manual.vue';
-import Auth from './components/Auth.vue';
 import Presentation from './components/Presentation.vue';
 import Tech from './components/Tech.vue';
 
@@ -43,14 +42,6 @@ const router = new VueRouter({
     // { path: '/',
     //   component: Scenarios,
     // },
-    { path: '/auth',
-      // You could also have named views at tho top
-      component: Auth,
-      // children: [{
-      //   path: 'client/:id',
-      //   component: MapView
-      // }]
-    },
     { path: '/manual',
       // You could also have named views at tho top
       component: Manual,

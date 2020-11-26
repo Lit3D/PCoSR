@@ -21,6 +21,11 @@
             <i class="el-icon-s-operation"></i>
             <span slot="title">Технические настройки</span>
           </el-menu-item>
+
+          <el-menu-item index="5" style="bottom: 0; position: absolute; z-index: 20; width: 100%;">
+            <i class="el-icon-switch-button"></i>
+            <span slot="title">Вкл/выкл Центр</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       <el-container>
@@ -41,7 +46,14 @@
 
         <el-footer>
           <div class="volume-container"><span>Volume: </span><span><el-slider v-model="volume" :show-tooltip="false" style="width: 500px;"></el-slider></span></div>
-          <div class="on-off-container"><el-button class="player--play" icon="el-icon-switch-button" style="font-size: 20px" circle></el-button></div>
+          
+          <div>
+            <span>Остановить видео</span>&nbsp;&nbsp;
+            <el-button style="font-size:20px;" class="player--pause" icon="el-icon-circle-close" circle @click="goToSplash"></el-button>          
+          </div>
+
+          <!-- <div class="on-off-container"><el-button class="player--play" icon="el-icon-switch-button" style="font-size: 20px" circle></el-button></div> -->
+
         </el-footer>
       </el-container>
     </el-container>
@@ -59,11 +71,12 @@
     },
     data: function () {
       return {
-        qClient: new QClient(),
+        qClient: null,
         authorized: false,
         volume: 50,
-        volumeTargetSet: "/lit3d/slave/0/volume/set",
-        volumeTargetGet: "/lit3d/slave/0/volume"
+        volumeTargetSet: "/lit3d/slave/led/volume/set",
+        volumeTargetGet: "/lit3d/slave/0/volume",
+        ledTargetSpash: `/lit3d/slave/led/splash`,
       }
     },
     methods: {
@@ -76,6 +89,9 @@
               muted: true
           }
           this.qClient.publish(`/lit3d/slave/${lineNum}/ss-play`, options)
+      },
+      goToSplash() {
+          this.qClient.publish(this.ledTargetSpash, {})
       }
     },
     watch: {
@@ -88,16 +104,16 @@
       }
     },
     mounted() {
+      this.qClient = new QClient();
       this.$router.push({ path: 'auto' });
 
-            // if(!this.authorized) {
-      //   console.log(this.authorized)
-      //   this.$router.push({ path: 'auth' });
-      // }
 
         //this.qClient.client.on("message", this.getMessage)
         this.qClient.subscribe(this.volumeTargetGet, {qos: 0})
     }
+    // beforeDestroy() {
+    //   this.qClient
+    // }
   }
 </script>
 

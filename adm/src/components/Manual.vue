@@ -21,11 +21,11 @@
                     
                 </div>
 
-                <div style="position: absolute; right: 380px; top: 10px; text-align: center">
+                <!-- <div style="position: absolute; right: 380px; top: 10px; text-align: center">
                         <h3>Остановить видео</h3>
                         <el-button style="font-size:30px; margin-top:-10px" class="player--pause" icon="el-icon-circle-close" circle @click="goToSplash"></el-button>
                     
-                </div>
+                </div> -->
 
             <!-- <h2>Сценарии @tab-click="handleClick"</h2> -->
             <el-tabs type="card">
@@ -57,6 +57,10 @@
                 <el-tab-pane label="Сценарные видео на большом экране (en)">
 
                             <div class="player-container">
+                                <player type="small" :dimLight="true" title="Delegate 1" :target="scenario" :options="{id: 'visitors_1', 'lang': 'en'}"></player>
+                        <player type="small" :dimLight="true" title="Delegate 2" :target="scenario" :options="{id: 'visitors_2', 'lang': 'en'}"></player>
+
+<br><br>
                         <player type="small" :dimLight="true" title="1. ИИ-Intro" :target="ledTarget" :options="{ 'id': 'pack_1', 'lang': 'en' }"></player>
                         
                         <player type="small" title="2. ИИ перед основным роликом" :target="ledTarget" :options="{ 'id': 'pack_2', 'lang': 'en' }"></player>
@@ -148,7 +152,7 @@
         data: function () {
             return {
                 boolean: false,
-                qClient: new QClient(),
+                qClient: null,
                 radio1: "",
                 ledTarget: `/lit3d/master/visual`,
                 ledTargetSs: `/lit3d/slave/led/ss`,
@@ -248,18 +252,17 @@
             getMessage: function(topic, message, packet) {
                 console.log(topic, message, packet)
             },
-            goToSplash() {
-                this.qClient.publish(this.ledTargetSpash, {})
-            },
             getTitle(id) {
                 //return id + ". " + this.presList.filter(item => item.id == id)[0].subtitle_ru
                 return id
-            }
+            },
+
         },
         mounted() {
+            this.qClient = new QClient()
             //this.qClient.client.on("message", this.getMessage)
             for(let i=1;i<=12;i++) {
-                this.qClient.client.subscribe(`/lit3d/line/${i}`, {qos: 0})
+                this.qClient.subscribe(`/lit3d/line/${i}`, {qos: 0})
             }
         }
     }

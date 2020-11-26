@@ -44,6 +44,7 @@
             <div>
             <h3>Наружный свет</h3>
             <el-switch
+            class="expo-switch" :width="80"
   v-model="lightOuter"
   active-color="#13ce66"
   inactive-color="#ff4949">
@@ -52,6 +53,7 @@
 <div>
 <h3>Наружные экспонаты</h3>
 <el-switch
+class="expo-switch" :width="80"
   v-model="lightExponates"
   active-color="#13ce66"
   inactive-color="#ff4949">
@@ -60,14 +62,16 @@
 <div>
 <h3>Подсобка</h3>
 <el-switch
+class="expo-switch" :width="80"
   v-model="lightRoom"
   active-color="#13ce66"
   inactive-color="#ff4949">
 </el-switch>
 </div>
 <div>
-<h3>Приточка</h3>
+<h3>Приточная вентиляция</h3>
 <el-switch
+class="expo-switch" :width="80"
   v-model="ventilation"
   active-color="#13ce66"
   inactive-color="#ff4949">
@@ -76,6 +80,7 @@
 <div>
 <h3>Вытяжка</h3>
 <el-switch
+class="expo-switch" :width="80"
   v-model="ventilationHood"
   active-color="#13ce66"
   inactive-color="#ff4949">
