@@ -31,7 +31,11 @@ export class SSViewportComponent extends HTMLElement  {
     this.#root.innerHTML = TEMPLATE
   }
 
-  #clear = () => this.#root.innerHTML = TEMPLATE
+  #currentSS = undefined
+  #clear = () => {
+    this.#currentSS = undefined
+    this.#root.innerHTML = TEMPLATE
+  }
 
   #error = message => {
     console.error(message)
@@ -42,12 +46,21 @@ export class SSViewportComponent extends HTMLElement  {
   }
   set error(message) { this.#error(message) }
 
-  #ssCmd = ({id, muted = false } = {}) => {
-    console.debug(`SSViewportComponent [SS]: ${JSON.stringify({id, muted})}`)
+
+  #ssCmd = ({id, muted = false, restart = true } = {}) => {
+    console.debug(`SSViewportComponent [SS]: ${JSON.stringify({id, muted, restart})}`)
     if (id === undefined || id === null) return
 
     const ssData = this.#ssData.find(item => item.id === id )
     if (!ssData) return this.#error(`SSViewportComponent [SS] incorrect ID: ${id}`)
+
+    if (this.#currentSS && !restart) return
+
+    if (ssData.type === "video") {
+      const { video } = ssData
+      this.#videoCmd({src: video[this.#webm ? "webm" : "mp4"], muted})
+      return
+    }
 
     const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm })
     ssVideo.volume = this.volume / 100
@@ -73,6 +86,7 @@ export class SSViewportComponent extends HTMLElement  {
     requestAnimationFrame(() => {
       this.#clear()
       this.#root.appendChild(ssVideo)
+      this.#currentSS = id
       setTimeout(() => ssVideo.play(),0)
     })
   }
@@ -119,6 +133,8 @@ export class SSViewportComponent extends HTMLElement  {
     console.debug(`SSViewportComponent [IMAGE]: ${JSON.stringify({src})}`)
     if (src === undefined || src === null) this.style.removeProperty("--bg-image")
     else this.style.setProperty("--bg-image", `url(${src})`)
+
+    this.#currentSS = undefined
     requestAnimationFrame(this.#clear)
   }
 

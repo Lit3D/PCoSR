@@ -37,6 +37,7 @@ export class RealSense {
 
     this.#processor = new RealSenseProcessor({ minDepth, maxDepth, width, height: height * this.#devices.length, frames })
     this.#initClients()
+    this.#processor.addEventListener("active", this.#onActive)
     this.#processor.start()
 
     if (DEBUG_MODE) { window.addEventListener("keydown", this.#keydown) }
@@ -73,9 +74,19 @@ export class RealSense {
     })
   }
 
+  #activeListeners = []
+  onActive = (listener) => this.#activeListeners = [...this.#activeListeners, listener]
+  offActive = (listener) => this.#activeListeners = this.#activeListeners.filter(l => l !== listener)
+  #onActive = ({detail}) => this.#activeListeners.forEach(l => l(detail))
+
   toJSON() {
     const { height, ...data } = this.#processor.toJSON()
-    return {...data, height: height / this.#devices.length}
+    return {
+      ...data,
+      height: height / this.#devices.length,
+      servers: this.#servers,
+      devices: this.#devices,
+    }
   }
 
   saveConfig = () => {
