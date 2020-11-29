@@ -64,8 +64,15 @@ export class Master {
     this.#step += 1
     console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({step: this.#scenarioStep})}`)
     const lang = this.#currentScenario.lang
-    const id = this.#currentScenario.steps[this.#step]
-    if (!id) return this.#scenarioEnd()
+    let id = this.#currentScenario.steps[this.#step]
+    if (!id) {
+      if (this.#currentScenario.loop) {
+        console.debug(`Master [SCENARIO LOOP]`)
+        this.#step = 0
+        id = this.#currentScenario.steps[this.#step]
+        if (!id) return this.#scenarioEnd()
+      } else return this.#scenarioEnd()
+    }
 
     if (id === "random") {
       this.#randomLine = this.#randomLine === 1 ? 0 : 1

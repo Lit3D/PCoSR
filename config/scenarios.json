@@ -3,7 +3,8 @@
   "lang": "ru",
   "name": "Основной сценарий",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_1-2", "main", "pack_3-4", "random", "pack_5"]
+  "steps": ["pack_1-2", "main", "pack_3-4", "random", "pack_5"],
+  "loop": true
 },{
   "id": "main",
   "lang": "en",
