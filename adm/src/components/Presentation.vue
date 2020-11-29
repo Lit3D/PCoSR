@@ -26,7 +26,7 @@
     <div>
       <h3>Выбрать заставку</h3>
 
-      <el-upload
+<!--       <el-upload
   :action="URL"
   list-type="picture-card"
   :auto-upload="false"
@@ -40,11 +40,22 @@
 </el-upload>
 <el-dialog :visible.sync="dialogVisible">
   <img width="100%" :src="dialogImageUrl" alt="">
-</el-dialog>
-<br>
+</el-dialog> -->
+
+<el-upload
+  class="upload-demo"
+  ref="upload"
+  :action="URL"
+  :auto-upload="false"
+  :on-change="handleUpload">
+  <el-button slot="trigger" type="primary">Выбрать файл</el-button> <br /> <br />
+  <el-button type="success" @click="changeSplashScreen">Заменить заставку на главном экране</el-button>
+  <el-button style="margin-left: 10px;" type="primary" @click="resetSplashScreen">Заставка по умолчанию</el-button>
+</el-upload>
+<!-- <br>
     <el-button class="share-btn" type="primary" round @click="changeSplashScreen">Заменить заставку на главном экране</el-button>
     <el-button class="share-btn" type="primary" round @click="resetSplashScreen">Заставка по умолчанию</el-button>
-
+ -->
     </div>
   </div>
 </template>
