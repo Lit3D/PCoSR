@@ -44,3 +44,7 @@
 
 **Управление доступом к экспонатам**
 "/lit3d/master/exhibits": { "allow" : "true | false" }
+
+**Запрос статуса экспонатов**
+Запрос - "/lit3d/master/exhibits": { }
+Ответ по подписке - "/lit3d/master/exhibits/status" => { "allow" : "true | false" }

@@ -123,9 +123,10 @@ export class Master {
     return this
   }
 
-  #exhibitsCmd = ({ allow = true }) => {
+  #exhibitsCmd = ({ allow = true } = {}) => {
     console.debug(`Master [exhibitsCmd]: ${JSON.stringify({allow: allow})}`)
-    this.#allowActive = allow
+    if (allow !== undefined) this.#allowActive = allow
+    this.#qClient.publish(`${Q_PATH}/exhibits/status`, {allow: allow})
   }
 
   #specialAction = (id, monitor) => {
