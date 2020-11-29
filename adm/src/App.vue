@@ -22,10 +22,6 @@
             <span slot="title">Технические настройки</span>
           </el-menu-item>
 
-          <el-menu-item index="5" style="bottom: 0; position: absolute; z-index: 20; width: 100%;">
-            <i class="el-icon-switch-button"></i>
-            <span slot="title">Вкл/выкл Центр</span>
-          </el-menu-item>
         </el-menu>
       </el-aside>
       <el-container>
@@ -110,10 +106,10 @@
 
         //this.qClient.client.on("message", this.getMessage)
         this.qClient.subscribe(this.volumeTargetGet, {qos: 0})
+    },
+    beforeDestroy() {
+      this.qClient.unsubscribe(this.volumeTargetGet)
     }
-    // beforeDestroy() {
-    //   this.qClient
-    // }
   }
 </script>
 

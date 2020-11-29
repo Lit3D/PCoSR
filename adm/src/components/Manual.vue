@@ -15,7 +15,7 @@
                         <div class="clearfix">
                             <h3>Заблокировать экспонаты</h3>
                         </div>
-                    ВЫКЛ <el-switch class="expo-switch" :width="80" v-model="boolean" active-color="#13ce66"
+                    ВЫКЛ <el-switch class="expo-switch" :width="80" active-color="#13ce66" v-model="expoSwitch"
                             inactive-color="#ff4949"> 
                         </el-switch> ВКЛ
                     
@@ -118,11 +118,11 @@
                             <td><span class="exponate_title">{{ getTitle(19) }}</span><el-button @click="runVideoSmall(5, 19)" ref="p10" class="player--play" icon="el-icon-video-play" circle></el-button></td>
                             <td><span class="exponate_title">{{ getTitle(7) }}</span><el-button @click="runVideoSmall(6, 7)" ref="p12" class="player--play" icon="el-icon-video-play" circle></el-button></td>
                             <td><span class="exponate_title">{{ getTitle(8) }}</span><el-button @click="runVideoSmall(7, 8)" ref="p14" class="player--play" icon="el-icon-video-play" circle></el-button></td>
-                            <td><span class="exponate_title">{{ getTitle(1) }}</span><el-button @click="runVideoSmall(8, 1)" ref="p16" class="player--play" icon="el-icon-video-play" circle></el-button></td>
+                            <td><span class="exponate_title">{{ getTitle(23) }}</span><el-button @click="runVideoSmall(8, 23)" ref="p16" class="player--play" icon="el-icon-video-play" circle></el-button></td>
 
-                            <td><span class="exponate_title">{{ getTitle(1) }}</span><el-button @click="runVideoSmall(9, 1)" ref="p18" class="player--play" icon="el-icon-video-play" circle></el-button></td>
-                            <td><span class="exponate_title">{{ getTitle(3) }}</span><el-button @click="runVideoSmall(10, 4)" ref="p20" class="player--play" icon="el-icon-video-play" circle></el-button></td>
-                            <td><span class="exponate_title">{{ getTitle(1) }}</span><el-button @click="runVideoSmall(11, 1)" ref="p22" class="player--play" icon="el-icon-video-play" circle></el-button></td>
+                            <td><span class="exponate_title">{{ getTitle(5) }}</span><el-button @click="runVideoSmall(9, 5)" ref="p18" class="player--play" icon="el-icon-video-play" circle></el-button></td>
+                            <td><span class="exponate_title">{{ getTitle(4) }}</span><el-button @click="runVideoSmall(10, 4)" ref="p20" class="player--play" icon="el-icon-video-play" circle></el-button></td>
+                            <td><span class="exponate_title">{{ getTitle(2) }}</span><el-button @click="runVideoSmall(11, 2)" ref="p22" class="player--play" icon="el-icon-video-play" circle></el-button></td>
                             <td><span class="exponate_title">{{ getTitle(22) }}</span><el-button @click="runVideoSmall(12, 22)" ref="p24" class="player--play" icon="el-icon-video-play" circle></el-button></td>
                         </tr>
                     </table>
@@ -154,10 +154,12 @@
                 boolean: false,
                 qClient: null,
                 radio1: "",
+                expoSwitch: false,
                 ledTarget: `/lit3d/master/visual`,
                 ledTargetSs: `/lit3d/slave/led/ss`,
                 ledTargetSpash: `/lit3d/slave/led/splash`,
                 scenario: `/lit3d/master/scenario`,
+                exhibits: `/lit3d/master/exhibits`,
                 presList: [{
                     id: 1,
                     subtitle_ru: "Авиационная логистика"
@@ -245,12 +247,15 @@
                 //     this.$refs["p"+index].icon = "el-icon-video-play"
                 // }
                 let options = {
-                    id: index
+                    id: index,
+                    muted: true
                 }
                 this.qClient.publish(`/lit3d/slave/line/${lineNum}/ss`, options)
             },
-            getMessage: function(topic, message, packet) {
+            getMessageExpo: function(topic, message, packet) {
                 console.log(topic, message, packet)
+
+                this.expoSwitch = topic.allow
             },
             getTitle(id) {
                 //return id + ". " + this.presList.filter(item => item.id == id)[0].subtitle_ru
@@ -258,11 +263,23 @@
             },
 
         },
+        watch: {
+            expoSwitch: function(val) {
+                //console.log(val)
+                this.qClient.publish(this.exhibits, { allow: val })
+            }
+        },
         mounted() {
             this.qClient = new QClient()
-            //this.qClient.client.on("message", this.getMessage)
+            this.qClient.subscribe(this.exhibits, this.getMessageExpo)
             for(let i=1;i<=12;i++) {
                 this.qClient.subscribe(`/lit3d/line/${i}`, {qos: 0})
+            }
+        },
+        beforeDestroy() {
+            this.qClient.unsubscribe(this.exhibits, this.getMessageExpo)
+          for(let i=1;i<=12;i++) {
+                this.qClient.unsubscribe(`/lit3d/line/${i}`)
             }
         }
     }

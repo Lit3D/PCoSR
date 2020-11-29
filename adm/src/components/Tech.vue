@@ -59,7 +59,7 @@ class="expo-switch" :width="80"
   inactive-color="#ff4949">
 </el-switch>
 </div>
-<div>
+<!-- <div>
 <h3>Подсобка</h3>
 <el-switch
 class="expo-switch" :width="80"
@@ -67,7 +67,7 @@ class="expo-switch" :width="80"
   active-color="#13ce66"
   inactive-color="#ff4949">
 </el-switch>
-</div>
+</div> -->
 <div>
 <h3>Приточная вентиляция</h3>
 <el-switch
@@ -120,7 +120,7 @@ import { QClient } from "../mqtt_connect.js"
                 europeAsiaLight: 0,
                 lightOuter: false,
                 lightExponates: false,
-                lightRoom: false,
+                //lightRoom: false,
                 ventilation: false,
                 ventilationHood: false,
                 qClient: new QClient(),
@@ -187,13 +187,13 @@ import { QClient } from "../mqtt_connect.js"
                         }
                         this.skipWatch = false
                         break
-                    case '/devices/wb-gpio/controls/EXT2_R3A1': 
-                        tempLight = Math.round(this.convert(message))
-                        if(tempLight != this.lightRoom) {
-                            this.lightRoom = tempLight
-                        }
-                        this.skipWatch = false
-                        break
+                    // case '/devices/wb-gpio/controls/EXT2_R3A1': 
+                    //     tempLight = Math.round(this.convert(message))
+                    //     if(tempLight != this.lightRoom) {
+                    //         this.lightRoom = tempLight
+                    //     }
+                    //     this.skipWatch = false
+                    //     break
                     default:
                         this.skipWatch = false
                 }
@@ -251,14 +251,14 @@ import { QClient } from "../mqtt_connect.js"
                 }
                 this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A2/on", ~~val)
             },
-            lightRoom: function(val) {
-                if(this.skipWatch) {
-                    this.skipWatch = false
-                    return
-                }
-                console.log(val)
-                this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A1/on", ~~val)
-            },
+            // lightRoom: function(val) {
+            //     if(this.skipWatch) {
+            //         this.skipWatch = false
+            //         return
+            //     }
+            //     console.log(val)
+            //     this.qClient.publish("/devices/wb-gpio/controls/EXT2_R3A1/on", ~~val)
+            // },
             ventilation: function(val) {
                 if(this.skipWatch) {
                     this.skipWatch = false
