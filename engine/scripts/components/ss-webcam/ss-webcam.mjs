@@ -27,7 +27,6 @@ export class SSWebcamComponent extends HTMLElement  {
       return
     }
     this.#videoNode.autoplay = true
-    // this.#videoNode.autoplay = true
     return this
   }
 
