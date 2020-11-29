@@ -27,10 +27,13 @@
       <h3>Выбрать заставку</h3>
 
       <el-upload
-  action="https://jsonplaceholder.typicode.com/posts/"
+  :action="URL"
   list-type="picture-card"
+  :auto-upload="false"
   :multiple="false"
+  :thumbnail-mode="true"
   :on-preview="handlePictureCardPreview"
+  :show-file-list="false"
   :on-remove="handleRemove"
   :on-change="handleUpload">
   <i class="el-icon-plus"></i>
