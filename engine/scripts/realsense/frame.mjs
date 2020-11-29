@@ -13,7 +13,7 @@ export class Frame extends EventTarget {
   #minSense = 0
   #maxSense = 0
 
-  #maxDepth = 0
+  #baseDelta = 0
 
   #pathos = 0
 
@@ -41,7 +41,7 @@ export class Frame extends EventTarget {
     maxSense = 0,
     pathos = 0,
     action = 0,
-    maxDepth = 0,
+    baseDelta = 0,
   } = {}){
     super()
     this.#x = x
@@ -53,14 +53,14 @@ export class Frame extends EventTarget {
     this.#pathos = pathos
     this.#action = action
 
-    this.#maxDepth = maxDepth
+    this.#baseDelta = baseDelta
   }
 
   toJSON() {
     return {
       x: this.#x, y: this.#y, width: this.#width, height: this.#height,
       minSense: this.#minSense, maxSense: this.#maxSense, pathos: this.#pathos,
-      action: this.#action,
+      action: this.#action, baseDelta: this.#baseDelta,
     }
   }
 
@@ -78,7 +78,10 @@ export class Frame extends EventTarget {
     return x >= x1 && x <= x2 && y >= y1 && y <= y2
   }
 
-  detectDelta = delta => delta > this.#minSense && delta < this.#maxSense
+  detectDelta = delta => {
+    delta = delta - this.#baseDelta
+    return delta > this.#minSense && delta < this.#maxSense
+  }
 
   detect = (etalonDepth, depthFrame) => {
     const { x1, y1, x2, y2 } = this
