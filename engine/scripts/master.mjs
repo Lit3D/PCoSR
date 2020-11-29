@@ -132,12 +132,12 @@ export class Master {
     switch(id) {
       case 13:
         console.debug(`Master [specialAction = ${id}]: /devices/wb-mr6c_154/controls/K3/on 1`)
-        this.qClient
+        this.#qClient
             .publish("/devices/wb-mr6c_154/controls/K3/on", 1)
             .catch(err => console.error(`Master [specialAction = ${id}] error: ${err.message}`))
         setTimeout(() => {
           console.debug(`Master [specialAction = ${id}]: /devices/wb-mr6c_154/controls/K3/on 0`)
-          this.qClient
+          this.#qClient
               .publish("/devices/wb-mr6c_154/controls/K3/on", 0)
               .catch(err => console.error(`Master [specialAction = ${id}] error: ${err.message}`))
         }, 30 * 1000) // 30s
