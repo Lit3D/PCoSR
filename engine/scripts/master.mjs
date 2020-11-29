@@ -6,6 +6,8 @@ const VISUAL_DATA_URL = "/config/visual.json"
 const SCENARIOS_DATA_URL = "/config/scenarios.json"
 const SELECTORS_DATA_URL = "/config/selectors.json"
 
+const LINE_SPLASH_IMAGE = "/assets/images/splash.png"
+
 export class Master {
   #qClient = undefined
   #realsense = undefined
@@ -35,7 +37,39 @@ export class Master {
       this.#qClient.publish(`${Q_PATH_LINE}/wave`, { src: line }),
     ]).catch(err => console.error(`Master [VISUAL] error: ${err.message}`))
 
-
+    if(data.exhibits !== undefined && data.exhibits === false) {
+      Promise.all([
+        this.#qClient.publish(`${Q_PATH}/exhibits`, { allow: false }),
+        this.#qClient.publish(`${Q_PATH_LINE}/1/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/2/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/3/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/4/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/5/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/6/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/7/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/8/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/9/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/10/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/11/image`, { src: LINE_SPLASH_IMAGE }),
+        this.#qClient.publish(`${Q_PATH_LINE}/12/image`, { src: LINE_SPLASH_IMAGE }),
+      ]).catch(err => console.error(`Master [VISUAL] error: ${err.message}`))
+    } else {
+      Promise.all([
+        this.#qClient.publish(`${Q_PATH}/exhibits`, { allow: true }),
+        this.#qClient.publish(`${Q_PATH_LINE}/1/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/2/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/3/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/4/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/5/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/6/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/7/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/8/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/9/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/10/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/11/image`, {}),
+        this.#qClient.publish(`${Q_PATH_LINE}/12/image`, {}),
+      ]).catch(err => console.error(`Master [VISUAL] error: ${err.message}`))
+    }
   }
 
   #currentScenario = undefined
