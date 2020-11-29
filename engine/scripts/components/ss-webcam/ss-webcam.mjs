@@ -12,13 +12,11 @@ export class SSWebcamComponent extends HTMLElement  {
 
   constructor() {
     super()
-    return this.#init()
-  }
-
-  #init = async () => {
     this.#root.innerHTML = TEMPLATE
     this.#root.appendChild(this.#videoNode)
-  
+  }
+
+ async connectedCallback() {
     let devices = undefined
 
     try {
@@ -51,7 +49,11 @@ export class SSWebcamComponent extends HTMLElement  {
     }
 
     this.#videoNode.autoplay = true
-    return this
+    this.#videoNode.play()
+  }
+
+  async disconnectedCallback() {
+    this.#videoNode.pause()
   }
 
 }
