@@ -142,7 +142,7 @@ export class SSVideoComponent extends HTMLElement  {
     if (!this.#isTimer) return
     const seconds = this.#mainVideo.duration - this.#mainVideo.currentTime
     if (seconds > TIMER_TIMEOUT) return
-    this.#ssTimer.innerHTML = `0:${String(seconds).padStart(2,"0")}`
+    this.#ssTimer.innerHTML = `0:${String(Math.round(seconds)).padStart(2,"0")}`
   }
 
   #splashEnded = () => {

@@ -1,5 +1,5 @@
 **Глобально переход в заставку (картинка + призывы)**
-"/lit3d/master/splash": {}
+"/lit3d/master/scenario": {}
 
 **Запуск пака (led + wave)**
 "/lit3d/master/visual": { "id": "main | pack_1 | ...", "lang": "ru | en" }
@@ -40,4 +40,7 @@
 "/lit3d/slave/line/realsense/enabled": "1 | 0"
 
 **Активация отраслевого ролика**
-"/lit3d/slave/line/1..12/ss": { "id": "1 | 2 | ..." }
+"/lit3d/slave/line/1..12/ss": { "id": "1 | 2 | ...", "muted": true }
+
+**Управление доступом к экспонатам**
+"/lit3d/master/exhibits": { "allow" : "true | false" }
