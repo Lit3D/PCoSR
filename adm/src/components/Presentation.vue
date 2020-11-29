@@ -93,7 +93,7 @@
         if(response) {
           this.file = response;
 
-                  const file = this.file.raw
+          const file = this.file.raw
           if (!file) return
           const fileReader = new FileReader()
           fileReader.filename = file.name
@@ -103,7 +103,7 @@
             const ui8Data = new Uint8Array(nBytes)
             for (let nIdx = 0; nIdx < nBytes; nIdx++) ui8Data[nIdx] = sData.charCodeAt(nIdx) & 0xff
             const request = new XMLHttpRequest()
-            this.imgPath = `${URL}/${fileReader.filename}`
+            this.imgPath = `${this.URL}/${fileReader.filename}`
             request.open("PUT", this.imgPath, false)
             request.send(ui8Data)
           })
