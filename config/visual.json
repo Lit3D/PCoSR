@@ -9,7 +9,8 @@
   "en": {
     "led": "/content/visual_en/main/led.mp4",
     "line": null
-  }
+  },
+  "exhibits": false
 },{
   "id": "pack_1",
   "name": "Название пака 1",
