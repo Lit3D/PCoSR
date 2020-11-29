@@ -47,7 +47,7 @@ export class SSViewportComponent extends HTMLElement  {
   set error(message) { this.#error(message) }
 
 
-  #ssCmd = ({id, muted = false, restart = true } = {}) => {
+  #ssCmd = ({id, muted = false, restart = true, timer = false } = {}) => {
     console.debug(`SSViewportComponent [SS]: ${JSON.stringify({id, muted, restart})}`)
     if (id === undefined || id === null) return
 
@@ -62,7 +62,7 @@ export class SSViewportComponent extends HTMLElement  {
       return
     }
 
-    const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm })
+    const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm, timer })
     ssVideo.volume = this.volume / 100
 
     ssVideo.addEventListener("ended", () => {
@@ -149,6 +149,17 @@ export class SSViewportComponent extends HTMLElement  {
     })
   }
 
+  #soundCmd = ({src} = {}) => {
+    if (!src) return
+    let audio = document.createElement("audio")
+    audio.loop = false
+    audio.muted = false
+    audio.src = src
+    audio.currentTime = 0
+    audio.addEventListener("ended", () => audio = undefined, { passive: true, once: true })
+    setTimeout(() => audio.play(),0)
+  }
+
   #splashCmd = () => {
     console.debug(`SSViewportComponent [SPLASH] set`)
     requestAnimationFrame(this.#clear)
@@ -169,6 +180,8 @@ export class SSViewportComponent extends HTMLElement  {
       await this.#qClient.publish(`${this.#qPath}/image`, {})
       await this.#qClient.subscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
       await this.#qClient.publish(`${this.#qPath}/webcam`, {})
+      await this.#qClient.subscribe(`${this.#qPath}/sound`, this.#soundCmd)
+      await this.#qClient.publish(`${this.#qPath}/sound`, {})
       await this.#qClient.subscribe(`${this.#qPath}/splash`, this.#splashCmd)
       await this.#qClient.publish(`${this.#qPath}/splash`, {})
     } catch (err) {
@@ -181,6 +194,7 @@ export class SSViewportComponent extends HTMLElement  {
     await this.#qClient.unsubscribe(`${this.#qPath}/video`, this.#videoCmd)
     await this.#qClient.unsubscribe(`${this.#qPath}/image`, this.#imageCmd)
     await this.#qClient.unsubscribe(`${this.#qPath}/webcam`, this.#webcamCmd)
+    await this.#qClient.unsubscribe(`${this.#qPath}/sound`, this.#soundCmd)
     await this.#qClient.unsubscribe(`${this.#qPath}/splash`, this.#splashCmd)
   }
 

@@ -158,3 +158,14 @@
     mask-position: left;
   }
 }
+
+.ss-timer {
+  display: block;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 50px;
+  height: 20px;
+  font-size: 20px;
+  color: rgb(255 255 255 / .87);
+}

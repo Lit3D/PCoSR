@@ -37,6 +37,10 @@ nginx/*
 !nginx/conf
 !nginx/nginxservice.xml
 
+### User generated content ###
+user_content/*
+!user_content/.gitkeep
+
 ### Runtime environment ###
 *.env
 *.lock

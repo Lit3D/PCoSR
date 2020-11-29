@@ -11,9 +11,11 @@ const TEMPLATE = `
     </div>
     <div id="ssWrapperNode" class="ss-line__ss-wrapper"></div>
   </div>
+  <div id="ssTimer" class="ss-timer"></div>
 `
 
 const LOGOTYPES_TIMEOUT = 9 // 9s
+const TIMER_TIMEOUT = 30 // 30s
 
 export class SSVideoComponent extends HTMLElement  {
   static TAG_NAME = "ss-video"
@@ -28,6 +30,9 @@ export class SSVideoComponent extends HTMLElement  {
   #ssLine = undefined
   #ssSubtitle = undefined
 
+  #isTimer = false
+  #ssTimer = undefined
+
   #ssNodeList = []
 
   constructor({
@@ -38,7 +43,7 @@ export class SSVideoComponent extends HTMLElement  {
     section_en,
     subtitles,
     ...options
-  } = {}, { muted = true, webm = false } = {}) {
+  } = {}, { muted = true, webm = false, timer = false } = {}) {
     super()
 
     const screenWidth = window.screen.width
@@ -69,6 +74,10 @@ export class SSVideoComponent extends HTMLElement  {
     this.#ssSubtitle.innerHTML = section_ru
 
     this.#initSubtitles(subtitles)
+
+    this.#isTimer = timer
+    this.#ssTimer = this.#root.getElementById("ssTimer")
+    this.#ssTimer.innerHTML = ""
   }
 
   get src() {
@@ -129,6 +138,13 @@ export class SSVideoComponent extends HTMLElement  {
     })
   }
 
+  #timerShow =() => {
+    if (!this.#isTimer) return
+    const seconds = this.#mainVideo.duration - this.#mainVideo.currentTime
+    if (seconds > TIMER_TIMEOUT) return
+    this.#ssTimer.innerHTML = `0:${String(seconds).padStart(2,"0")}`
+  }
+
   #splashEnded = () => {
     requestAnimationFrame(() => {
       this.#splashVideo.classList.remove("active")
@@ -157,6 +173,7 @@ export class SSVideoComponent extends HTMLElement  {
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#ssShow, { passive: true })
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#logosShow, { passive: true })
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#dispatchTimeupdate, { passive: true })
+    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#timerShow, { passive: true })
     this.#mainVideo && this.#mainVideo.addEventListener("ended", this.#dispatchEnded, { once: true, passive: true })
     this.#splashVideo && this.#splashVideo.addEventListener("ended", this.#splashEnded, { once: true, passive: true })
   }
@@ -165,6 +182,7 @@ export class SSVideoComponent extends HTMLElement  {
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#ssShow)
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#logosShow)
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#dispatchTimeupdate)
+    this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#timerShow)
     this.#mainVideo && this.#mainVideo.removeEventListener("ended", this.#dispatchEnded)
     this.#splashVideo && this.#splashVideo.removeEventListener("ended", this.#splashEnded)
   }

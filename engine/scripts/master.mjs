@@ -14,6 +14,8 @@ export class Master {
   #scenarios = []
   #selectors = []
 
+  #allowActive = true
+
   constructor() {
     return this.#init()
   }
@@ -54,7 +56,7 @@ export class Master {
     const id = this.#randomSS.pop()
     console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id: id})}`)
     if (!id) return this.#scenarioStep()
-    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false })
+    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, timer: this.#randomSS.length === 0 })
   }
 
   #scenarioStep = () => {
@@ -112,13 +114,45 @@ export class Master {
     await this.#qClient.subscribe(`${Q_PATH_LED}/ss/ended`, this.#randomStep)
     await this.#qClient.publish(`${Q_PATH_LED}/ss/ended`, 1)
 
+    await this.#qClient.subscribe(`${Q_PATH}/exhibits`, this.#exhibitsCmd)
+    await this.#qClient.publish(`${Q_PATH}/exhibits`, {})
+
     this.#realsense = await new RealSense()
     this.#realsense.onActive(this.#onActive)
 
     return this
   }
 
+  #exhibitsCmd = ({ allow = true }) => {
+    console.debug(`Master [exhibitsCmd]: ${JSON.stringify({allow: allow})}`)
+    this.#allowActive = allow
+  }
+
+  #specialAction = (id, monitor) => {
+    switch(id) {
+      case 13:
+        console.debug(`Master [specialAction = ${id}]: /devices/wb-mr6c_154/controls/K3/on 1`)
+        this.qClient
+            .publish("/devices/wb-mr6c_154/controls/K3/on", 1)
+            .catch(err => console.error(`Master [specialAction = ${id}] error: ${err.message}`))
+        setTimeout(() => {
+          console.debug(`Master [specialAction = ${id}]: /devices/wb-mr6c_154/controls/K3/on 0`)
+          this.qClient
+              .publish("/devices/wb-mr6c_154/controls/K3/on", 0)
+              .catch(err => console.error(`Master [specialAction = ${id}] error: ${err.message}`))
+        }, 30 * 1000) // 30s
+        break
+
+      case 18:
+        let sndSrc = `/content/${id}.mp3`
+        console.debug(`Master [specialAction = ${id}]: ${Q_PATH_LINE}/${monitor}/sound ${JSON.stringify({src: sndSrc})}`)
+        this.#qClient.publish(`${Q_PATH_LINE}/${monitor}/sound`, { src: sndSrc })
+        break
+    }
+  }
+
   #onActive = (id) => {
+    if (!this.#allowActive) return console.debug(`Master [onActive] blocked`)
     if (!Number.isFinite(id) || id < 0) return console.error(`Master [onActive] incorrect active id: ${id}`)
     const monitor = this.#selectors.find(({ss}) => ss.includes(id))?.id
     if (!Number.isFinite(monitor) || monitor < 0) return console.error(`Master [onActive] incorrect monitor id: ${monitor} by id: ${id}`)
@@ -126,6 +160,7 @@ export class Master {
     this.#qClient
         .publish(`${Q_PATH_LINE}/${monitor}/ss`, { id, muted: true, restart: false })
         .catch(err => console.error(`Master [onActive] error: ${err.message}`))
+    this.#specialAction(id, monitor)
   }
 
   release = async () => {
@@ -133,6 +168,7 @@ export class Master {
     await this.#realsense.release()
     await this.#qClient.unsubscribe(`${Q_PATH}/visual`, this.#visualCmd)
     await this.#qClient.unsubscribe(`${Q_PATH}/scenario`, this.#scenarioCmd)
+    await this.#qClient.unsubscribe(`${Q_PATH}/exhibits`, this.#exhibitsCmd)
     await this.#qClient.unsubscribe(`${Q_PATH_LED}/video/ended`, this.#scenarioStep)
     await this.#qClient.unsubscribe(`${Q_PATH_LED}/ss/ended`, this.#randomStep)
   }
