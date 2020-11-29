@@ -13,6 +13,8 @@ export class Frame extends EventTarget {
   #minSense = 0
   #maxSense = 0
 
+  #maxDepth = 0
+
   #pathos = 0
 
   #isActive = false
@@ -39,6 +41,7 @@ export class Frame extends EventTarget {
     maxSense = 0,
     pathos = 0,
     action = 0,
+    maxDepth = 0,
   } = {}){
     super()
     this.#x = x
@@ -49,6 +52,8 @@ export class Frame extends EventTarget {
     this.#maxSense = maxSense
     this.#pathos = pathos
     this.#action = action
+
+    this.#maxDepth = maxDepth
   }
 
   toJSON() {
@@ -95,7 +100,7 @@ export class Frame extends EventTarget {
   #configDepth = () => {
     let result = prompt(
       "Настройка глубины",
-      `{ "minSense": ${this.#minSense}, "maxSense": ${this.#maxSense}, "pathos": ${this.#pathos} }`,
+      `{ "maxDepth": ${this.#maxDepth},"minSense": ${this.#minSense}, "maxSense": ${this.#maxSense}, "pathos": ${this.#pathos} }`,
     )
 
     if (!result) return
@@ -106,12 +111,14 @@ export class Frame extends EventTarget {
       return
     }
 
-    const { minSense, maxSense, pathos } = {
+    const { maxDepth, minSense, maxSense, pathos } = {
+      maxDepth: this.#maxDepth,
       minSense: this.#minSense,
       maxSense: this.#maxSense,
       pathos: this.#pathos,
     ...result }
 
+    this.#maxDepth = maxDepth
     this.#minSense = minSense
     this.#maxSense = maxSense
     this.#pathos = pathos
