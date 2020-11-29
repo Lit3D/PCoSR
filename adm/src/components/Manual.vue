@@ -272,6 +272,7 @@
         mounted() {
             this.qClient = new QClient()
             this.qClient.subscribe(this.exhibits, this.getMessageExpo)
+            this.qClient.publish(this.exhibits, {}).then(resp => this.expoSwitch = resp.allow)
             for(let i=1;i<=12;i++) {
                 this.qClient.subscribe(`/lit3d/line/${i}`, {qos: 0})
             }

@@ -61,12 +61,15 @@
       return {
         boolean: false,
         radio1: "",
-        qClient: new QClient(),
+        qClient: null,
         target: `/lit3d/slave/0/webcam`,
         ledTargetSpash: `/lit3d/slave/0/splash`,
+        imgTarget: "/lit3d/slave/led/image",
         dialogImageUrl: '',
         dialogVisible: false,
-        file: null
+        file: null,
+        URL: "/user_content",
+        imgPath: ""
       }
     },
     methods: {
@@ -89,26 +92,53 @@
         console.log(response, file, fileList);
         if(response) {
           this.file = response;
+
+                  const file = this.file.raw
+          if (!file) return
+          const fileReader = new FileReader()
+          fileReader.filename = file.name
+          fileReader.addEventListener("load", () => {
+            const sData = fileReader.result
+            const nBytes = sData.length
+            const ui8Data = new Uint8Array(nBytes)
+            for (let nIdx = 0; nIdx < nBytes; nIdx++) ui8Data[nIdx] = sData.charCodeAt(nIdx) & 0xff
+            const request = new XMLHttpRequest()
+            this.imgPath = `${URL}/${fileReader.filename}`
+            request.open("PUT", this.imgPath, false)
+            request.send(ui8Data)
+          })
+          fileReader.readAsBinaryString(file)
         }
       },
       changeSplashScreen() {
-        if (!this.file) {
-          console.log('Не загружен файл')
-          return;
-        }
-        console.log(this.file)
-        let reader = new FileReader();
-        let type = this.file.raw.type;
-        reader.onload = function(e) {
-            let blob = new Blob([new Uint8Array(e.target.result)], {type: type });
-            console.log(blob);
-        };
-        reader.readAsArrayBuffer(this.file.raw);
+        // if (!this.file) {
+        //   console.log('Не загружен файл')
+        //   return;
+        // }
+        // console.log(this.file)
+        // let reader = new FileReader();
+        // let type = this.file.raw.type;
+        // reader.onload = function(e) {
+        //     let blob = new Blob([new Uint8Array(e.target.result)], {type: type });
+        //     console.log(blob);
+        // };
+        // reader.readAsArrayBuffer(this.file.raw);
+
+
+        this.qClient.publish(this.imgTarget, { "src": this.imgPath })
+
       },
       resetSplashScreen() {
-        console.log("resetSplash");
+        this.qClient.publish(this.imgTarget, {})
+      },
+      uploadImage() {
+
       }
-    }
+    },
+    mounted() {
+            this.qClient = new QClient()
+
+        }
   }
 </script>
 

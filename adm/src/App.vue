@@ -73,6 +73,7 @@
         volumeTargetSet: "/lit3d/slave/led/volume/set",
         volumeTargetGet: "/lit3d/slave/0/volume",
         ledTargetSpash: `/lit3d/slave/led/splash`,
+        scenario: `/lit3d/master/scenario`
       }
     },
     methods: {
@@ -87,7 +88,8 @@
           this.qClient.publish(`/lit3d/slave/${lineNum}/ss-play`, options)
       },
       goToSplash() {
-          this.qClient.publish(this.ledTargetSpash, {})
+          //this.qClient.publish(this.ledTargetSpash, {})
+          this.qClient.publish(this.scenario, {})
       }
     },
     watch: {
