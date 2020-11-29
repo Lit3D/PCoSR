@@ -103,7 +103,7 @@ export class Frame extends EventTarget {
   #configDepth = () => {
     let result = prompt(
       "Настройка глубины",
-      `{ "maxDepth": ${this.#maxDepth},"minSense": ${this.#minSense}, "maxSense": ${this.#maxSense}, "pathos": ${this.#pathos} }`,
+      `{ "baseDelta": ${this.#baseDelta},"minSense": ${this.#minSense}, "maxSense": ${this.#maxSense}, "pathos": ${this.#pathos} }`,
     )
 
     if (!result) return
@@ -114,14 +114,14 @@ export class Frame extends EventTarget {
       return
     }
 
-    const { maxDepth, minSense, maxSense, pathos } = {
-      maxDepth: this.#maxDepth,
+    const { baseDelta, minSense, maxSense, pathos } = {
+      baseDelta: this.#baseDelta,
       minSense: this.#minSense,
       maxSense: this.#maxSense,
       pathos: this.#pathos,
     ...result }
 
-    this.#maxDepth = maxDepth
+    this.#baseDelta = baseDelta
     this.#minSense = minSense
     this.#maxSense = maxSense
     this.#pathos = pathos
