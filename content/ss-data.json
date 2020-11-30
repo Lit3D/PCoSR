@@ -10,7 +10,8 @@
     },
     "video": {
       "mp4": "/content/video/1.mp4",
-      "webm": "/content/video/1.webm"
+      "webm": "/content/video/1.webm",
+      "duration": 87
     },
     "logos": {
       "default": "/content/logos/1.jpg",
@@ -114,7 +115,8 @@
     },
     "video": {
       "mp4": "/content/video/2.mp4",
-      "webm": "/content/video/2.webm"
+      "webm": "/content/video/2.webm",
+      "duration": 87
     },
     "logos": {
       "default": "/content/logos/2.jpg",
@@ -179,18 +181,18 @@
         "ru": "30,7 млн. человек – пассажиропоток СвЖД в год ",
         "en": "30.7 million people is the SvZhD passenger traffic per year",
         "show": 72,
-        "hide": 9007199254740991
+        "hide": 78
       },
       {
         "ru": "1 300 детей ежегодно проходят обучение на Свердловской детской железной дороге",
         "en": "annually 1,300 children are trained on the Sverdlovsk Children's Railway",
-        "show": null,
-        "hide": 9007199254740991
+        "show": 79,
+        "hide": 83
       },
       {
         "ru": "готовятся к запуску туристические маршруты на ретро-паровозах ",
         "en": "tourist routes on retro steam locomotives are being launched ",
-        "show": null,
+        "show": 84,
         "hide": 9007199254740991
       }
     ]
@@ -206,7 +208,8 @@
     },
     "video": {
       "mp4": "/content/video/3.mp4",
-      "webm": "/content/video/3.webm"
+      "webm": "/content/video/3.webm",
+      "duration": 108
     },
     "logos": {
       "default": "/content/logos/3.jpg",
@@ -322,7 +325,8 @@
     },
     "video": {
       "mp4": "/content/video/4.mp4",
-      "webm": "/content/video/4.webm"
+      "webm": "/content/video/4.webm",
+      "duration": 102
     },
     "logos": {
       "default": "/content/logos/4.jpg",
@@ -444,7 +448,8 @@
     },
     "video": {
       "mp4": "/content/video/6.mp4",
-      "webm": "/content/video/6.webm"
+      "webm": "/content/video/6.webm",
+      "duration": 102
     },
     "logos": {
       "default": "/content/logos/6.jpg",
@@ -584,7 +589,8 @@
     },
     "video": {
       "mp4": "/content/video/21.mp4",
-      "webm": "/content/video/21.webm"
+      "webm": "/content/video/21.webm",
+      "duration": 215
     },
     "logos": {
       "default": "/content/logos/21.jpg",
@@ -742,7 +748,8 @@
     },
     "video": {
       "mp4": "/content/video/7.mp4",
-      "webm": "/content/video/7.webm"
+      "webm": "/content/video/7.webm",
+      "duration": 113
     },
     "logos": {
       "default": "/content/logos/7.jpg",
@@ -834,7 +841,8 @@
     },
     "video": {
       "mp4": "/content/video/8.mp4",
-      "webm": "/content/video/8.webm"
+      "webm": "/content/video/8.webm",
+      "duration": 128
     },
     "logos": {
       "default": "/content/logos/8.jpg",
@@ -926,7 +934,8 @@
     },
     "video": {
       "mp4": "/content/video/18.mp4",
-      "webm": "/content/video/18.webm"
+      "webm": "/content/video/18.webm",
+      "duration": 127
     },
     "logos": {
       "default": "/content/logos/18.jpg",
@@ -979,12 +988,12 @@
         "ru": "новейший уральский низкопольный трамвай 71-418 презентован в 2019 году на выставке ИННОПРОМ",
         "en": "the newest Ural low-floor tram 71-418 was presented at the INNOPROM exhibition in 2019 ",
         "show": 47,
-        "hide": 9007199254740991
+        "hide": 49
       },
       {
         "ru": "Трамвайные вагоны уже эксплуатируются на линиях городов Свердловской области",
         "en": "Trams are operated on lines of the cities of Sverdlovsk region",
-        "show": null,
+        "show": 50,
         "hide": 53
       },
       {
@@ -1033,12 +1042,12 @@
         "ru": "в 20 стран поставляется продукция железнодорожного машиностроения, произведенная на Урале",
         "en": "20 countries are supplied with railway engineering products manufactured in the Urals",
         "show": 114,
-        "hide": 9007199254740991
+        "hide": 119
       },
       {
         "ru": "40% от общероссийского производства составляет выпуск грузовых вагонов на Урале",
         "en": "40% of all-Russian manufacture is a production of freight cars in the Urals",
-        "show": null,
+        "show": 120,
         "hide": 9007199254740991
       }
     ]
@@ -1054,7 +1063,8 @@
     },
     "video": {
       "mp4": "/content/video/11.mp4",
-      "webm": "/content/video/11.webm"
+      "webm": "/content/video/11.webm",
+      "duration": 95
     },
     "logos": {
       "default": "/content/logos/11.jpg",
@@ -1158,7 +1168,8 @@
     },
     "video": {
       "mp4": "/content/video/9.mp4",
-      "webm": "/content/video/9.webm"
+      "webm": "/content/video/9.webm",
+      "duration": 150
     },
     "logos": {
       "default": "/content/logos/9.jpg",
@@ -1268,7 +1279,8 @@
     },
     "video": {
       "mp4": "/content/video/12.mp4",
-      "webm": "/content/video/12.webm"
+      "webm": "/content/video/12.webm",
+      "duration": 116
     },
     "logos": {
       "default": "/content/logos/12.jpg",
@@ -1348,7 +1360,8 @@
     },
     "video": {
       "mp4": "/content/video/10.mp4",
-      "webm": "/content/video/10.webm"
+      "webm": "/content/video/10.webm",
+      "duration": 97
     },
     "logos": {
       "default": "/content/logos/10.jpg",
@@ -1440,7 +1453,8 @@
     },
     "video": {
       "mp4": "/content/video/13.mp4",
-      "webm": "/content/video/13.webm"
+      "webm": "/content/video/13.webm",
+      "duration": 117
     },
     "logos": {
       "default": "/content/logos/13.jpg",
@@ -1532,7 +1546,8 @@
     },
     "video": {
       "mp4": "/content/video/16.mp4",
-      "webm": "/content/video/16.webm"
+      "webm": "/content/video/16.webm",
+      "duration": 134
     },
     "logos": {
       "default": "/content/logos/16.jpg",
@@ -1642,7 +1657,8 @@
     },
     "video": {
       "mp4": "/content/video/14.mp4",
-      "webm": "/content/video/14.webm"
+      "webm": "/content/video/14.webm",
+      "duration": 123
     },
     "logos": {
       "default": "/content/logos/14.jpg",
@@ -1677,12 +1693,12 @@
         "ru": "системы управления и радиоэлектронной аппаратуры для ракетно-космической техники, систем управления для автоматизации технологических процессов в различных отраслях промышленности",
         "en": "control systems and radio electronic equipment for rocket and space technology, control systems for the automation of technological processes in various industries",
         "show": 35,
-        "hide": 9007199254740991
+        "hide": 36
       },
       {
         "ru": "АО «НПО автоматики им. Академика Н.А. Семихатова» — лидер в области разработки и изготовления систем управления и радиоэлектронной аппаратуры",
         "en": "JSC \"NPO Automatics named after Academician N.A. Semikhatov \"- leader in the development and manufacture of control systems and electronic equipment",
-        "show": null,
+        "show": 37,
         "hide": 38
       },
       {
@@ -1746,7 +1762,8 @@
     },
     "video": {
       "mp4": "/content/video/15.mp4",
-      "webm": "/content/video/15.webm"
+      "webm": "/content/video/15.webm",
+      "duration": 167
     },
     "logos": {
       "default": "/content/logos/15.jpg",
@@ -1886,7 +1903,8 @@
     },
     "video": {
       "mp4": "/content/video/17.mp4",
-      "webm": "/content/video/17.webm"
+      "webm": "/content/video/17.webm",
+      "duration": 149
     },
     "logos": {
       "default": "/content/logos/17.jpg",
@@ -1978,7 +1996,8 @@
     },
     "video": {
       "mp4": "/content/video/19.mp4",
-      "webm": "/content/video/19.webm"
+      "webm": "/content/video/19.webm",
+      "duration": 110
     },
     "logos": {
       "default": "/content/logos/19.jpg",
@@ -2052,7 +2071,8 @@
     },
     "video": {
       "mp4": "/content/video/20.mp4",
-      "webm": "/content/video/20.webm"
+      "webm": "/content/video/20.webm",
+      "duration": 127
     },
     "logos": {
       "default": "/content/logos/20.jpg",
@@ -2138,7 +2158,8 @@
     },
     "video": {
       "mp4": "/content/video/22.mp4",
-      "webm": "/content/video/22.webm"
+      "webm": "/content/video/22.webm",
+      "duration": 125
     },
     "logos": {
       "default": "/content/logos/22.jpg",
@@ -2284,7 +2305,8 @@
     },
     "video": {
       "mp4": "/content/video/24.mp4",
-      "webm": "/content/video/24.webm"
+      "webm": "/content/video/24.webm",
+      "duration": 145
     },
     "logos": {
       "default": "/content/logos/24.jpg",
@@ -2400,7 +2422,8 @@
     },
     "video": {
       "mp4": "/content/video/5.mp4",
-      "webm": "/content/video/5.webm"
+      "webm": "/content/video/5.webm",
+      "duration": 147
     },
     "logos": {
       "default": "/content/logos/5.png"
@@ -2533,7 +2556,8 @@
     "type": "video",
     "video": {
       "mp4": "/content/video/23.mp4",
-      "webm": "/content/video/23.webm"
+      "webm": "/content/video/23.webm",
+      "duration": 108
     },
     "selector": {
       "mp4": "/content/selectors/23.mp4",
