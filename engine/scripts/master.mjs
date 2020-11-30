@@ -76,7 +76,6 @@ export class Master {
   #step = -1
 
   #randomSS = undefined
-  #randomLine = 1
 
   #scenarioCmd = ({ id, lang = "ru" } = {}) => {
     console.debug(`Master [SCENARIO]: ${JSON.stringify({id, lang})}`)
@@ -92,7 +91,7 @@ export class Master {
     const id = this.#randomSS.pop()
     console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id: id})}`)
     if (!id) return this.#scenarioStep()
-    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, timer: this.#randomSS.length === 0 })
+    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false })
   }
 
   #scenarioStep = () => {
@@ -111,9 +110,8 @@ export class Master {
     }
 
     if (id === "random") {
-      this.#randomLine = this.#randomLine === 1 ? 0 : 1
-      this.#randomSS = this.#selectors.map(({ss}) => ss[this.#randomLine])
-      console.debug(`Master [SCENARIO STEP] random line: ${JSON.stringify({randomLine: this.#randomLine})}`)
+      this.#randomSS = this.#selectors.map(({ss}) => ss).flat().sort( () => .5 - Math.random() )
+      console.debug(`Master [SCENARIO STEP] random: ${JSON.stringify({randomSS: this.#randomSS})}`)
       this.#randomStep()
       return
     }

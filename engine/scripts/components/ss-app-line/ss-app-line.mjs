@@ -32,7 +32,7 @@ export class SSAppLineComponent extends HTMLElement  {
     this.#bottom.loop = true
     this.#root.appendChild(this.#bottom)
 
-    this.#viewport = new SSViewportComponent(`${Q_PATH}/${this.#id}`)
+    this.#viewport = new SSViewportComponent(`${Q_PATH}/${this.#id}`, { webm: true })
     this.#root.appendChild(this.#viewport)
   }
 

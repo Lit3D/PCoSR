@@ -1,3 +1,5 @@
+import { Cache } from "../../cache.mjs"
+
 const TEMPLATE = `
   <link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">
   <video id="splashVideo" class="splash"></video>
@@ -11,17 +13,16 @@ const TEMPLATE = `
     </div>
     <div id="ssWrapperNode" class="ss-line__ss-wrapper"></div>
   </div>
-  <div id="ssTimer" class="ss-timer"></div>
 `
 
 const LOGOTYPES_TIMEOUT = 9 // 9s
-const TIMER_TIMEOUT = 30 // 30s
 
 export class SSVideoComponent extends HTMLElement  {
   static TAG_NAME = "ss-video"
   static observedAttributes = ["src", "muted", "loop"]
 
   #root = this.attachShadow({ mode: "open" })
+  #cache = new Cache()
 
   #splashVideo = undefined
   #mainVideo = undefined
@@ -29,9 +30,6 @@ export class SSVideoComponent extends HTMLElement  {
   #ssWrapperNode = undefined
   #ssLine = undefined
   #ssSubtitle = undefined
-
-  #isTimer = false
-  #ssTimer = undefined
 
   #ssNodeList = []
 
@@ -43,7 +41,7 @@ export class SSVideoComponent extends HTMLElement  {
     section_en,
     subtitles,
     ...options
-  } = {}, { muted = true, webm = false, timer = false } = {}) {
+  } = {}, { muted = true, webm = false } = {}) {
     super()
 
     const screenWidth = window.screen.width
@@ -55,13 +53,15 @@ export class SSVideoComponent extends HTMLElement  {
     this.#splashVideo = this.#root.getElementById("splashVideo")
     this.#splashVideo.muted = true
     this.#splashVideo.loop = false
-    this.#splashVideo.src = splash[`${webm ? "webm" : "mp4"}-${screenWidth}`] ?? splash[webm ? "webm" : "mp4"]
+    const splashSrc = splash[`${webm ? "webm" : "mp4"}-${screenWidth}`] ?? splash[webm ? "webm" : "mp4"]
+    this.#splashVideo.src = this.#cache.get(splashSrc)
 
     // Configure main vieo
     this.#mainVideo = this.#root.getElementById("mainVideo")
     this.#mainVideo.muted = muted
     this.#mainVideo.loop = false
-    this.#mainVideo.src = video[webm ? "webm" : "mp4"]
+    const mainVideoSrc = video[webm ? "webm" : "mp4"]
+    this.#mainVideo.src = this.#cache.get(mainVideoSrc)
 
     // Configure final image
     this.#logotypesImg = this.#root.getElementById("logotypesImg")
@@ -74,10 +74,6 @@ export class SSVideoComponent extends HTMLElement  {
     this.#ssSubtitle.innerHTML = section_ru
 
     this.#initSubtitles(subtitles)
-
-    this.#isTimer = timer
-    this.#ssTimer = this.#root.getElementById("ssTimer")
-    this.#ssTimer.innerHTML = ""
   }
 
   get src() {
@@ -138,13 +134,6 @@ export class SSVideoComponent extends HTMLElement  {
     })
   }
 
-  #timerShow =() => {
-    if (!this.#isTimer) return
-    const seconds = this.#mainVideo.duration - this.#mainVideo.currentTime
-    if (seconds > TIMER_TIMEOUT) return
-    this.#ssTimer.innerHTML = `0:${String(Math.round(seconds)).padStart(2,"0")}`
-  }
-
   #splashEnded = () => {
     requestAnimationFrame(() => {
       this.#splashVideo.classList.remove("active")
@@ -173,7 +162,6 @@ export class SSVideoComponent extends HTMLElement  {
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#ssShow, { passive: true })
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#logosShow, { passive: true })
     this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#dispatchTimeupdate, { passive: true })
-    this.#mainVideo && this.#mainVideo.addEventListener("timeupdate", this.#timerShow, { passive: true })
     this.#mainVideo && this.#mainVideo.addEventListener("ended", this.#dispatchEnded, { once: true, passive: true })
     this.#splashVideo && this.#splashVideo.addEventListener("ended", this.#splashEnded, { once: true, passive: true })
   }
@@ -182,7 +170,6 @@ export class SSVideoComponent extends HTMLElement  {
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#ssShow)
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#logosShow)
     this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#dispatchTimeupdate)
-    this.#mainVideo && this.#mainVideo.removeEventListener("timeupdate", this.#timerShow)
     this.#mainVideo && this.#mainVideo.removeEventListener("ended", this.#dispatchEnded)
     this.#splashVideo && this.#splashVideo.removeEventListener("ended", this.#splashEnded)
   }
