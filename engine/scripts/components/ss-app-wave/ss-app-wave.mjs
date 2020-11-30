@@ -1,4 +1,5 @@
 import { QClient, Q_PATH_LINE } from "../../q-client.mjs"
+import { Cache } from "../../cache.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
@@ -11,6 +12,8 @@ export class SSAppWaveComponent extends HTMLElement  {
 
   #qClient = undefined
   #wave = document.createElement("video")
+
+  #cache = new Cache()
 
   constructor() {
     super()
@@ -28,7 +31,7 @@ export class SSAppWaveComponent extends HTMLElement  {
       this.#wave.pause()
       return
     }
-    this.#wave.src = src
+    this.#wave.src = this.#cache.get(src)
     this.#wave.currentTime = 0
     currentWindow.show()
     setTimeout(() => this.#wave.play(),0)
