@@ -35,4 +35,11 @@
   "name": "Делегат 2",
   "description": "Можно что то написать про сценарий",
   "steps": ["pack_6", "pack_4"]
+},{
+  "id": "test",
+  "lang": "ru",
+  "name": "Тестовый сценарий",
+  "description": "Применяется для проверки алгоритмов",
+  "steps": ["pack_1", "random", "pack_5"],
+  "loop": true
 }]

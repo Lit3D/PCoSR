@@ -107,11 +107,13 @@ export class RealSense {
       this.#renderer = new SSDepthComponent()
       this.#processor.attachRenderer(this.#renderer)
       document.body.appendChild(this.#renderer)
+      this.isVisualMode = true
       return
     }
 
     this.#processor.detachRenderer(this.#renderer)
     this.#renderer.remove()
+    this.isVisualMode = false
   }
 
   #keydown = event => {
