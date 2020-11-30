@@ -2,15 +2,12 @@ import { QClient } from "../../q-client.mjs"
 import { SSErrorComponent } from "../ss-error/index.mjs"
 import { SSVideoComponent } from "../ss-video/index.mjs"
 import { SSWebcamComponent } from "../ss-webcam/index.mjs"
-import { Cache } from "../../cache.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 const SS_DATA_URL = "/content/ss-data.json"
 
 export class SSViewportComponent extends HTMLElement  {
   static TAG_NAME = "ss-viewport"
-
-  #cache = new Cache()
 
   #root = this.attachShadow({ mode: "open" })
   #ssData = []
@@ -102,7 +99,7 @@ export class SSViewportComponent extends HTMLElement  {
     videoNode.classList.add("video")
     videoNode.muted = muted
     videoNode.loop = loop
-    videoNode.src = this.#cache.get(src)
+    videoNode.src = src
     videoNode.volume = this.volume / 100
 
     videoNode.addEventListener("ended", () => {
