@@ -2,6 +2,8 @@ export class Cache {
   static _instance = new Cache()
   constructor() { return Cache._instance ?? this }
 
+  #map = new Map()
+
   get = url => {
     if (this.#map.has(url)) return this.#map.get(url)
     this.#fetch(url)
