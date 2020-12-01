@@ -127,7 +127,11 @@ export class Master {
     console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({step: this.#scenarioStep})}`)
     const lang = this.#currentScenario.lang
     let id = this.#currentScenario.steps[this.#step]
-    if (!id) return this.#scenarioEnd()
+    if (!id) {
+      const loop = this.#currentScenario.loop ?? 0
+      if (loop >= 0) return this.#scenarioCmd(this.#currentScenario)
+      return this.#scenarioEnd()
+    }
     if (id === "random") {
       this.#randomSS = this.#ssData
                            .map(({id, video}) => ({id, duration: video.duration ?? 0}))
