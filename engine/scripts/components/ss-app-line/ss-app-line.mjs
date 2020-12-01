@@ -52,15 +52,19 @@ export class SSAppLineComponent extends HTMLElement  {
     }
 
     const [top, bottom] = selectorsConfig.find(({id}) => id === this.#id)?.ss ?? []
-    let {selector, video, splash} = ssData.find(item => item.id === top)
+    let data = ssData.find(item => item.id === top)
+    let {selector, video, splash} = data
     this.#top.src = this.#cache.get(selector["webm"] ?? selector["mp4"])
-    this.#cache.get(video["webm"] ?? video["mp4"])
-    this.#cache.get(splash["webm"] ?? splash["mp4"])
+    if (video) this.#cache.get(video["webm"] ?? video["mp4"])
+    if (splash) this.#cache.get(splash["webm"] ?? splash["mp4"])
 
-    ;{selector, video, splash} = ssData.find(item => item.id === bottom)
+    data = ssData.find(item => item.id === bottom)
+    selector = data.selector
+    video = data.video
+    splash = data.splash
     this.#bottom.src = this.#cache.get(selector["webm"] ?? selector["mp4"])
-    this.#cache.get(video["webm"] ?? video["mp4"])
-    this.#cache.get(splash["webm"] ?? splash["mp4"])
+    if (video) this.#cache.get(video["webm"] ?? video["mp4"])
+    if (splash) this.#cache.get(splash["webm"] ?? splash["mp4"])
 
     setTimeout(() => {
       this.#top.play()
