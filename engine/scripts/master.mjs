@@ -6,6 +6,8 @@ const VISUAL_DATA_URL = "/config/visual.json"
 const SCENARIOS_DATA_URL = "/config/scenarios.json"
 const SELECTORS_DATA_URL = "/config/selectors.json"
 
+const SS_DATA_URL ="/content/ss-data.json"
+
 const LINE_SPLASH_IMAGE = "/assets/images/splash.png"
 
 export class Master {
@@ -15,6 +17,8 @@ export class Master {
   #visualData = []
   #scenarios = []
   #selectors = []
+
+  #ssData = []
 
   #allowActive = true
 
@@ -88,8 +92,8 @@ export class Master {
 
   #randomStep = () => {
     if (!this.#randomSS) return
-    const id = this.#randomSS.pop()
-    console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id: id})}`)
+    const {id, duration} = this.#randomSS.pop()
+    console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
     this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false })
   }
@@ -110,7 +114,9 @@ export class Master {
     }
 
     if (id === "random") {
-      this.#randomSS = this.#selectors.map(({ss}) => ss).flat().sort( () => .5 - Math.random() )
+      this.#randomSS = this.#ssData
+                           .map(({id, video}) => ({id, duration: video.duration ?? 0}))
+                           .sort( () => .5 - Math.random() )
       console.debug(`Master [SCENARIO STEP] random: ${JSON.stringify({randomSS: this.#randomSS})}`)
       this.#randomStep()
       return
@@ -142,6 +148,9 @@ export class Master {
 
     response = await fetch(SELECTORS_DATA_URL)
     this.#selectors = await response.json()
+
+    response = await fetch(SS_DATA_URL)
+    this.#ssData = await response.json()
 
     this.#qClient = await new QClient()
     await this.#qClient.subscribe(`${Q_PATH}/visual`, this.#visualCmd)
