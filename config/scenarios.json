@@ -4,7 +4,7 @@
   "name": "Основной сценарий",
   "description": "Можно что то написать про сценарий",
   "steps": ["pack_1-2", "main", "pack_3-4", "random", "pack_5"],
-  "loop": true
+  "loop": 1800
 },{
   "id": "main",
   "lang": "en",
@@ -41,6 +41,5 @@
   "name": "Тестовый сценарий",
   "description": "Применяется для проверки алгоритмов",
   "steps": ["pack_1", "random", "pack_5"],
-  "loop": true,
-  "limit": 1800
+  "loop": 1800
 }]

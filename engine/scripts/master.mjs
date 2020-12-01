@@ -80,12 +80,18 @@ export class Master {
   #step = -1
 
   #randomSS = undefined
+  #scenarioStartTime = Math.round(new Date().getTime() / 1000)
 
   #scenarioCmd = ({ id, lang = "ru" } = {}) => {
     console.debug(`Master [SCENARIO]: ${JSON.stringify({id, lang})}`)
     if (id === undefined || id === null) return this.#scenarioEnd()
     this.#currentScenario = this.#scenarios.find(item => item.id === id && item.lang === lang)
     if (!this.#currentScenario) return this.#scenarioEnd()
+    this.#scenarioStartTime = Math.round(new Date().getTime() / 1000)
+    const timer = this.#currentScenario.loop ?? 0
+    this.#qClient
+        .publish(`${Q_PATH_LED}/timer`, { timer })
+        .catch(err => console.error(`Master [scenarioCmd] error: ${err.message}`))
     this.#step = -1
     this.#scenarioStep()
   }
@@ -95,7 +101,7 @@ export class Master {
     const {id, duration} = this.#randomSS.pop()
     console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
-    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false })
+    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, volume: 30 })
   }
 
   #scenarioStep = () => {
@@ -104,15 +110,7 @@ export class Master {
     console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({step: this.#scenarioStep})}`)
     const lang = this.#currentScenario.lang
     let id = this.#currentScenario.steps[this.#step]
-    if (!id) {
-      if (this.#currentScenario.loop) {
-        console.debug(`Master [SCENARIO LOOP]`)
-        this.#step = 0
-        id = this.#currentScenario.steps[this.#step]
-        if (!id) return this.#scenarioEnd()
-      } else return this.#scenarioEnd()
-    }
-
+    if (!id) return this.#scenarioEnd()
     if (id === "random") {
       this.#randomSS = this.#ssData
                            .map(({id, video}) => ({id, duration: video.duration ?? 0}))
@@ -131,6 +129,7 @@ export class Master {
     Promise.all([
       this.#qClient.publish(`${Q_PATH_LED}/splash`, {}),
       this.#qClient.publish(`${Q_PATH_LINE}/wave`, {}),
+      this.#qClient.publish(`${Q_PATH_LED}/timer`, {}),
     ]).catch(err => console.error(`Master [SCENARIO] error: ${err.message}`))
 
     this.#currentScenario = undefined
