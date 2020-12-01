@@ -43,10 +43,10 @@
         <el-footer>
           <div class="volume-container"><span>Volume: </span><span><el-slider v-model="volume" :show-tooltip="false" style="width: 500px;"></el-slider></span></div>
           
-          <div>
+          <!-- <div>
             <span>Остановить видео</span>&nbsp;&nbsp;
             <el-button style="font-size:20px;" class="player--pause" icon="el-icon-circle-close" circle @click="goToSplash"></el-button>          
-          </div>
+          </div> -->
 
           <!-- <div class="on-off-container"><el-button class="player--play" icon="el-icon-switch-button" style="font-size: 20px" circle></el-button></div> -->
 

@@ -21,11 +21,11 @@
                     
                 </div>
 
-                <!-- <div style="position: absolute; right: 380px; top: 10px; text-align: center">
+                <div style="position: absolute; right: 380px; top: 10px; text-align: center">
                         <h3>Остановить видео</h3>
                         <el-button style="font-size:30px; margin-top:-10px" class="player--pause" icon="el-icon-circle-close" circle @click="goToSplash"></el-button>
                     
-                </div> -->
+                </div>
 
             <!-- <h2>Сценарии @tab-click="handleClick"</h2> -->
             <el-tabs type="card">
@@ -261,7 +261,10 @@
                 //return id + ". " + this.presList.filter(item => item.id == id)[0].subtitle_ru
                 return id
             },
-
+            goToSplash() {
+                //this.qClient.publish(this.ledTargetSpash, {})
+                this.qClient.publish(this.scenario, {})
+            }
         },
         watch: {
             expoSwitch: function(val) {
