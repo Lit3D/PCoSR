@@ -5,7 +5,7 @@
     <!-- <div style="margin-bottom: 30px; font-size: 18px">Длительность сеанса: <strong>15:23</strong></div> -->
     <el-row>
       <el-col :span="12">
-        <player type="big" :target="scenario" :options="{id: 'visitors_1'}"></player>
+        <player type="big" :target="scenario" :options="{id: 'main'}"></player>
       </el-col>
     </el-row>
 
