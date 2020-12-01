@@ -118,7 +118,7 @@ export class Master {
 
     console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
-    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, volume: 30 })
+    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, volume: 15 })
   }
 
   #scenarioStep = () => {
