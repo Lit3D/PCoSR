@@ -6,6 +6,8 @@ const VISUAL_DATA_URL = "/config/visual.json"
 const SCENARIOS_DATA_URL = "/config/scenarios.json"
 const SELECTORS_DATA_URL = "/config/selectors.json"
 
+const SS_DATA_URL ="/content/ss-data.json"
+
 const LINE_SPLASH_IMAGE = "/assets/images/splash.png"
 
 export class Master {
@@ -15,6 +17,8 @@ export class Master {
   #visualData = []
   #scenarios = []
   #selectors = []
+
+  #ssData = []
 
   #allowActive = true
 
@@ -76,22 +80,45 @@ export class Master {
   #step = -1
 
   #randomSS = undefined
+  #scenarioStartTime = Math.round(new Date().getTime() / 1000)
 
   #scenarioCmd = ({ id, lang = "ru" } = {}) => {
     console.debug(`Master [SCENARIO]: ${JSON.stringify({id, lang})}`)
     if (id === undefined || id === null) return this.#scenarioEnd()
     this.#currentScenario = this.#scenarios.find(item => item.id === id && item.lang === lang)
     if (!this.#currentScenario) return this.#scenarioEnd()
+    this.#scenarioStartTime = Math.round(new Date().getTime() / 1000)
+    const timer = this.#currentScenario.loop ?? 0
+    this.#qClient
+        .publish(`${Q_PATH_LED}/timer`, { timer })
+        .catch(err => console.error(`Master [scenarioCmd] error: ${err.message}`))
+    this.#timer = timer
     this.#step = -1
     this.#scenarioStep()
   }
 
+  #timer = 0
+  #interval = undefined
+  #lastTime = Math.round(new Date().getTime() / 1000)
+  #tickTimer = () => {
+    const cur = Math.round(new Date().getTime() / 1000)
+    const dd = cur - this.#lastTime
+    this.#lastTime = cur
+    if (dd <= 0) return
+    this.#timer = this.#timer - dd
+    if (this.#timer <= 0) this.#timer = 0
+  }
+
   #randomStep = () => {
     if (!this.#randomSS) return
-    const id = this.#randomSS.pop()
-    console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id: id})}`)
+    const {id, duration} = this.#randomSS.pop()
+
+    const loop = this.#currentScenario.loop ?? 0
+    if (loop >= 0 && this.#timer <= 0) return this.#scenarioStep()
+
+    console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
-    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false })
+    this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, volume: 15 })
   }
 
   #scenarioStep = () => {
@@ -101,16 +128,14 @@ export class Master {
     const lang = this.#currentScenario.lang
     let id = this.#currentScenario.steps[this.#step]
     if (!id) {
-      if (this.#currentScenario.loop) {
-        console.debug(`Master [SCENARIO LOOP]`)
-        this.#step = 0
-        id = this.#currentScenario.steps[this.#step]
-        if (!id) return this.#scenarioEnd()
-      } else return this.#scenarioEnd()
+      const loop = this.#currentScenario.loop ?? 0
+      if (loop >= 0) return this.#scenarioCmd(this.#currentScenario)
+      return this.#scenarioEnd()
     }
-
     if (id === "random") {
-      this.#randomSS = this.#selectors.map(({ss}) => ss).flat().sort( () => .5 - Math.random() )
+      this.#randomSS = this.#ssData
+                           .map(({id, video}) => ({id, duration: video.duration ?? 0}))
+                           .sort( () => .5 - Math.random() )
       console.debug(`Master [SCENARIO STEP] random: ${JSON.stringify({randomSS: this.#randomSS})}`)
       this.#randomStep()
       return
@@ -125,11 +150,13 @@ export class Master {
     Promise.all([
       this.#qClient.publish(`${Q_PATH_LED}/splash`, {}),
       this.#qClient.publish(`${Q_PATH_LINE}/wave`, {}),
+      this.#qClient.publish(`${Q_PATH_LED}/timer`, {}),
     ]).catch(err => console.error(`Master [SCENARIO] error: ${err.message}`))
 
     this.#currentScenario = undefined
     this.#randomSS = undefined
     this.#step = -1
+    this.#timer = 0
     return
   }
 
@@ -142,6 +169,9 @@ export class Master {
 
     response = await fetch(SELECTORS_DATA_URL)
     this.#selectors = await response.json()
+
+    response = await fetch(SS_DATA_URL)
+    this.#ssData = await response.json()
 
     this.#qClient = await new QClient()
     await this.#qClient.subscribe(`${Q_PATH}/visual`, this.#visualCmd)
@@ -160,6 +190,8 @@ export class Master {
 
     this.#realsense = await new RealSense()
     this.#realsense.onActive(this.#onActive)
+
+    this.#interval = setInterval(this.#tickTimer, 1000)
 
     return this
   }
@@ -213,5 +245,6 @@ export class Master {
     await this.#qClient.unsubscribe(`${Q_PATH}/exhibits`, this.#exhibitsCmd)
     await this.#qClient.unsubscribe(`${Q_PATH_LED}/video/ended`, this.#scenarioStep)
     await this.#qClient.unsubscribe(`${Q_PATH_LED}/ss/ended`, this.#randomStep)
+    this.#interval && clearInterval(this.#interval)
   }
 }

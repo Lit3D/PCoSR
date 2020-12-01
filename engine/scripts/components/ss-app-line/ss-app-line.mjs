@@ -1,5 +1,6 @@
 import { Q_PATH_LINE } from "../../q-client.mjs"
 import { SSViewportComponent } from "../ss-viewport/index.mjs"
+import { Cache } from "../../cache.mjs"
 
 const TEMPLATE = `<link rel="stylesheet" type="text/css" href="${import.meta.url.replace(/\.m?js$/i, "")}.css">`
 
@@ -11,6 +12,7 @@ export class SSAppLineComponent extends HTMLElement  {
   static TAG_NAME = "ss-app-line"
 
   #root = this.attachShadow({ mode: "open" })
+  #cache = new Cache()
 
   #top = document.createElement("video")
   #bottom = document.createElement("video")
@@ -50,10 +52,19 @@ export class SSAppLineComponent extends HTMLElement  {
     }
 
     const [top, bottom] = selectorsConfig.find(({id}) => id === this.#id)?.ss ?? []
-    let selector = ssData.find(item => item.id === top)?.selector
-    this.#top.src = selector["webm"] ?? selector["mp4"]
-    selector = ssData.find(item => item.id === bottom)?.selector
-    this.#bottom.src = selector["webm"] ?? selector["mp4"]
+    let data = ssData.find(item => item.id === top)
+    let {selector, video, splash} = data
+    this.#top.src = this.#cache.get(selector["webm"] ?? selector["mp4"])
+    if (video) this.#cache.get(video["webm"] ?? video["mp4"])
+    if (splash) this.#cache.get(splash["webm"] ?? splash["mp4"])
+
+    data = ssData.find(item => item.id === bottom)
+    selector = data.selector
+    video = data.video
+    splash = data.splash
+    this.#bottom.src = this.#cache.get(selector["webm"] ?? selector["mp4"])
+    if (video) this.#cache.get(video["webm"] ?? video["mp4"])
+    if (splash) this.#cache.get(splash["webm"] ?? splash["mp4"])
 
     setTimeout(() => {
       this.#top.play()

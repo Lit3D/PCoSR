@@ -4,13 +4,14 @@
   "name": "Основной сценарий",
   "description": "Можно что то написать про сценарий",
   "steps": ["pack_1-2", "main", "pack_3-4", "random", "pack_5"],
-  "loop": true
+  "loop": 1800
 },{
   "id": "main",
   "lang": "en",
   "name": "Основной сценарий",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_1-2", "main", "pack_3-4", "random", "pack_5"]
+  "steps": ["pack_1-2", "main", "pack_3-4", "random", "pack_5"],
+  "loop": 1800
 },{
   "id": "visitors_1",
   "lang": "ru",
@@ -41,5 +42,5 @@
   "name": "Тестовый сценарий",
   "description": "Применяется для проверки алгоритмов",
   "steps": ["pack_1", "random", "pack_5"],
-  "loop": true
+  "loop": 200
 }]
