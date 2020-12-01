@@ -92,13 +92,30 @@ export class Master {
     this.#qClient
         .publish(`${Q_PATH_LED}/timer`, { timer })
         .catch(err => console.error(`Master [scenarioCmd] error: ${err.message}`))
+    this.#timer = timer
     this.#step = -1
     this.#scenarioStep()
+  }
+
+  #timer = 0
+  #interval = undefined
+  #lastTime = Math.round(new Date().getTime() / 1000)
+  #tickTimer = () => {
+    const cur = Math.round(new Date().getTime() / 1000)
+    const dd = cur - this.#lastTime
+    this.#lastTime = cur
+    if (dd <= 0) return
+    this.#timer = this.#timer - dd
+    if (this.#timer <= 0) this.#timer = 0
   }
 
   #randomStep = () => {
     if (!this.#randomSS) return
     const {id, duration} = this.#randomSS.pop()
+
+    const loop = this.#currentScenario.loop ?? 0
+    if (loop >= 0 && this.#timer <= 0) return this.#scenarioStep()
+
     console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
     this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, volume: 30 })
@@ -135,6 +152,7 @@ export class Master {
     this.#currentScenario = undefined
     this.#randomSS = undefined
     this.#step = -1
+    this.#timer = 0
     return
   }
 
@@ -168,6 +186,8 @@ export class Master {
 
     this.#realsense = await new RealSense()
     this.#realsense.onActive(this.#onActive)
+
+    this.#interval = setInterval(this.#tickTimer, 1000)
 
     return this
   }
@@ -221,5 +241,6 @@ export class Master {
     await this.#qClient.unsubscribe(`${Q_PATH}/exhibits`, this.#exhibitsCmd)
     await this.#qClient.unsubscribe(`${Q_PATH_LED}/video/ended`, this.#scenarioStep)
     await this.#qClient.unsubscribe(`${Q_PATH_LED}/ss/ended`, this.#randomStep)
+    this.#interval && clearInterval(this.#interval)
   }
 }
