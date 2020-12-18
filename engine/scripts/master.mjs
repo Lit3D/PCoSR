@@ -129,7 +129,7 @@ export class Master {
     let id = this.#currentScenario.steps[this.#step]
     if (!id) {
       const loop = this.#currentScenario.loop ?? 0
-      if (loop > 0) return this.#scenarioCmd(this.#currentScenario)
+      if (loop >= 0) return this.#scenarioCmd(this.#currentScenario)
       return this.#scenarioEnd()
     }
     if (id === "random") {
