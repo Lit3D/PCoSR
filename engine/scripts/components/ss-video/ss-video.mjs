@@ -6,7 +6,7 @@ const TEMPLATE = `
   <video id="mainVideo" class="video"></video>
   <img id="logotypesImg" class="logotypes">
   <div id="ssLine" class="ss-line">
-    <img src="/assets/images/logo.svg" class="ss-line__logo">
+    <img id="logoImage" src="/assets/images/logo_ru.svg" class="ss-line__logo">
     <div id="ssSubtitle" class="ss-line__subtitle"></div>
     <div class="ss-line__curve-container">
       <img src="/assets/images/curve.svg" class="ss-line__curve">
@@ -24,6 +24,7 @@ export class SSVideoComponent extends HTMLElement  {
   #root = this.attachShadow({ mode: "open" })
   #cache = new Cache()
 
+  #logoImage = undefined
   #splashVideo = undefined
   #mainVideo = undefined
   #logotypesImg = undefined
@@ -41,13 +42,17 @@ export class SSVideoComponent extends HTMLElement  {
     section_en,
     subtitles,
     ...options
-  } = {}, { muted = true, webm = false } = {}) {
+  } = {}, { muted = true, webm = false, lang = "ru" } = {}) {
     super()
 
     const screenWidth = window.screen.width
 
     // Init root template
     this.#root.innerHTML = TEMPLATE
+
+    this.#logoImage = this.#root.getElementById("logoImage")
+    this.#logoImage.src = lang === "en" ? "/assets/images/logo_en.svg"
+                                        : "/assets/images/logo_ru.svg"
 
     // Configure splash video
     this.#splashVideo = this.#root.getElementById("splashVideo")
@@ -71,7 +76,7 @@ export class SSVideoComponent extends HTMLElement  {
     this.#ssLine = this.#root.getElementById("ssLine")
 
     this.#ssSubtitle = this.#root.getElementById("ssSubtitle")
-    this.#ssSubtitle.innerHTML = section_ru
+    this.#ssSubtitle.innerHTML = section[lang]
 
     this.#initSubtitles(subtitles)
   }

@@ -21,8 +21,10 @@
       "mp4": "/content/selectors/1.mp4",
       "webm": "/content/selectors/1.webm"
     },
-    "section_ru": "Авиационная логистика",
-    "section_en": "Aviation logistics",
+    "section": {
+      "ru": "Авиационная логистика",
+      "en": "Aviation logistics"
+    },
     "subtitles": [
       {
         "ru": "Международный аэропорт «Кольцово» имени Акинфия Демидова",
@@ -126,8 +128,10 @@
       "mp4": "/content/selectors/2.mp4",
       "webm": "/content/selectors/2.webm"
     },
-    "section_ru": "Железнодорожная логистика",
-    "section_en": "Railway logistics",
+    "section": {
+      "ru": "Железнодорожная логистика",
+      "en": "Railway logistics"
+    },
     "subtitles": [
       {
         "ru": "Свердловская железная дорога – ТОП-3 крупнейших железнодорожных магистралей России",
@@ -219,8 +223,10 @@
       "mp4": "/content/selectors/3.mp4",
       "webm": "/content/selectors/3.webm"
     },
-    "section_ru": "Образование ",
-    "section_en": "Education",
+    "section": {
+      "ru": "Образование ",
+      "en": "Education"
+    },
     "subtitles": [
       {
         "ru": "Екатеринбург - один из крупнейших образовательных центров России",
@@ -336,8 +342,10 @@
       "mp4": "/content/selectors/4.mp4",
       "webm": "/content/selectors/4.webm"
     },
-    "section_ru": "Наука",
-    "section_en": "Science",
+    "section": {
+      "ru": "Наука",
+      "en": "Science"
+    },
     "subtitles": [
       {
         "ru": "Свердловская область один из самых наукоемких регионов",
@@ -459,8 +467,10 @@
       "mp4": "/content/selectors/6.mp4",
       "webm": "/content/selectors/6.webm"
     },
-    "section_ru": "Международное сотрудничество",
-    "section_en": "International cooperation",
+    "section": {
+      "ru": "Международное сотрудничество",
+      "en": "International cooperation"
+    },
     "subtitles": [
       {
         "ru": "Свердловская область — центр международных бизнес-коммуникаций",
@@ -600,8 +610,10 @@
       "mp4": "/content/selectors/21.mp4",
       "webm": "/content/selectors/21.webm"
     },
-    "section_ru": "Туризм ",
-    "section_en": "Tourism",
+    "section": {
+      "ru": "Туризм ",
+      "en": "Tourism"
+    },
     "subtitles": [
       {
         "ru": "1,6 миллионов туристов посетили Свердловскую область в 2019 году",
@@ -759,8 +771,10 @@
       "mp4": "/content/selectors/7.mp4",
       "webm": "/content/selectors/7.webm"
     },
-    "section_ru": "Чёрная металлургия",
-    "section_en": "Iron and steel industry ",
+    "section": {
+      "ru": "Чёрная металлургия",
+      "en": "Iron and steel industry "
+    },
     "subtitles": [
       {
         "ru": "Металлургия – базовый сегмент экономики региона",
@@ -852,8 +866,10 @@
       "mp4": "/content/selectors/8.mp4",
       "webm": "/content/selectors/8.webm"
     },
-    "section_ru": "Цветная металлургия ",
-    "section_en": "Non-ferrous industry ",
+    "section": {
+      "ru": "Цветная металлургия ",
+      "en": "Non-ferrous industry "
+    },
     "subtitles": [
       {
         "ru": "Металлургия – базовый сегмент экономики региона",
@@ -945,8 +961,10 @@
       "mp4": "/content/selectors/18.mp4",
       "webm": "/content/selectors/18.webm"
     },
-    "section_ru": "Вагоностроение ",
-    "section_en": "Railway car building ",
+    "section": {
+      "ru": "Вагоностроение ",
+      "en": "Railway car building "
+    },
     "subtitles": [
       {
         "ru": "Свердловская область – один из лидеров  в железнодорожном машиностроении ",
@@ -1074,8 +1092,10 @@
       "mp4": "/content/selectors/11.mp4",
       "webm": "/content/selectors/11.webm"
     },
-    "section_ru": "Лесная промышленность",
-    "section_en": "Wood industry",
+    "section": {
+      "ru": "Лесная промышленность",
+      "en": "Wood industry"
+    },
     "subtitles": [
       {
         "ru": "общая площадь лесного фонда Свердловской области составляет 16 000 000 Га",
@@ -1179,8 +1199,10 @@
       "mp4": "/content/selectors/9.mp4",
       "webm": "/content/selectors/9.webm"
     },
-    "section_ru": "Авиапромышленность",
-    "section_en": "Aircraft industry",
+    "section": {
+      "ru": "Авиапромышленность",
+      "en": "Aircraft industry"
+    },
     "subtitles": [
       {
         "ru": "В регионе расположены основные предприятия, связанные с авиастроительной отраслью мира",
@@ -1290,8 +1312,10 @@
       "mp4": "/content/selectors/12.mp4",
       "webm": "/content/selectors/12.webm"
     },
-    "section_ru": "Машиностроение",
-    "section_en": "Machinery  engineering ",
+    "section": {
+      "ru": "Машиностроение",
+      "en": "Machinery  engineering "
+    },
     "subtitles": [
       {
         "ru": "Машиностроение Свердловской области — один из ведущих многоотраслевых производственных комплексов: ",
@@ -1371,8 +1395,10 @@
       "mp4": "/content/selectors/10.mp4",
       "webm": "/content/selectors/10.webm"
     },
-    "section_ru": "Химическая промышленность",
-    "section_en": "Chemical industry",
+    "section": {
+      "ru": "Химическая промышленность",
+      "en": "Chemical industry"
+    },
     "subtitles": [
       {
         "ru": "Свердловская область – в ТОП-10 регионов Российской Федерации по экспорту химической продукции за рубеж",
@@ -1464,8 +1490,10 @@
       "mp4": "/content/selectors/13.mp4",
       "webm": "/content/selectors/13.webm"
     },
-    "section_ru": "IT-сфера",
-    "section_en": "IT industry ",
+    "section": {
+      "ru": "IT-сфера",
+      "en": "IT industry "
+    },
     "subtitles": [
       {
         "ru": "3 региональных компании входят в ТОП-50 крупнейших IT-компаний России ",
@@ -1557,8 +1585,10 @@
       "mp4": "/content/selectors/16.mp4",
       "webm": "/content/selectors/16.webm"
     },
-    "section_ru": "Медицина",
-    "section_en": "Healthcare industry ",
+    "section": {
+      "ru": "Медицина",
+      "en": "Healthcare industry "
+    },
     "subtitles": [
       {
         "ru": "2 место в России по объему оказания высокотехнологичной медицинской помощи",
@@ -1668,8 +1698,10 @@
       "mp4": "/content/selectors/14.mp4",
       "webm": "/content/selectors/14.webm"
     },
-    "section_ru": "Приборостроение",
-    "section_en": "Instrument engineering ",
+    "section": {
+      "ru": "Приборостроение",
+      "en": "Instrument engineering "
+    },
     "subtitles": [
       {
         "ru": "Приборостроение – одна из ключевых отраслей  машиностроительного комплекса Свердловской области",
@@ -1773,8 +1805,10 @@
       "mp4": "/content/selectors/15.mp4",
       "webm": "/content/selectors/15.webm"
     },
-    "section_ru": "Пищевая промышленность ",
-    "section_en": "Food industry ",
+    "section": {
+      "ru": "Пищевая промышленность ",
+      "en": "Food industry "
+    },
     "subtitles": [
       {
         "ru": "Свердловская область имеет развитую диверсифицированную пищевую промышленнсоть",
@@ -1914,8 +1948,10 @@
       "mp4": "/content/selectors/17.mp4",
       "webm": "/content/selectors/17.webm"
     },
-    "section_ru": "Лёгкая промышленность ",
-    "section_en": "Light industry ",
+    "section": {
+      "ru": "Лёгкая промышленность ",
+      "en": "Light industry "
+    },
     "subtitles": [
       {
         "ru": "1,5 млрд. рублей – объём отгружаемой продукции ежегодно",
@@ -2007,8 +2043,10 @@
       "mp4": "/content/selectors/19.mp4",
       "webm": "/content/selectors/19.webm"
     },
-    "section_ru": "Нефтегазовая отрасль",
-    "section_en": "Oil and gas industry ",
+    "section": {
+      "ru": "Нефтегазовая отрасль",
+      "en": "Oil and gas industry "
+    },
     "subtitles": [
       {
         "ru": "Свердловская область – оптимальное место для размещения производственных мощностей компаний, обслуживающих нефтегазовую отрасль   ",
@@ -2082,8 +2120,10 @@
       "mp4": "/content/selectors/20.mp4",
       "webm": "/content/selectors/20.webm"
     },
-    "section_ru": "Танкостроение ",
-    "section_en": "Tank building ",
+    "section": {
+      "ru": "Танкостроение ",
+      "en": "Tank building "
+    },
     "subtitles": [
       {
         "ru": "Свердловская область – лидер по производству бронированных машин",
@@ -2169,8 +2209,10 @@
       "mp4": "/content/selectors/22.mp4",
       "webm": "/content/selectors/22.webm"
     },
-    "section_ru": "Инвестиционная политика ",
-    "section_en": "Investment policy ",
+    "section": {
+      "ru": "Инвестиционная политика ",
+      "en": "Investment policy "
+    },
     "subtitles": [
       {
         "ru": "Свердловская область входит в группу регионов с высокой инвестиционной привлекательностью ",
@@ -2316,8 +2358,10 @@
       "mp4": "/content/selectors/24.mp4",
       "webm": "/content/selectors/24.webm"
     },
-    "section_ru": "Строительные материалы",
-    "section_en": "Building supplies",
+    "section": {
+      "ru": "Строительные материалы",
+      "en": "Building supplies"
+    },
     "subtitles": [
       {
         "ru": "95% стройматериалов для объектов, возводящихся в регионе, производится на территории Свердловской области",
@@ -2432,8 +2476,10 @@
       "mp4": "/content/selectors/5.mp4",
       "webm": "/content/selectors/5.webm"
     },
-    "section_ru": "Комфортная среда ",
-    "section_en": "Comfortable environment",
+    "section": {
+      "ru": "Комфортная среда ",
+      "en": "Comfortable environment"
+    },
     "subtitles": [
       {
         "ru": "Свердловская область – место удобное для жизни и бизнеса",

@@ -47,7 +47,7 @@ export class SSViewportComponent extends HTMLElement  {
   set error(message) { this.#error(message) }
 
 
-  #ssCmd = ({id, muted = false, restart = true, timer = false, volume = this.volume } = {}) => {
+  #ssCmd = ({id, muted = false, restart = true, timer = false, volume = this.volume, lang = "ru" } = {}) => {
     console.debug(`SSViewportComponent [SS]: ${JSON.stringify({id, muted, restart})}`)
     if (id === undefined || id === null) return
 
@@ -62,7 +62,7 @@ export class SSViewportComponent extends HTMLElement  {
       return
     }
 
-    const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm, timer })
+    const ssVideo = new SSVideoComponent(ssData, { muted, webm: this.#webm, timer, lang })
     ssVideo.volume = volume / 100
 
     ssVideo.addEventListener("ended", () => {
