@@ -38,8 +38,7 @@ export class SSVideoComponent extends HTMLElement  {
     splash,
     video,
     logos,
-    section_ru,
-    section_en,
+    section,
     subtitles,
     ...options
   } = {}, { muted = true, webm = false, lang = "ru" } = {}) {
