@@ -76,7 +76,9 @@
                         </el-tab-pane>
 
                 <el-tab-pane label="Промо-ролики на большом экране">
-                    <h3>Промо-ролики</h3>
+                <div style="display: flex; flex-direction: row;column-gap: 30px;">
+                <div>
+                    <h3>Промо-ролики Ru</h3>
                         <!-- <tr v-for="index in 24" :key="index">
                             <td>{{ index }}</td>
                             <td>
@@ -89,6 +91,25 @@
                                 <span>
                                     <player type="small" :title="pres.id + '. ' + pres.subtitle_ru" :target="ledTargetSs" :options="{id: pres.id}"></player>
                                 </span>
+                            </div>
+                        </div>
+</div>
+<div>
+                        <h3>Промо-ролики En</h3>
+                        <!-- <tr v-for="index in 24" :key="index">
+                            <td>{{ index }}</td>
+                            <td>
+                                <player type="small" :target="ledTargetSs" :options="{id: index, muted: false}"></player>
+                            </td>
+                        </tr> -->
+                        <div class="player-container">
+                            <div v-for="pres in presList" :key="pres.id">
+                                <!-- <td>{{ pres.id }}. {{ pres.subtitle_ru }}</td> -->
+                                <span>
+                                    <player type="small" :title="pres.id + '. ' + pres.subtitle_ru" :target="ledTargetSs" :options="{id: pres.id, 'lang': 'en'}"></player>
+                                </span>
+                            </div>
+                        </div>
                             </div>
                         </div>
                 </el-tab-pane>
