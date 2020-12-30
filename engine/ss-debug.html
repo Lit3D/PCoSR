@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <title>SS Debug</title>
+</head>
+<body>
+  <script type="module">
+    import { SSVideoComponent } from "/engine/scripts/components/ss-video/index.mjs"
+    const SS_DATA_URL = "/content/ss-data.json"
+
+    void async function main() {
+      const response = await fetch(SS_DATA_URL)
+      const ssDataStorage = await response.json()
+
+      const id = Number.parseInt(new URLSearchParams(window.location.search).get("id") || "")
+      const lang = (new URLSearchParams(window.location.search).get("lang") || "ru").toLowerCase()
+      const webm = new URLSearchParams(window.location.search).has("webm")
+
+      console.debug(`SSViewportComponent [Init]: ${JSON.stringify({id})}`)
+
+      if (id === undefined || id === null) {
+        console.error(`SSViewportComponent [SS] incorrect ID: ${id}`)
+        return
+      }
+
+      const ssData = ssDataStorage.find(item => item.id === id )
+      if (!ssData) return console.error(`SSViewportComponent [SS] incorrect ID: ${id}`)
+
+      const ssVideo = new SSVideoComponent(ssData, { muted: true, webm, lang })
+
+      ssVideo.addEventListener("ended", () => ssVideo.remove())
+      document.body.appendChild(ssVideo)
+      setTimeout(() => ssVideo.play(),0)
+    }()
+  </script>
+</body>
+</html>
