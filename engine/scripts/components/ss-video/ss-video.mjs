@@ -36,6 +36,8 @@ export class SSVideoComponent extends HTMLElement  {
 
   #ssNodeList = []
 
+  #logosSrc = undefined
+
   constructor({
     splash,
     video,
@@ -71,7 +73,8 @@ export class SSVideoComponent extends HTMLElement  {
 
     // Configure final image
     this.#logotypesImg = this.#root.getElementById("logotypesImg")
-    this.#logotypesImg.src = logos[screenWidth] ?? logos["default"]
+    this.#logosSrc = logos[screenWidth] ?? logos["default"]
+    this.#logotypesImg.src = this.#logosSrc
 
     this.#ssWrapperNode = this.#root.getElementById("ssWrapperNode")
     this.#ssLine = this.#root.getElementById("ssLine")
@@ -136,6 +139,11 @@ export class SSVideoComponent extends HTMLElement  {
 
   #logosShow = () => {
     if ((this.#mainVideo.duration - this.#mainVideo.currentTime) > LOGOTYPES_TIMEOUT) return
+    if (!this.#logosSrc) {
+      this.#mainVideo.pause()
+      this.#dispatchEnded()
+      return
+    }
     requestAnimationFrame(() => {
       this.#ssLine.classList.remove("show")
       this.#mainVideo.classList.remove("active")
