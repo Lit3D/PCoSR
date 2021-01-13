@@ -8,6 +8,7 @@ const TEMPLATE = `
   <div id="ssLine" class="ss-line">
     <img id="logoImage" src="/assets/images/logo_ru.svg" class="ss-line__logo">
     <div id="ssSubtitle" class="ss-line__subtitle"></div>
+    <div id="ssSubtitleEn" class="ss-line__subtitle--en"></div>
     <div class="ss-line__curve-container">
       <img src="/assets/images/curve.svg" class="ss-line__curve">
     </div>
@@ -31,6 +32,7 @@ export class SSVideoComponent extends HTMLElement  {
   #ssWrapperNode = undefined
   #ssLine = undefined
   #ssSubtitle = undefined
+  #ssSubtitleEn = undefined
 
   #ssNodeList = []
 
@@ -75,7 +77,10 @@ export class SSVideoComponent extends HTMLElement  {
     this.#ssLine = this.#root.getElementById("ssLine")
 
     this.#ssSubtitle = this.#root.getElementById("ssSubtitle")
-    this.#ssSubtitle.innerHTML = section[lang]
+    this.#ssSubtitle.innerHTML = section["ru"]
+
+    this.#ssSubtitleEn = this.#root.getElementById("ssSubtitleEn")
+    this.#ssSubtitleEn.innerHTML = section["en"]
 
     this.#initSubtitles(subtitles)
   }
