@@ -31,13 +31,15 @@
   "lang": "ru",
   "name": "Делегат 2",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_6", "pack_4"]
+  "steps": ["pack_6", "pack_4", "random"],
+  "loop": 36000
 },{
   "id": "visitors_2",
   "lang": "en",
   "name": "Делегат 2",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_6", "pack_4"]
+  "steps": ["pack_6", "pack_4", "random"],
+  "loop": 36000
 },{
   "id": "test",
   "lang": "ru",
