@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Комфортная городская среда</title>
+	<link rel="stylesheet" type="text/css" href="src/css/slim-before-after.min.css"/>
+	<link rel="stylesheet" type="text/css" href="fonts/stylesheet.css"/>
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+	<div id="app"></div>
+	<!--Plugin HTML content Starts -->
+	<!-- <div class="slim-comparison-container">
+		<div class="slim-comparison-wrapper">
+			<div class="slim-before-wrapper">
+				<img src="images/9_before.jpg">
+				<span class="slim-before-caption">До</span>
+			</div>
+			<div class="slim-after-wrapper">
+				<img src="images/9_after.jpg">
+				<a href="#" class="slim-after-caption">После</a>
+			</div>
+		</div>
+	</div> -->
+	<!--Plugin HTML content Starts -->
+
+
+	<!--Plugin Javascript file-->
+	<script src="src/js/slim-before-after.min.js"></script>
+
+	<script>
+		var generateSliders =  {
+			//titles: "/images/objects.json",
+			images: "images/",
+			titles: ["Перекрёсток улиц Ленина–Московская, г.&nbsp;Екатеринбург",
+"Район «Академический», г.&nbsp;Екатеринбург",
+"микрорайон «Солнечный»",
+"Набережная Нижнетагильского пруда, г.&nbsp;Нижний Тагил",
+"стадион «Екатеринбург Арена», г.&nbsp;Екатеринбург",
+"Инновационный культурный центр, г.&nbsp;Первоуральск",
+"Ледовая арена УГМК, г.&nbsp;Екатеринбург ",
+"Набережная Верхне-Туринского водохранилища, г.&nbsp;Верхняя Тура",
+"Музей военной и автомобильной техники УГМК, г.&nbsp;Верхняя Пышма",
+"Культурно-выставочный комплекс «Синара-Центр» (бывший госпиталь Верх-Исетского завода), г.&nbsp;Екатеринбург"],
+
+		    render: function(url, id) {
+				let slidersHtml = "";
+				this.titles.forEach((element, index) => {
+					console.log(index)
+					slidersHtml += this.sliderTemplate(index+2, element);
+				})
+
+				//document.querySelector("#app").appendChild(slidersHtml);
+				console.log(slidersHtml);
+				let app = document.querySelector("#app");
+				app.innerHTML = slidersHtml;
+				//// create new Plugin instance
+				var MyComparison = new slimBeforeAfter({"loaderColor":"rgb(74, 139, 118)"});
+		    },
+
+		    sliderTemplate: function(index, title) {
+		    	return `<!--Plugin HTML content Starts -->
+		    		<div class="slider-container" id="slider${index}">
+		    		<div class="slider-title"><span>${title}</span></div>
+					<div class="slim-comparison-container">
+					    <a class="slider-arrow-up" href="#slider${index - 1}"><?xml version="1.0" ?><svg data-name="Layer 1" id="Layer_1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title/><path d="M32,12.5,64,45.17,57.38,51.5,32,25.24,6.62,51.5,0,45.17Z" data-name="&lt;Compound Path&gt;" id="_Compound_Path_"/></svg></a>
+						<div class="slim-comparison-wrapper">
+							<div class="slim-before-wrapper">
+								<img src="${this.images + index}_before.jpg">
+								<span class="slim-before-caption">До</span>
+							</div>
+							<div class="slim-after-wrapper">
+								<img src="${this.images + index}_after.jpg">
+								<a href="#" class="slim-after-caption">После</a>
+							</div>
+						</div>
+						<a class="slider-arrow-down" href="#slider${index + 1}"><?xml version="1.0" ?><svg data-name="Layer 1" id="Layer_1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title/><path d="M32,51.5,0,18.83,6.62,12.5,32,38.76,57.38,12.5,64,18.83Z" data-name="&lt;Compound Path&gt;" id="_Compound_Path_"/></svg></a>
+					</div>
+					</div>
+					<!--Plugin HTML content Starts -->`;
+		    }
+		}
+
+// function fullScreen(element) {
+//   if(element.requestFullscreen) {
+//     element.requestFullscreen();
+//   } else if(element.webkitrequestFullscreen) {
+//     element.webkitRequestFullscreen();
+//   } else if(element.mozRequestFullscreen) {
+//     element.mozRequestFullScreen();
+//   }
+// }
+		document.addEventListener("DOMContentLoaded", function(event) {
+			generateSliders.render();
+			//fullscreen(document.querySelector("#app"));
+		});
+	</script>
+</body>
+</html>

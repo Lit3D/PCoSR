@@ -1,0 +1,227 @@
+:root {
+  --color-bg: rgb(59 59 59 / 1);
+  --color-main: rgb(74 139 118 / 1);
+  --color-second: rgb(155 168 166 / 1);
+}
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+  font-family: "Heading Pro Ultra Wide Trial"
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.slim-before-caption {
+
+}
+
+.slider-container {
+  position: relative;
+  /*-webkit-mask-image: linear-gradient(to top, transparent 5%, black 95%);
+  mask-image: linear-gradient(to top, transparent 5%, black 95%);*/
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+}
+.slider-container:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,0) 34%,rgba(255,255,255,0) 100%);
+    z-index: 10;
+}
+.slider-container:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.1) 34%,rgba(255,255,255,.7) 100%);
+    z-index: 10;
+}
+
+.slider-title {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  right: 40px;
+  background-color: var(--color-bg);
+  color: var(--color-main);
+  font-weight: 900;
+  z-index: 10000;
+  font-size: 24px;
+  padding: 10px;
+  line-height: normal;
+
+    --gradient-start: 37%;
+    --gradient-start-color: var(--color-second);
+    --gradient-stop: 60%;
+    --gradient-stop-color: var(--color-main);
+    --gradient-angle: -100deg;
+}
+
+.slider-title span {
+  background-color: var(--color-second);
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--gradient-start-color) var(--gradient-start),
+    var(--gradient-stop-color) var(--gradient-stop)
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.slim-comparison-container {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.slim-comparison-container img {
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover;
+}
+
+#app {
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: none;
+  sroll-snap-type: block mandatory;
+  scroll-padding: 2px;
+
+  scroll-behavior: smooth;
+}
+
+body, html {
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+.slim-before-caption, .slim-after-caption {
+  background-color: var(--color-bg);
+  color: var(--color-main);
+}
+
+.slider-arrow-up,
+.slider-arrow-down {
+  position: absolute;
+  z-index: 200;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+}
+
+.slider-arrow-up path,
+.slider-arrow-down path {
+  fill: #fff;
+}
+
+.slider-arrow-up svg,
+.slider-arrow-down svg {
+  -webkit-filter: drop-shadow(0 0 20px rgba(55,55,55,0.8));
+  filter: drop-shadow(0 0 20px rgba(55,55,55,0.8));
+}
+
+.slider-arrow-up {
+  top: 0;
+}
+.slider-arrow-down {
+  bottom: 0;
+}
+
+.slider-container:first-of-type .slider-arrow-up {
+  display: none;
+}
+
+.slider-container:last-of-type .slider-arrow-down {
+  display: none;
+}

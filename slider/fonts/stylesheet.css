@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-Bold.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-Book.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-Black.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-ExtraB.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-ExtraB.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-ExtraL.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-ExtraL.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-HeavyI.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-HeavyI.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-Heavy.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-Light.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-LightI.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-LightI.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Pro Ultra Wide Trial';
+    src: url('HeadingProUltraWideTrial-Regula.woff2') format('woff2'),
+        url('HeadingProUltraWideTrial-Regula.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
