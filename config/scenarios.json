@@ -17,13 +17,15 @@
   "lang": "ru",
   "name": "Делегат 1",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_1-2", "main", "pack_3-4", "random"]
+  "steps": ["pack_1-2", "main", "pack_3-4", "random"],
+  "loop": 36000
 },{
   "id": "visitors_1",
   "lang": "en",
   "name": "Delegate 1",
   "description": "Можно что то написать про сценарий",
-  "steps": ["pack_1-2", "main", "pack_3-4", "random"]
+  "steps": ["pack_1-2", "main", "pack_3-4", "random"],
+  "loop": 36000
 },{
   "id": "visitors_2",
   "lang": "ru",
