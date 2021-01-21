@@ -20,7 +20,8 @@
 }
 
 .ss-timer {
-  display: block;
+  /*display: block;*/
+  display: none;
   position: absolute;
   left: 16px;
   top: 16px;
