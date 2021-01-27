@@ -131,7 +131,7 @@ export class Master {
 
     console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({
       steps: this.#currentScenario.steps,
-      step: his.#step,
+      step: this.#step,
       lang, id,
     })}`)
 
