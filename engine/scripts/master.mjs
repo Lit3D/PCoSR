@@ -111,10 +111,12 @@ export class Master {
 
   #randomStep = () => {
     if (!this.#randomSS) return
-    const {id, duration} = this.#randomSS.pop()
+    const {id, duration} = this.#randomSS.pop() ?? {}
 
     const loop = this.#currentScenario.loop ?? 0
-    if (loop >= 0 && this.#timer <= 0) return this.#scenarioStep()
+    if (loop !== undefined && timer !== undefined) {
+      if (loop >= 0 && this.#timer <= 0) return this.#scenarioStep()
+    }
 
     console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
