@@ -149,8 +149,9 @@ export class Master {
 
     Promise.all([
       this.#qClient.publish(`${Q_PATH_LED}/splash`, {}),
-      this.#qClient.publish(`${Q_PATH_LINE}/wave`, {}),
       this.#qClient.publish(`${Q_PATH_LED}/timer`, {}),
+      this.#qClient.publish(`${Q_PATH_LINE}/splash`, {}),
+      this.#qClient.publish(`${Q_PATH_LINE}/wave`, {}),
     ]).catch(err => console.error(`Master [SCENARIO] error: ${err.message}`))
 
     this.#currentScenario = undefined
