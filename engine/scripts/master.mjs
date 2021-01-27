@@ -126,12 +126,17 @@ export class Master {
   #scenarioStep = () => {
     if (!this.#currentScenario) return
     this.#step += 1
-    console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({step: this.#scenarioStep})}`)
     const lang = this.#currentScenario.lang
     let id = this.#currentScenario.steps[this.#step]
+
+    console.debug(`Master [SCENARIO STEP]: ${JSON.stringify({
+      steps: this.#currentScenario.steps,
+      step: his.#step,
+      lang, id,
+    })}`)
+
     if (!id) {
       const loop = this.#currentScenario.loop ?? 0
-      console.log(loop)
       if (loop >= 0) return this.#scenarioCmd(this.#currentScenario)
       return this.#scenarioEnd()
     }
