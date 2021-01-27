@@ -164,7 +164,7 @@ export class SSVideoComponent extends HTMLElement  {
 
   play() {
     requestAnimationFrame(() => {
-      this.classList.add("visible")
+      //this.classList.add("visible")
       this.#splashVideo.classList.add("active")
       this.#splashVideo.play()
       this.#mainVideo.play()

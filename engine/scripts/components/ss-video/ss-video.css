@@ -17,6 +17,7 @@
 
   visibility: hidden;
   opacity: 0;
+  transition: 200ms opacity;
 }
 :host(.visible) {
   visibility: visible;
