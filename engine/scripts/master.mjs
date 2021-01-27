@@ -110,15 +110,18 @@ export class Master {
   }
 
   #randomStep = () => {
+    console.debug(`Master [RANDOM STEPS]: ${JSON.stringify({randomSS: this.#randomSS})}`)
+
     if (!this.#randomSS) return
     const {id, duration} = this.#randomSS.pop() ?? {}
 
-    const loop = this.#currentScenario.loop ?? 0
+    console.debug(`Master [RANDOM STEP]: ${JSON.stringify({id, duration})}`)
+
+    const loop = this.#currentScenario.loop
     if (loop !== undefined && this.#timer !== undefined) {
       if (loop >= 0 && this.#timer <= 0) return this.#scenarioStep()
     }
 
-    console.debug(`Master [RANDOM STEP] ID: ${JSON.stringify({id, duration})}`)
     if (!id) return this.#scenarioStep()
     this.#qClient.publish(`${Q_PATH_LED}/ss`, { id, muted: false, volume: 15 })
   }
