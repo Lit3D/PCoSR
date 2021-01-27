@@ -114,7 +114,7 @@ export class Master {
     const {id, duration} = this.#randomSS.pop() ?? {}
 
     const loop = this.#currentScenario.loop ?? 0
-    if (loop !== undefined && timer !== undefined) {
+    if (loop !== undefined && this.#timer !== undefined) {
       if (loop >= 0 && this.#timer <= 0) return this.#scenarioStep()
     }
 
